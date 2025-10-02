@@ -969,20 +969,15 @@ program-item {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
-}
-
-.programs-container {
+  padding: 2rem 0;
   max-width: 100%;
-  margin: 0;
-  padding-left: var(--spacing-xl, 3rem);
-  padding-right: var(--spacing-xl, 3rem);
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
 }
 
 .card-container {
@@ -1053,13 +1048,17 @@ program-item {
   box-shadow: 0 0 0 0;
 }
 
+.btn-outline-primary {
+  width: 80%;
+}
+
 .program-card .btn-outline-primary:hover,
 .program-card .btn-outline-primary:focus {
   background: var(--accent-red);
   color: var(--pure-white);
   border-color: var(--red-hover, #b91c1c);
   box-shadow: 0 2px 10px 0 rgba(213, 0, 0, 0.15);
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 /* ===================================================
