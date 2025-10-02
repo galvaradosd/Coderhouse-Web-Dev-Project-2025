@@ -1,0 +1,1112 @@
+/* IMPORTE DE FUENTES */
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* RESET UNIVERSAL */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* VARIABLES PRINCIPALES */
+
+/* ================================
+  PALETA DE COLORES DEFINITIVA
+  Basada en: #000000, #ffffff, #d50000, #6A6A6A, #A8A8A8
+   ================================ */
+
+:root {
+  /* ===== COLORES BASE EXACTOS ===== */
+
+  --primary-black: #0a0a0a; /* Fondo principal */
+  --secondary-black: #1a1a1a; /* Secciones diferenciadas */
+  --tertiary-black: #2a2a2a; /* Cards y elementos elevados */
+  --accent-red: #dc2626; /* Rojo de referencia */
+  --pure-white: #ffffff; /* Texto y fondos puros */
+  --soft-gray: #a1a1aa; /* Texto secundario */
+  --border-gray: #333333; /* Bordes y líneas discretas */
+
+  /* ----- ESTADOS INTERACTIVOS DEL ROJO ----- */
+  --red-hover: #b91c1c; /* Hover state */
+  --red-pressed: #991b1b; /* Pressed/active state */
+  --red-focus: #dc2626; /* Focus state (mismo que base) */
+
+  /* ----- TRANSPARENCIAS CALCULADAS ----- */
+  --red-alpha-10: rgba(220, 38, 38, 0.1);
+  --red-alpha-20: rgba(220, 38, 38, 0.2);
+  --red-alpha-30: rgba(220, 38, 38, 0.3);
+  --red-alpha-60: rgba(220, 38, 38, 0.6);
+  --white-alpha-80: rgba(255, 255, 255, 0.8);
+  --white-alpha-50: rgba(255, 255, 255, 0.5);
+
+  /* ----- TIPOGRAFÍA UNIFICADA ----- */
+  --font-display: "Aboreto", serif; /* Títulos especiales */
+  --font-body: "Inter", sans-serif; /* Cuerpo de texto */
+
+  /* ----- ESCALAS DE TAMAÑO (conservamos las útiles) ----- */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem);
+  --font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+
+  /* ----- ESPACIADO SISTEMA 8PX ----- */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-2xl: 4rem; /* 64px */
+  --spacing-3xl: 6rem; /* 96px */
+  --spacing-4xl: 8rem; /* 128px */
+  --spacing-5xl: 12rem; /* 192px */
+
+  /* ----- UTILIDADES GLOBALES ----- */
+  --container-width: 1200px;
+  --section-padding: 4rem 0;
+  --card-padding: 1.5rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 0.5rem;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================================
+    SISTEMA DE FUENTES - ABORETO PARA TÍTULOS
+   =========================================== */
+
+/* Base: Inter para todo por defecto */
+body {
+  font-family: var(--font-body);
+  background-color: var(--primary-black);
+  color: var(--pure-white);
+  line-height: 1.6;
+}
+
+/* Títulos: Aboreto para impacto visual */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* Navegación: Aboreto para consistencia con referencia */
+.nav-menu > li > a,
+.submenu a,
+.submenu-label {
+  font-family: var(--font-display);
+}
+
+/* Elementos especiales: Aboreto */
+.hero h1,
+.section-header h2,
+.program-title,
+.event-title,
+.current-program {
+  font-family: var(--font-display);
+}
+
+/* ======================================
+    HEADER: LAYOUT
+   ====================================== */
+
+#nwr-header,
+.nwr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--primary-black);
+  border-bottom: 1px solid var(--border-gray);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* ======================================
+                HAMBURGER
+   ====================================== */
+
+.hamburger-button {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* ======================================
+    LOGO - LADO IZQUIERDO DEL HEADER
+   ====================================== */
+
+/* Contenedor del enlace del logo */
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  padding: 10px;
+}
+
+/* Imagen del logo */
+.logo-image {
+  height: 80px;
+  width: auto;
+  max-width: 400px;
+  object-fit: contain;
+  /* Suavizar imagen en navegadores */
+  image-rendering: optimizeQuality;
+  image-rendering: crisp-edges;
+  transition: var(--transition);
+}
+
+/* Efecto hover en el logo */
+.logo-link:hover .logo-image {
+  /* Crecimiento sutil al pasar el cursor */
+  transform: scale(1.05);
+  filter: brightness(1.1) drop-shadow(0 0 10px rgba(220, 38, 38, 0.3));
+}
+
+/* Estados adicionales del logo */
+.logo-link:active {
+  transform: scale(0.95);
+}
+
+.logo-link:focus {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 4px;
+  border-radius: 0;
+}
+
+/* ======================================
+    NWR MEDIA PLAYER - ESTILO BBC INSPIRADO
+   ====================================== */
+
+/* Contenedor principal */
+#live-player,
+.live-player {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--tertiary-black) 0%,
+    var(--secondary-black) 100%
+  );
+  border-radius: 5px;
+  padding: 18px 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition);
+  overflow: hidden;
+  max-width: 600px;
+  transition: transform 500ms ease 0s;
+}
+
+/* Estado hover del contenedor */
+#live-player:hover,
+.live-player:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(213, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(213, 0, 0, 0.2);
+}
+
+/* Audio element (funcional pero invisible) */
+.nwr-audio-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Interface visual */
+.nwr-player-interface {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  position: relative;
+  z-index: 2;
+  pointer-events: none; /* Solo el audio recibe clicks */
+}
+
+/* Badge EN VIVO */
+.nwr-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(213, 0, 0, 0.15);
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-red);
+  flex-shrink: 0;
+}
+
+/* Punto rojo animado */
+.nwr-live-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  animation: nwr-live-pulse 2s infinite;
+  box-shadow: 0 0 8px rgba(213, 0, 0, 0.4);
+}
+
+/* Texto EN VIVO */
+.nwr-live-text {
+  color: var(--accent-red);
+  font-family: var(--font-secondary); /* Inter */
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Información del programa */
+.nwr-program-info {
+  flex: 1;
+  text-align: center;
+  min-width: 0; /* Para truncate si es necesario */
+}
+
+.nwr-show-title {
+  font-family: var(--font-display); /* Aboreto */
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primary-white);
+  margin: 0 0 4px 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nwr-show-subtitle {
+  font-family: var(--font-primary); /* Lato */
+  font-size: 12px;
+  color: var(--secondary-gray);
+  margin: 0;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Indicador de estado visual */
+.nwr-status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.play-btn {
+  background: var(--accent-red);
+  color: var(--pure-white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 12px var(--red-alpha-30);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estados interactivos */
+.play-btn:hover {
+  background: var(--red-hover);
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px var(--red-alpha-60);
+}
+
+.play-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--red-alpha-20), 0 4px 20px var(--red-alpha-60);
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+  background: var(--red-pressed);
+}
+
+.play-btn:active .play-icon {
+  transform: scale(0.9);
+}
+
+/* Overlay sutil para integración */
+.nwr-player-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(213, 0, 0, 0.02) 0%,
+    transparent 50%,
+    rgba(213, 0, 0, 0.02) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ======================================
+    ANIMACIONES NWR PLAYER
+   ====================================== */
+
+/* Pulso del punto EN VIVO */
+@keyframes pulso-live {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5);
+  }
+  70% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 12px rgba(220, 38, 38, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+@keyframes nwr-live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+  }
+}
+
+@keyframes nwr-play-heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 12px rgba(220, 38, 38, 0.3);
+  }
+  25% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 2px 12px rgba(220, 38, 38, 0.3);
+  }
+  75% {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+  }
+}
+
+/* ======================================
+    SELECTOR DE IDIOMA - LADO DERECHO
+   ====================================== */
+
+.language-selector {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 2px solid var(--border-gray);
+  color: var(--pure-white);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+/* ========================================
+          NAVEGACIÓN PRINCIPAL
+======================================== */
+
+#nwr-nav,
+.nwr-nav {
+  position: fixed;
+  top: 132px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: var(--secondary-black);
+  border-bottom: 1px solid var(--border-gray);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 500ms ease 0s;
+}
+
+.nwr-nav.hidden {
+  transform: translateY(-100);
+  opacity: 1;
+}
+
+.nwr-nav:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 86px;
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 86px;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  color: var(--pure-white);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+  font-family: var(--font-body);
+  height: 86px;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-red);
+  background-color: var(--red-alpha-10);
+}
+
+/* ===================================================
+                  DROPDOWN MENU 
+   =================================================== */
+.expandable-item {
+  position: relative;
+}
+
+.expandable-item:hover .submenu,
+.expandable-item:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu-label {
+  display: flex;
+  align-items: center;
+  height: 86px;
+  cursor: pointer;
+  padding: 0 2rem;
+  color: var(--pure-white);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+  font-family: var(--font-display);
+}
+
+.submenu-label:hover {
+  color: var(--accent-red);
+  background-color: var(--red-alpha-10);
+}
+
+.submenu-toggle {
+  display: none;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: -15%;
+  background-color: var(--secondary-black);
+  border: 1px solid var(--border-gray);
+  min-width: 210px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: var(--transition);
+  list-style: none;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.submenu li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.submenu li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  height: 50px;
+  padding: 0;
+  font-size: 0.9rem;
+  font-family: var(--font-display);
+}
+
+.submenu li a:hover {
+  color: var(--accent-red);
+  background-color: var(--red-alpha-10);
+}
+
+/* ======================================
+    MAIN CONTENT - HERO SECTION
+   ====================================== */
+
+main {
+  background: var(--bg-primary);
+}
+
+/* Hero section con imagen de fondo */
+.hero {
+  position: relative;
+  top: 0;
+  margin-top: 165px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--spacing-xl);
+  background: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Imagen de fondo - CAPA 1 (atrás) */
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+/* Overlay gradiente - CAPA 2 (medio) */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.85) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(213, 0, 0, 0.1) 100%
+  );
+  z-index: 2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 0, 0.85) 0%,
+    rgba(10, 10, 10, 0.6) 80%
+  );
+  z-index: 2;
+}
+
+/* Contenido del hero - CAPA 3 (adelante) */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  align-self: center;
+  margin-right: auto;
+  color: var(--pure-white);
+}
+
+/* Título principal H1 */
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: 400;
+  color: var(--pure-white);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Más contraste sobre imagen */
+}
+
+/* Párrafo descriptivo */
+.hero p {
+  font-family: var(--font-primary); /* Lato */
+  font-size: var(--font-size-xl);
+  font-weight: var(--weight-regular);
+  color: var(--tertiary-gray); /* Más opaco para mejor legibilidad */
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 600px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0); /* Contraste sobre imagen */
+}
+
+.hero-microcopy {
+  color: var(--white-alpha-80);
+}
+
+/* ======================================
+    BOTONES CTA - ESCUCHA EN VIVO
+   ====================================== */
+
+.hero button,
+.programming-content button,
+button[class*="cta"],
+button[class*="listen"] {
+  /* ESTILO SIMILAR AL BADGE */
+  background: rgba(213, 0, 0, 0.15);
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-red);
+
+  /* TIPOGRAFÍA CONSISTENTE CON EL BADGE */
+  font-family: var(--font-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--accent-red);
+
+  /* LAYOUT Y INTERACCIÓN */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+
+  /* TRANSICIÓN SUAVE */
+  transition: transform 0.3s, color 0.3s;
+
+  /* ANIMACIÓN CONTINUA SUTIL */
+  /* animation: 3s ease-in-out infinite; */
+}
+
+/* Estados hover - más intenso como el badge activo */
+.hero button:hover,
+.programming-content button:hover {
+  background: rgba(213, 0, 0, 0.25); /* Fondo más intenso */
+  color: var(--primary-white); /* Texto blanco */
+  border-color: var(--red-hover); /* Borde más brillante */
+  transform: scale(1.05); /* Crecimiento sutil */
+  box-shadow: 0 0 12px rgba(213, 0, 0, 0.4); /* Resplandor como el punto EN VIVO */
+}
+
+/* Estado pressed */
+.hero button:active {
+  transform: scale(0.98);
+  background: rgba(213, 0, 0, 0.3);
+  animation-play-state: paused; /* Pausa la animación al presionar */
+}
+
+/* Botón hero - ligeramente más grande */
+.hero button {
+  font-size: 12px;
+  padding: 10px 18px;
+  min-width: 140px;
+  letter-spacing: 1px;
+  width: auto;
+  min-width: 140px; /* Tamaño mínimo */
+  max-width: 200px; /* Tamaño máximo */
+  flex-shrink: 0;
+  position: relative;
+  z-index: 4;
+}
+
+/* ANIMACIÓN DEL BOTÓN - ESTILO BADGE */
+@keyframes badge-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(213, 0, 0, 0.3);
+    border-color: var(--accent-red);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(213, 0, 0, 0.5);
+    border-color: var(--red-hover);
+  }
+}
+
+/* ===================================================
+              SECCIÓN PROGRAMACIÓN AHORA
+   =================================================== */
+
+.programming-section {
+  /* padding: var(--spacing-2xl) 0 var(--spacing-xl) 0; */
+  background: var(--secondary-black);
+  border-bottom: 2px solid var(--border-gray);
+  width: 100%;
+}
+
+/* Contenedor global de la sección programming */
+
+.programming-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Contenido interno en grid (2 columnas: “Ahora” y “Siguiente”) */
+
+.programming-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* Bloques principales */
+
+.program-now,
+.program-next {
+  display: grid;
+  background: var(--primary-black);
+  border: 1px solid var(--border-gray);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  transition: var(--transition, all 0.3 ease);
+  box-sizing: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.program-now:hover,
+.program-next:hover {
+  border-color: var(--accent-red);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* Header del bloque: badge, estado y subtítulo */
+
+.program-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+/* Badge en vivo reutilizable */
+
+.badge-live {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(213, 0, 0, 0.12);
+  color: var(--accent-red);
+  border-radius: 20px;
+  font-size: 0.93rem;
+  font-weight: 750;
+  padding: 2px 15px 2px 8 px;
+}
+
+.live-label {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.25);
+  }
+}
+
+.next-indicator {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--soft-gray);
+}
+
+/* Estado del bloque */
+
+.program-status h2 {
+  font-weight: 700;
+  color: var(--accent-red);
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Nombre y horario del programa */
+
+.program-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--pure-white);
+  font-family: var(--font-display);
+}
+
+program-item {
+  color: var(--soft-gray);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ===================================================
+      SECCIÓN DE PROGRAMAS ESTILO SOBRE BOOTSTRAP
+   =================================================== */
+
+/* Tarjetas de programas */
+
+.programs-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.programs-container {
+  max-width: 100%;
+  margin: 0;
+  padding-left: var(--spacing-xl, 3rem);
+  padding-right: var(--spacing-xl, 3rem);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-container {
+  padding: 1rem 2rem;
+}
+
+.program-card {
+  background-color: var(--secondary-black);
+  border: 1px solid var(--border-gray);
+  border-radius: 0.5rem;
+  color: var(--pure-white);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  overflow: hidden;
+}
+
+.program-card:hover,
+.program-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28), 0 1px 4px rgba(0, 0, 0, 0.08);
+  border-color: var(--accent-red);
+  transform: translate(-6px) scale(1.02);
+}
+
+/* Imagen superior con un overlay sutil */
+
+.program-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-gray);
+  background: linear-gradient(
+    45deg,
+    var(--secondary-black) 0%,
+    var(--tertiary-black)
+  );
+}
+
+/* Título del programa usando tipografía de display */
+
+.program-card .card-title {
+  color: var(--accent-red);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+.program-card .card-text {
+  color: var(--soft-gray);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Botón personalizado, sobrescribiendo el Bootstrap */
+
+.program-card .btn-outline-primary {
+  background: transparent;
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  font-family: var(--font-display);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0;
+}
+
+.program-card .btn-outline-primary:hover,
+.program-card .btn-outline-primary:focus {
+  background: var(--accent-red);
+  color: var(--pure-white);
+  border-color: var(--red-hover, #b91c1c);
+  box-shadow: 0 2px 10px 0 rgba(213, 0, 0, 0.15);
+  transform: scale(1.06);
+}
+
+/* ===================================================
+                  RESPONSIVE
+   =================================================== */
+
+/* ======================================
+            RESPONSIVE HEADER
+   ====================================== */
+
+/* ======================================
+    RESPONSIVE NWR MEDIA PLAYER
+   ====================================== */
+
+/* Tabletas */
+
+/* Móviles */
+
+/* Responsive para navegación */
+
+/* ======================================
+          RESPONSIVE HERO
+   ====================================== */
+
+/* Tablet */
+
+/* Mobile */
+
+/* Hamburger responsive  */
+
+/* ======================================
+        RESPONSIVE PROGRAMMING
+   ====================================== */
+
+@media (max-width: 900px) {
+  .programming-content {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+/* ======================================
+        RESPONSIVE PROGRAMS
+   ====================================== */
+
+@media (max-width: 900px) {
+  .program-card .card-img-top {
+    height: 140px;
+  }
+}

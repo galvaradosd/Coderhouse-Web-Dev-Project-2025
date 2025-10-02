@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | New World Radio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<!--  ===================================================
+                        CONTENIDO BODY
+        =================================================== -->
+
+<body data-lang="es">
+
+  <!-- checkbox de control global -->
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+
+  <!--  ===================================================
+                  CONTENIDO HEADER
+        =================================================== -->
+
+  <header id="nwr-header" class="nwr-header">
+
+    <!-- botón de hamburguesa -->
+    <label for="menu-toggle" class="hamburger-button">
+      <span class="hamburger-icon"></span>
+      <span class="hamburger-icon"></span>
+      <span class="hamburger-icon"></span>
+    </label>
+
+    <!-- Logo -->
+
+    <div id="nwr-logo" class="nwr-logo">
+      <a href="#" class="logo-link"><img
+          src="./assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio Logo" class="logo-image">
+      </a>
+    </div>
+
+    <!-- Reproductor en vivo -->
+
+    <div id="live-player" class="live-player">
+      <!-- Audio HTML5 funcional (oculto visualmente) -->
+      <audio class="nwr-audio-element" src="https://supresenciaradio.out.airtime.pro/supresenciaradio_a" preload="none"
+        controls>
+        Tu navegador no soporta audio HTML5.
+      </audio>
+
+      <!-- UI Visual encima -->
+      <div class="nwr-player-interface">
+        <!-- Estado EN VIVO -->
+        <div class="nwr-live-badge">
+          <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
+          <span class="nwr-live-text">EN VIVO</span>
+        </div>
+
+        <!-- Información de reproducción en vivo -->
+        <div class="nwr-program-info">
+          <h3 class="nwr-show-title">Morning Brew</h3>
+          <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
+        </div>
+
+        <!-- Indicador visual de play/pause -->
+        <div class="nwr-status-indicator">
+          <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
+        </div>
+
+        <!-- Overlay sutil para mejor integración visual -->
+        <div class="nwr-player-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Selector de idioma -->
+
+    <div class="language-selector">
+      <button class="lang-btn active" type="button">ESP</button>
+      <button class="lang-btn" type="button">ENG</button>
+    </div>
+
+  </header>
+
+  <!-- Navegación como hermano del header -->
+
+  <nav id="nwr-nav" class="nwr-nav mobile-menu">
+    <ul class="nav-menu">
+      <li><a href="./index.html">Inicio</a></li>
+
+      <!-- PROGRAMAS con accordion/dropdown inteligente -->
+      <li class="expandable-item">
+        <input type="checkbox" id="programs-toggle" class="submenu-toggle">
+        <label for="programs-toggle" class="submenu-label">Programas</label>
+        <div class="submenu-container">
+          <ul class="submenu">
+            <li><a href="./public/radio-shows/morning-brew.html">Morning Brew</a></li>
+            <li><a href="./public/radio-shows/sports-zone.html">Sports Zone</a></li>
+            <li><a href="./public/radio-shows/resilience-radio.html">Resilience Radio</a></li>
+            <li><a href="./public/radio-shows/brave-hearts.html">Brave Hearts</a></li>
+            <li><a href="./public/radio-shows/global-wisdom.html">Global Wisdom</a></li>
+            <li><a href="./public/radio-shows/connected-world.html">Connected World</a></li>
+            <li><a href="./public/radio-shows/professional-life.html">Professional Life</a></li>
+            <li><a href="./public/radio-shows/music-pulse.html">Music Pulse</a></li>
+            <li><a href="./public/radio-shows/dj-zone.html">DJ Zone</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="./public/galery.html">Galería</a></li>
+      <li><a href="./public/schedule.html">Programación</a></li>
+      <li><a href="./public/about-us.html">Sobre Nosotros</a></li>
+      <li><a href="./public/contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Overlay para cerrar el menu tocando fuera -->
+
+  <div class="menu-overlay"></div>
+
+  <!--  ===================================================
+                  CONTENIDO PRINCIPAL (main)
+        =================================================== -->
+
+  <!--  ===================================================
+                          SECCIÓN HERO
+        =================================================== -->
+
+  <main>
+
+    <section class="hero">
+      <img src="./assets/images/banners/banner_02.jpg" alt="New World Radio Studio" class="hero-bg-image">
+      <div class="hero-content">
+        <h1>New World Radio</h1>
+        <p>Radio para todos, todos los días</p>
+        <button>Escucha en Vivo</button>
+        <span class="hero-microcopy">Sintoniza inspiración, música y programas únicos en cualquier momento.</span>
+      </div>
+    </section>
+
+    <section class="programming-section section-padding" aria-label="Programación actual">
+      <div class="programming-container">
+        <div class="programming-content">
+          <div class="program-now">
+            <div class="program-status">
+              <span class="badge-live">
+                <span class="live-dot"></span>
+                <span class="live-label">EN VIVO</span>
+              </span>
+              <h2>AHORA</h2>
+            </div>
+            <div class="program-info">
+              <h3 class="program-name">Global Wisdom</h3>
+              <p class="program-time">8:00 - 10:00 AM</p>
+            </div>
+          </div>
+          <article class="program-next">
+            <div class="program-status">
+              <span class="next-indicator"></span>
+              <h2>SIGUIENTE</h2>
+            </div>
+            <div class="program-info">
+              <h4 class="program-name">Morning Brew</h4>
+              <p class="program-time">10:00 - 12:00 PM</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--  ===================================================
+                          SECCIÓN PROGRAMAS
+          =================================================== -->
+
+    <section class="programs-section section-padding" aria-label="Nuestros Programas">
+      <div class="container programs-container" container>
+        <header class="programs-header">
+          <h2 class="mb-2">Nuestros Programas</h2>
+          <p class="mb-4">Explora la variedad que solo New World Radio te ofrece: música, historias, deportes y
+            crecimiento personal.
+          </p>
+        </header>
+
+        <!-- Tarjetas de programas -->
+
+        <div class="row programs-grid">
+
+          <!-- Tarjeta programa 1 -->
+
+          <article class="col-md-4 mb-4 card-container">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Morning Brew">
+              <div class="card-body">
+                <h3 class="card-title">Morning Brew</h3>
+                <p class="card-text">Tu dosis diaria de noticias, buena música y energía positiva.</p>
+                <a href="./public/radio-shows/morning-brew.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 2 -->
+
+          <article class="col-md-4 mb-4 card-container">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Sports Zone">
+              <div class="card-body">
+                <h3 class="card-title">Sports Zone</h3>
+                <p class="card-text">Análisis deportivo y entrevistas con protagonistas del deporte.</p>
+                <a href="./public/radio-shows/sports-zone.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 3 -->
+
+          <article class="col-md-4 mb-4 card-container">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Resilience Radio">
+              <div class="card-body">
+                <h3 class="card-title">Resilience Radio</h3>
+                <p class="card-text">Historias, herramientas y consejos para fortalecer tu mente.</p>
+                <a href="./public/radio-shows/resilience-radio.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 4 -->
+
+          <article class="col-md-4 mb-4 card-container">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Brave Hearts">
+              <div class="card-body">
+                <h3 class="card-title">Brave Hearts</h3>
+                <p class="card-text">Inspiración y testimonios de quienes se atreven a cambiar el mundo.</p>
+                <a href="./public/radio-shows/brave-hearts.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 5 -->
+
+          <article class="col-md-4 mb-4 card-container">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Global Wisdom">
+              <div class="card-body">
+                <h3 class="card-title">Global Wisdom</h3>
+                <p class="card-text">Conocimiento y valores universales para la vida cotidiana.</p>
+                <a href="./public/radio-shows/global-wisdom.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 6 -->
+
+          <article class="col-md-4 mb-4 card-container">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Connected World">
+              <div class="card-body">
+                <h3 class="card-title">Connected World</h3>
+                <p class="card-text">Historias que unen culturas y conectan personas.</p>
+                <a href="./public/radio-shows/connected-world.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 7 (Oculto) -->
+
+          <article class="col-md-4 mb-4 program-hidden card-container" style="display: none;">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Professional Life">
+              <div class="card-body">
+                <h3 class="card-title">Professional Life</h3>
+                <p class="card-text">Consejos y recursos para impulsar tu carrera profesional.</p>
+                <a href="./public/radio-shows/professional-life.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Tarjeta programa 8 (Oculto) -->
+
+          <article class="col-md-4 mb-4 program-hidden card-container" style="display: none;">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="Music Pulse">
+              <div class="card-body">
+                <h3 class="card-title">Music Pulse</h3>
+                <p class="card-text">Las tendencias, géneros y artistas que marcan la diferencia.</p>
+                <a href="./public/radio-shows/music-pulse.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta programa 9 (Oculto) -->
+
+          <article class="col-md-4 mb-4 program-hidden card-container" style="display: none;">
+            <div class="card program-card h-100">
+              <img src="#" class="card-img-top" alt="DJ Zone">
+              <div class="card-body">
+                <h3 class="card-title">DJ Zone</h3>
+                <p class="card-text">Sesiones exclusivas y mixes para acompañar tus mejores momentos.</p>
+                <a href="./public/radio-shows/dj-zone.html" class="btn btn-outline-primary">Saber más</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button id="show-more-programs" class="btn btn-outline-light mt-2">Ver mas programas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS para mostrar los programas ocultos -->
+    <script>
+      document.getElementById('show-more-programs').addEventListener('click', function () {
+        document.querySelectorAll('.program-hidden').forEach(function (card) {
+          card.style.display = 'block';
+        });
+        this.style.display = 'none';
+      });
+    </script>
+
+    <!--  ===================================================
+                            SECCIÓN DE EVENTOS
+          =================================================== -->
+
+    <section class="events">
+
+      <h2>Próximos Eventos</h2>
+      <p>Vive y participa en la comunidad New World Radio: transmisiones especiales, talleres y encuentros.</p>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <h3>Concierto en Vivo: Talento Local</h3>
+          <p>Descubre nuevos artistas y comparte una experiencia única.</p>
+          <span class="event-date">28 de septiembre · 8:00 PM</span>
+          <a href="#">Participa</a>
+        </article>
+        <article class="event-card">
+          <h3>Taller: Radio y Valores</h3>
+          <p>Aprende sobre comunicación positiva y radio profesional.</p>
+          <span class="event-date">2 de octubre · 3:00 PM</span>
+          <a href="#">Inscribirse</a>
+        </article>
+        <article class="event-card">
+          <h3>Meet & Greet con el Equipo</h3>
+          <p>Conoce a los locutores y productores detrás de cada programa.</p>
+          <span class="event-date">10 de octubre · 5:00 PM</span>
+          <a href="#">Registrarse</a>
+        </article>
+        <article class="event-card">
+          <h3>Especial Valores en Comunidad</h3>
+          <p>Historias que transforman, invitados especiales y sorpresas.</p>
+          <span class="event-date">21 de octubre · 7:00 PM</span>
+          <a href="#">Ver detalles</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!--  ===================================================
+                              FOOTER
+        =================================================== -->
+
+  <footer>
+    <div class="footer-content">
+
+      <div class="footer-logo">
+        <img src="./assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio logo">
+        <span>New World Radio</span>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galery.html">Galería</a></li>
+          <li><a href="schedule.html">Programación</a></li>
+          <li><a href="about-us.html">Sobre Nosotros</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Email: <a href="#">info@newworldradio.com</a></p>
+        <p>Teléfono: <a href="tel:+1234567890">+1 234 567 890</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Síguenos</h4>
+        <a href="#" class="social-link facebook" aria-label="Facebook"><i class="icon-facebook"></i></a>
+        <a href="#" class="social-link instagram" aria-label="Instagram"><i class="icon-instagram"></i></a>
+        <a href="#" class="social-link twitter" aria-label="Twitter"><i class="icon-twitter"></i></a>
+      </div>
+
+      <div class="footer-legal">
+        <p>© 2025 New World Radio. Todos los derechos reservados.</p>
+        <a href="#">Aviso legal</a> | <a href="#">Política de privacidad</a>
+        <span class="footer-microcopy">Promovemos la música, el respeto y los valores en cada emisión.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
