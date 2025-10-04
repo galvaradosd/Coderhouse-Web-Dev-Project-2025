@@ -114,6 +114,11 @@ a {
   --border-radius: 0.5rem;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  /* Breakpoints estandarizados */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
 }
 
 /* ===========================================
@@ -1006,6 +1011,10 @@ program-item {
   max-width: 100%;
 }
 
+.programs-container {
+  padding: 2rem;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -1095,8 +1104,108 @@ program-item {
 }
 
 /* ===================================================
+            SECCIÓN DE EVENTOS
+   =================================================== */
+
+.events-section {
+  background-color: var(--secondary-black);
+  padding: 2rem;
+}
+
+.section-header {
+  align-self: center;
+  text-align: center;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding: 1rem;
+}
+
+.event-card {
+  background: var(--tertiary-black);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-red);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
+}
+
+.event-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--pure-white);
+  margin-bottom: 0.5rem;
+}
+
+.event-card p {
+  color: var(--soft-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.event-date {
+  display: inline-block;
+  background: var(--accent-red);
+  color: var(--pure-white);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.event-card a {
+  display: inline-block;
+  color: var(--accent-red);
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: var(--transition);
+}
+
+.event-card a:hover {
+  color: var(--pure-white);
+  text-decoration: underline;
+}
+
+/* ===================================================
+                  FOOTER
+   =================================================== */
+
+/* ===================================================
                   RESPONSIVE
    =================================================== */
+
+/* ======================================
+        RESPONSIVE BODY
+   ====================================== */
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* ======================================
+        RESPONSIVE HEADER
+   ====================================== */
+
+@media (min-width: 1024px) {
+}
 
 /* ======================================
         RESPONSIVE MENU HAMBURGUESA
@@ -1204,5 +1313,20 @@ program-item {
 @media (max-width: 900px) {
   .program-card .card-img-top {
     height: 140px;
+  }
+}
+
+/* ======================================
+        RESPONSIVE EVENTOS
+   ====================================== */
+
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .event-card {
+    padding: 1.5rem;
   }
 }
