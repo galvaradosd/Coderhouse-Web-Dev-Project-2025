@@ -688,7 +688,7 @@ main {
 .hero {
   position: relative;
   top: 0;
-  margin-top: 165px;
+  margin-top: 220px;
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -768,7 +768,8 @@ main {
   letter-spacing: 0.02em;
   line-height: 1.1;
   margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Más contraste sobre imagen */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 /* Párrafo descriptivo */
@@ -786,6 +787,7 @@ main {
 
 .hero-microcopy {
   color: var(--white-alpha-80);
+  text-align: center;
 }
 
 /* ======================================
@@ -1135,6 +1137,7 @@ program-item {
   flex-direction: column;
   gap: 1rem;
   text-align: center;
+  align-content: center;
 }
 
 .event-card:hover {
@@ -1155,31 +1158,46 @@ program-item {
   font-size: 0.95rem;
   line-height: 1.6;
   flex-grow: 1;
+  align-content: center;
 }
 
 .event-date {
   display: inline-block;
-  background: var(--accent-red);
+  background: transparent;
   color: var(--pure-white);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
+  border: 1px solid var(--accent-red);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0;
+  width: 80%;
+  align-self: center;
 }
 
 .event-card a {
   display: inline-block;
+  background: transparent;
   color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  font-family: var(--font-display);
   font-weight: 500;
-  text-decoration: none;
-  margin-top: 0.5rem;
-  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0;
+  width: 80%;
+  align-self: center;
 }
 
 .event-card a:hover {
+  background: var(--accent-red);
   color: var(--pure-white);
-  text-decoration: underline;
+  border-color: var(--red-hover, #b91c1c);
+  box-shadow: 0 2px 10px 0 rgba(213, 0, 0, 0.15);
+  transform: scale(1.08);
 }
 
 /* ===================================================
