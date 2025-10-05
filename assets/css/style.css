@@ -72,7 +72,7 @@ a {
   --red-pressed: #991b1b; /* Pressed/active state */
   --red-focus: #dc2626; /* Focus state (mismo que base) */
 
-  /* ----- TRANSPARENCIAS CALCULADAS ----- */
+  /* ----- TRANSPARENCIAS ----- */
   --red-alpha-10: rgba(220, 38, 38, 0.1);
   --red-alpha-20: rgba(220, 38, 38, 0.2);
   --red-alpha-30: rgba(220, 38, 38, 0.3);
@@ -80,45 +80,87 @@ a {
   --white-alpha-80: rgba(255, 255, 255, 0.8);
   --white-alpha-50: rgba(255, 255, 255, 0.5);
 
-  /* ----- TIPOGRAFÍA UNIFICADA ----- */
-  --font-display: "Aboreto", serif; /* Títulos especiales */
-  --font-body: "Inter", sans-serif; /* Cuerpo de texto */
+  /* ================================
+              TIPOGRAFÍA
+     ================================ */
 
-  /* ----- ESCALAS DE TAMAÑO (conservamos las útiles) ----- */
+  /* Familias */
+  --font-display: "Aboreto", serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Tamaños fluidos - Se adaptan automáticamente al viewport */
   --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
   --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
   --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
   --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
   --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
-  --font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem);
-  --font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+  --font-size-3xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
 
-  /* ----- ESPACIADO SISTEMA 8PX ----- */
-  --spacing-xs: 0.5rem; /* 8px */
-  --spacing-sm: 1rem; /* 16px */
-  --spacing-md: 1.5rem; /* 24px */
-  --spacing-lg: 2rem; /* 32px */
-  --spacing-xl: 3rem; /* 48px */
-  --spacing-2xl: 4rem; /* 64px */
-  --spacing-3xl: 6rem; /* 96px */
-  --spacing-4xl: 8rem; /* 128px */
-  --spacing-5xl: 12rem; /* 192px */
+  /* Headings específicos para títulos de sección */
+  --font-size-h1: clamp(2rem, 5vw, 3.5rem);
+  --font-size-h2: clamp(1.5rem, 3.5vw, 2.5rem);
+  --font-size-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --font-size-small: clamp(0.75rem, 1.2vw, 0.875rem);
 
-  /* ----- UTILIDADES GLOBALES ----- */
+  /* ================================================
+          ESPACIADO RESPONSIVE
+            Sistema fluido
+      Mobile → Tablet → Desktop automático
+     ================================ */
+
+  /* Espaciado de secciones principales */
+  --section-padding-block: clamp(3rem, 6vw, 5rem); /* Vertical: 48px → 80px */
+  --section-padding-inline: clamp(
+    1rem,
+    3vw,
+    2rem
+  ); /* Horizontal: 16px → 32px */
+
+  /* Espaciado interno de componentes */
+  --card-padding: clamp(1.25rem, 2vw, 2rem); /* 20px → 32px */
+  --card-gap: clamp(1rem, 2vw, 1.5rem); /* 16px → 24px */
+
+  /* Sistema de gaps entre elementos */
+  --gap-xs: clamp(0.25rem, 0.5vw, 0.5rem); /* 4px → 8px */
+  --gap-sm: clamp(0.5rem, 1vw, 1rem); /* 8px → 16px */
+  --gap-md: clamp(1rem, 2vw, 2rem); /* 16px → 32px */
+  --gap-lg: clamp(2rem, 4vw, 3rem); /* 32px → 48px */
+  --gap-xl: clamp(3rem, 6vw, 5rem); /* 48px → 80px */
+
+  /* ================================
+        LAYOUT Y CONTENEDORES
+     ================================ */
+
   --container-width: 1200px;
-  --section-padding: 4rem 0;
-  --card-padding: 1.5rem;
+  --section-padding: var(--section-padding-block) 0; /* Shorthand usando la variable fluida */
+
+  /* ================================
+        EFECTOS Y DECORACIÓN
+     ================================ */
+
+  /* Transiciones */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  --border-radius: 0.5rem;
+
+  /* Border radius */
+  --border-radius: 20px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 32px;
+
+  /* Sombras */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 
-  /* Breakpoints estandarizados */
-  --bp-sm: 480px;
-  --bp-md: 768px;
-  --bp-lg: 1024px;
+  /* ================================
+      BREAKPOINTS (Solo documentación)
+              Solo referencia
+     ================================ */
+  /*
+    Mobile:  320px - 768px  (smartphones)
+    Tablet:  769px - 1024px (tablets)
+    Desktop: 1025px+        (laptops/monitores) */
 }
 
 /* ===========================================
@@ -171,8 +213,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  gap: 1rem;
+  padding: var(--gap-sm) var(--gap-md);
+  gap: var(--gap-sm);
   background-color: var(--primary-black);
   border-bottom: 1px solid var(--border-gray);
   position: fixed;
@@ -185,7 +227,7 @@ h6 {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--gap-md);
 }
 
 /* ======================================
@@ -203,11 +245,11 @@ h6 {
 
 /* Imagen del logo */
 .logo-image {
-  height: 80px;
+  height: clamp(50px, 8vw, 80px);
   width: auto;
-  max-width: 400px;
+  max-width: clamp(200px, 40vw, 400px);
   object-fit: contain;
-  /* Suavizar imagen en navegadores */
+  /* Para suavizar imagen en navegadores */
   image-rendering: optimizeQuality;
   image-rendering: crisp-edges;
   transition: var(--transition);
@@ -244,14 +286,14 @@ h6 {
     var(--tertiary-black) 0%,
     var(--secondary-black) 100%
   );
-  border-radius: 5px;
-  padding: 18px 24px;
+  border-radius: var(--border-radius-sm);
+  flex: 1;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   transition: all var(--transition);
   overflow: hidden;
-  max-width: 600px;
+  max-width: clamp(300px, 50vw, 600px);
   transition: transform 500ms ease 0s;
 }
 
@@ -279,10 +321,16 @@ h6 {
 .nwr-player-interface {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  padding: var(--gap-sm);
+  gap: var(--gap-sm);
   position: relative;
   z-index: 2;
-  pointer-events: none; /* Solo el audio recibe clicks */
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    var(--secondary-black) 0%,
+    var(--tertiary-black) 100%
+  );
 }
 
 /* Badge EN VIVO */
@@ -312,7 +360,7 @@ h6 {
   color: var(--accent-red);
   font-family: var(--font-secondary); /* Inter */
   font-weight: 700;
-  font-size: 11px;
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
   letter-spacing: 1.2px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -327,7 +375,7 @@ h6 {
 
 .nwr-show-title {
   font-family: var(--font-display); /* Aboreto */
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 400;
   color: var(--primary-white);
   margin: 0 0 4px 0;
@@ -337,7 +385,7 @@ h6 {
 
 .nwr-show-subtitle {
   font-family: var(--font-primary); /* Lato */
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   color: var(--secondary-gray);
   margin: 0;
   opacity: 0.8;
@@ -470,9 +518,9 @@ h6 {
 
 .language-selector {
   display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin-left: 1rem;
+  gap: var(--gap-sm);
+  padding: var(--gap-sm);
+  margin-left: var(--gap-md);
 }
 
 .lang-btn.active,
@@ -485,7 +533,7 @@ h6 {
   background: transparent;
   border: 2px solid var(--border-gray);
   color: var(--pure-white);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem var(--gap-md);
   cursor: pointer;
   transition: var(--transition);
   font-family: var(--font-display);
@@ -497,7 +545,6 @@ h6 {
    ====================================== */
 
 .hamburger-button {
-  top: 50%;
   z-index: 10;
   display: none;
   flex-direction: column;
@@ -507,7 +554,7 @@ h6 {
   cursor: pointer;
   background: none;
   border: none;
-  padding: 0, 5rem;
+  padding: var(--gap-sm);
 }
 
 .menu-toggle-input {
@@ -589,7 +636,7 @@ h6 {
 .nav-menu a {
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 var(--gap-lg);
   color: var(--pure-white);
   text-decoration: none;
   transition: var(--transition);
@@ -622,7 +669,7 @@ h6 {
   align-items: center;
   height: 86px;
   cursor: pointer;
-  padding: 0 2rem;
+  padding: 0 var(--gap-lg);
   color: var(--pure-white);
   text-decoration: none;
   transition: var(--transition);
@@ -654,7 +701,7 @@ h6 {
   transition: var(--transition);
   list-style: none;
   padding: 0;
-  border-radius: 8px;
+  border-radius: var(--border-radius-sm);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 9999;
 }
@@ -673,7 +720,7 @@ h6 {
   min-width: 210px;
   height: 50px;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-display);
 }
 
@@ -812,7 +859,7 @@ button[class*="listen"] {
 
   /* TIPOGRAFÍA CONSISTENTE CON EL BADGE */
   font-family: var(--font-secondary);
-  font-size: 11px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -852,7 +899,7 @@ button[class*="listen"] {
 
 /* Botón hero - ligeramente más grande */
 .hero button {
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   padding: 10px 18px;
   min-width: 140px;
   letter-spacing: 1px;
@@ -893,7 +940,7 @@ button[class*="listen"] {
 .programming-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--gap-md);
 }
 
 /* Contenido interno en grid (2 columnas: “Ahora” y “Siguiente”) */
@@ -901,7 +948,7 @@ button[class*="listen"] {
 .programming-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: var(--gap-lg);
   max-width: 800px;
   margin: 0 auto;
   padding: var(--spacing-lg);
@@ -914,9 +961,9 @@ button[class*="listen"] {
   display: grid;
   background: var(--primary-black);
   border: 1px solid var(--border-gray);
-  padding: 2rem 1.5rem;
+  padding: var(--gap-lg) var(--card-padding);
   text-align: center;
-  border-radius: 8px;
+  border-radius: var(--border-radius-sm);
   transition: var(--transition, all 0.3 ease);
   box-sizing: 0 2px 15px rgba(0, 0, 0, 0.08);
 }
@@ -934,8 +981,8 @@ button[class*="listen"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.7rem;
-  margin-bottom: 1rem;
+  gap: var(--gap-sm);
+  margin-bottom: var(--gap-md);
 }
 
 /* Badge en vivo reutilizable */
@@ -943,11 +990,11 @@ button[class*="listen"] {
 .badge-live {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--gap-sm);
   background-color: rgba(213, 0, 0, 0.12);
   color: var(--accent-red);
-  border-radius: 20px;
-  font-size: 0.93rem;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
   font-weight: 750;
   padding: 2px 15px 2px 8 px;
 }
@@ -985,15 +1032,15 @@ button[class*="listen"] {
   color: var(--accent-red);
   font-family: var(--font-display);
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   margin: 0;
 }
 
 /* Nombre y horario del programa */
 
 .program-name {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--gap-sm);
   color: var(--pure-white);
   font-family: var(--font-display);
 }
@@ -1001,7 +1048,7 @@ button[class*="listen"] {
 program-item {
   color: var(--soft-gray);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
 }
 
 /* ===================================================
@@ -1015,12 +1062,12 @@ program-item {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 2rem 0;
+  padding: var(--gap-lg) 0;
   max-width: 100%;
 }
 
 .programs-container {
-  padding: 2rem;
+  padding: var(--gap-lg);
 }
 
 .card-body {
@@ -1031,7 +1078,7 @@ program-item {
 }
 
 .card-container {
-  padding: 1rem 2rem;
+  padding: var(--gap-md) var(--gap-lg);
 }
 
 .program-card {
@@ -1070,17 +1117,17 @@ program-item {
 .program-card .card-title {
   color: var(--accent-red);
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: var(--font-size-lg);
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: var(--gap-sm);
   letter-spacing: 0.03em;
 }
 
 .program-card .card-text {
   color: var(--soft-gray);
   font-family: var(--font-body);
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--gap-md);
 }
 
 /* Botón personalizado, sobrescribiendo el Bootstrap */
@@ -1094,7 +1141,7 @@ program-item {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   box-shadow: 0 0 0 0;
 }
 
@@ -1117,7 +1164,7 @@ program-item {
 
 .events-section {
   background-color: var(--secondary-black);
-  padding: 2rem;
+  padding: var(--gap-lg);
 }
 
 .section-header {
@@ -1128,20 +1175,20 @@ program-item {
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: var(--gap-lg);
   margin-top: 2.5rem;
-  padding: 1rem;
+  padding: var(--gap-md);
 }
 
 .event-card {
   background: var(--tertiary-black);
   border: 1px solid var(--border-gray);
   border-radius: 12px;
-  padding: 2rem;
+  padding: var(--gap-lg);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--gap-md);
   text-align: center;
   align-content: center;
 }
@@ -1153,15 +1200,15 @@ program-item {
 }
 
 .event-card h3 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--pure-white);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--gap-sm);
 }
 
 .event-card p {
   color: var(--soft-gray);
-  font-size: 0.95rem;
+  font-size: var(--font-size-base);
   line-height: 1.6;
   flex-grow: 1;
   align-content: center;
@@ -1176,7 +1223,7 @@ program-item {
   font-weight: 800;
   letter-spacing: 1px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   box-shadow: 0 0 0 0;
   width: 80%;
   align-self: center;
@@ -1192,7 +1239,7 @@ program-item {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   box-shadow: 0 0 0 0;
   width: 80%;
   align-self: center;
@@ -1213,13 +1260,13 @@ program-item {
 footer {
   background-color: var(--primary-black);
   border-top: 1px solid var(--border-gray);
-  padding: 3rem 0 1.5rem;
+  padding: var(--section-padding-block) 0 var(--card-padding);
 }
 
 .footer-content {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--gap-lg);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 0.5fr;
@@ -1229,28 +1276,28 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: var(--gap-md);
 }
 
 .footer-logo span {
   font-family: var(--font-body);
-  font-size: 0.5;
+  font-size: var(--font-size-xs);
   color: var(--pure-white);
 }
 
 .footer-links h4,
 .footer-content h4,
 .footer-social h4 {
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   color: var(--pure-white);
-  margin-bottom: 1rem;
+  margin-bottom: var(--gap-md);
 }
 
 .footer-links ul {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--gap-sm);
 }
 
 .footer-links a {
@@ -1283,7 +1330,7 @@ footer {
   grid-template-rows: 0.5fr 1fr;
   grid-template-areas: "social social social" "icon-1 icon-2 icon-3";
   justify-content: center;
-  gap: 1rem;
+  gap: var(--gap-md);
 }
 
 .footer-social .social-link {
@@ -1308,11 +1355,11 @@ footer {
 .footer-legal {
   grid-column: 1 / -1;
   text-align: center;
-  margin-top: 2rem;
-  padding: 2rem;
+  margin-bottom: var(--gap-lg);
+  padding: var(--gap-lg);
   border-top: 1px solid var(--border-gray);
   color: var(--soft-gray);
-  font-size: 0.8rem;
+  font-size: var(--font-size-sm);
 }
 
 .footer-legal a {
@@ -1327,7 +1374,7 @@ footer {
 .footer-microcopy {
   display: block;
   margin-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: var(--font-size-sm);
   color: var(--soft-gray);
   font-style: italic;
 }
@@ -1342,7 +1389,7 @@ footer {
 
 @media (min-width: 1024px) {
   body {
-    font-size: 16px;
+    font-size: var(--font-size-base);
   }
 }
 
@@ -1359,7 +1406,7 @@ footer {
 
 /* mostrar el botón hamburguesa */
 
-@media (max-width: 900px) {
+@media (max-width: px) {
   .hamburger-button {
     display: flex;
   }
@@ -1387,12 +1434,12 @@ footer {
     flex-direction: column;
     align-items: stretch;
     height: auto;
-    padding: 1rem 0;
+    padding: var(--gap-md) 0;
   }
 
   .nav-menu > li > a,
   .submenu-label {
-    padding: 1rem 1.5rem;
+    padding: var(--gap-md) var(--card-padding);
     position: static;
     width: 100%;
     height: auto;
@@ -1469,10 +1516,10 @@ footer {
 @media (max-width: 768px) {
   .events-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: var(--card-gap);
   }
 
   .event-card {
-    padding: 1.5rem;
+    padding: var(--card-padding);
   }
 }
