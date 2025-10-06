@@ -26,8 +26,6 @@
 
   <header id="nwr-header" class="nwr-header">
 
-
-
     <!-- Logo -->
 
     <div id="nwr-logo" class="nwr-logo">
@@ -39,39 +37,33 @@
 
     <!-- Reproductor en vivo -->
 
-    <div id="live-player" class="live-player">
-      <!-- Audio HTML5 funcional (oculto visualmente) -->
-      <audio class="nwr-audio-element" src="https://supresenciaradio.out.airtime.pro/supresenciaradio_a" preload="none"
-        controls>
-        Tu navegador no soporta audio HTML5.
-      </audio>
+    <div id="live-player" class="live-player" role="presentation" aria-label="Reproductor de radio (decorativo)">
 
-      <!-- UI Visual encima -->
-      <div class="nwr-player-interface">
-        <!-- Estado EN VIVO -->
-        <div class="nwr-live-badge">
-          <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
-          <span class="nwr-live-text">EN VIVO</span>
-        </div>
 
-        <!-- Información de reproducción en vivo -->
-        <div class="nwr-program-info">
-          <h3 class="nwr-show-title">Morning Brew</h3>
-          <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
-        </div>
-
-        <!-- Indicador visual de play/pause -->
-        <div class="nwr-status-indicator">
-          <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
-        </div>
-
-        <!-- Overlay sutil para mejor integración visual -->
-        <div class="nwr-player-overlay"></div>
+      <!-- Estado EN VIVO -->
+      <div class="nwr-live-badge">
+        <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
+        <span class="nwr-live-text">EN VIVO</span>
       </div>
+
+      <!-- Información de reproducción en vivo -->
+      <div class="nwr-program-info">
+        <h3 class="nwr-show-title">Morning Brew</h3>
+        <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
+      </div>
+
+      <!-- Indicador visual de play/pause -->
+      <div class="nwr-status-indicator">
+        <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
+      </div>
+
+
+
     </div>
 
-    <!-- Selector de idioma -->
-    <div class="header-controls">
+    <!-- Contenedor de selector de idioma y menú hamburguesa -->
+    <div class="header-toolbar">
+      <!-- Selector de idioma -->
       <div class="language-selector">
         <button class="lang-btn active" type="button">ESP</button>
         <button class="lang-btn" type="button">ENG</button>
@@ -120,7 +112,8 @@
 
   <!-- Overlay para cerrar el menu tocando fuera -->
 
-  <div class="menu-overlay"></div>
+  <label for="menu-toggle" class="menu-overlay"></label>
+
 
   <!--  ===================================================
                   CONTENIDO PRINCIPAL (main)

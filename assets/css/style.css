@@ -225,7 +225,7 @@ h6 {
   z-index: 1000;
 }
 
-.header-controls {
+.header-toolbar {
   display: flex;
   align-items: center;
   gap: var(--gap-md);
@@ -268,17 +268,21 @@ h6 {
   transform: scale(0.95);
 }
 
-.logo-link:focus {
+.logo-link:focus-visible {
   outline: 2px solid var(--accent-red);
   outline-offset: 4px;
   border-radius: 0;
+}
+
+.logo-link:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ======================================
     NWR MEDIA PLAYER - ESTILO BBC INSPIRADO
    ====================================== */
 
-/* Contenedor principal */
+/* Contenedor principal e interfaz visual */
 #live-player,
 .live-player {
   position: relative;
@@ -288,7 +292,7 @@ h6 {
     var(--secondary-black) 100%
   );
   border-radius: var(--border-radius-sm);
-  flex: 1;
+  /* flex: 1; */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -296,6 +300,10 @@ h6 {
   overflow: hidden;
   max-width: clamp(300px, 50vw, 600px);
   transition: transform 500ms ease 0s;
+  display: flex;
+  align-items: center;
+  padding: var(--gap-sm);
+  gap: var(--gap-sm);
 }
 
 /* Estado hover del contenedor */
@@ -304,34 +312,6 @@ h6 {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(213, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: rgba(213, 0, 0, 0.2);
-}
-
-/* Audio element (funcional pero invisible) */
-.nwr-audio-element {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 1;
-  cursor: pointer;
-}
-
-/* Interface visual */
-.nwr-player-interface {
-  display: flex;
-  align-items: center;
-  padding: var(--gap-sm);
-  gap: var(--gap-sm);
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(
-    135deg,
-    var(--secondary-black) 0%,
-    var(--tertiary-black) 100%
-  );
 }
 
 /* Badge EN VIVO */
@@ -550,8 +530,8 @@ h6 {
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   background: none;
   border: none;
@@ -1408,12 +1388,24 @@ footer {
 }
 
 /* ======================================
-        RESPONSIVE MENU HAMBURGUESA
+        RESPONSIVE MENU MOVIL
    ====================================== */
 
 /* mostrar el botón hamburguesa */
 
-@media (max-width: px) {
+@media (max-width: 768px) {
+  .live-player {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-sm);
+  }
+
+  .nwr-program-info {
+    display: none;
+  }
+
   .hamburger-button {
     display: flex;
   }
@@ -1421,11 +1413,11 @@ footer {
   .nwr-nav {
     position: fixed;
     top: 132px;
-    left: 10%;
-    width: 80%;
+    right: 10%;
+    width: 100%;
     height: auto;
     max-height: calc(100vh - 132px);
-    transform: translateY(-100%);
+    transform: translateY(-110%);
     transition: var(--transition-slow);
     background-color: var(--secondary-black);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -1468,6 +1460,38 @@ footer {
 
   .submenu a {
     padding-left: 3rem;
+  }
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+
+    /* Estado inicial: oculto */
+    opacity: 0;
+    visibility: hidden;
+
+    /* Transición suave */
+    transition: opacity var(--transition), visibility var(--transition);
+    cursor: pointer;
+  }
+
+  /* Cuando el menú está abierto */
+  #menu-toggle:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .submenu-container {
+    position: relative;
+    top: 132px;
+  }
+
+  .language-selector {
+    display: none;
   }
 }
 
