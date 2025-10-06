@@ -154,6 +154,9 @@ a {
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 
+  /* ----- ALTURAS ESTÁNDAR ----- */
+  --header-height: 60px; /* Altura estándar del header en mobile */
+
   /* ================================
       BREAKPOINTS (Solo documentación)
               Solo referencia
@@ -576,19 +579,17 @@ h6 {
   transition: var(--transition-slow);
 }
 
-#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(1) {
-  transform: 45deg translateY(10px);
-  transform-origin: center;
+/* Animación hamburguesa cuando está abierto */
+#menu-toggle:checked ~ header .hamburger-button .hamburger-icon:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
 }
 
-#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(2) {
+#menu-toggle:checked ~ header .hamburger-button .hamburger-icon:nth-child(2) {
   opacity: 0;
-  transform: scale(0);
 }
 
-#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(3) {
-  transform: rotate(-45deg) translateY(-10px);
-  transform-origin: center;
+#menu-toggle:checked ~ header .hamburger-button .hamburger-icon:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
 }
 
 /* ========================================
@@ -597,6 +598,7 @@ h6 {
 
 #nwr-nav,
 .nwr-nav {
+  display: none;
   position: fixed;
   top: 132px;
   left: 0;
@@ -618,7 +620,7 @@ h6 {
 }
 
 .nav-menu {
-  display: flex;
+  display: none; /* después lo dejo visible en los @media para tablet y desktop */
   justify-content: center;
   align-items: center;
   list-style: none;
@@ -788,20 +790,6 @@ main {
   z-index: 2;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 55%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(10, 10, 0, 0.85) 0%,
-    rgba(10, 10, 10, 0.6) 80%
-  );
-  z-index: 2;
-}
-
 /* Contenido del hero - CAPA 3 (adelante) */
 .hero-content {
   position: relative;
@@ -959,7 +947,7 @@ button[class*="listen"]:focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gap-lg);
-  max-width: 800px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: var(--spacing-lg);
 }
@@ -1225,7 +1213,7 @@ button:focus,
   display: inline-block;
   background: transparent;
   color: var(--pure-white);
-  border: 1px solid var(--accent-red);
+  border: 1px solid var(--soft-gray);
   font-family: var(--font-display);
   font-weight: 800;
   /* letter-spacing: 1px; */
@@ -1391,142 +1379,594 @@ footer {
    =================================================== */
 
 /* ======================================
-        RESPONSIVE BODY
-   ====================================== */
-
-@media (min-width: 1024px) {
-  body {
-    font-size: var(--font-size-base);
-  }
-}
-
-/* ======================================
-        RESPONSIVE HEADER
-   ====================================== */
-
-@media (min-width: 1024px) {
-}
-
-/* ======================================
-        RESPONSIVE MENU HAMBURGUESA
-   ====================================== */
-
-/* mostrar el botón hamburguesa */
-
-@media (max-width: px) {
-  .hamburger-button {
-    display: flex;
-  }
-
-  .nwr-nav {
-    position: fixed;
-    top: 132px;
-    left: 10%;
-    width: 80%;
-    height: auto;
-    max-height: calc(100vh - 132px);
-    transform: translateY(-100%);
-    transition: var(--transition-slow);
-    background-color: var(--secondary-black);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
-  }
-
-  #menu-toggle:checked ~ .nwr-nav {
-    transform: translateY(0);
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    align-items: stretch;
-    height: auto;
-    padding: var(--gap-md) 0;
-  }
-
-  .nav-menu > li > a,
-  .submenu-label {
-    padding: var(--gap-md) var(--card-padding);
-    position: static;
-    width: 100%;
-    height: auto;
-  }
-
-  .submenu-container {
-    position: static;
-    width: 100%;
-  }
-
-  .submenu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background-color: var(--tertiary-black);
-  }
-
-  .submenu a {
-    padding-left: 3rem;
-  }
-}
-
-/* ======================================
             RESPONSIVE HEADER
    ====================================== */
 
-/* ======================================
-    RESPONSIVE NWR MEDIA PLAYER
-   ====================================== */
-
-/* Tabletas */
-
-/* Móviles */
-
-/* Responsive para navegación */
-
-/* ======================================
-          RESPONSIVE HERO
-   ====================================== */
-
-/* Tablet */
-
-/* Mobile */
-
-/* Hamburger responsive  */
-
-/* ======================================
-        RESPONSIVE PROGRAMMING
-   ====================================== */
-
-@media (max-width: 900px) {
-  .programming-content {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-  }
-}
-
-/* ======================================
-        RESPONSIVE PROGRAMS
-   ====================================== */
-
-@media (max-width: 900px) {
-  .program-card .card-img-top {
-    height: 140px;
-  }
-}
-
-/* ======================================
-        RESPONSIVE EVENTOS
-   ====================================== */
-
 @media (max-width: 768px) {
+  /* ===== 1. HEADER: Layout móvil ===== */
+
+  header {
+    padding: var(--gap-sm) var(--gap-md);
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    position: relative;
+  }
+
+  /* ===== 2. LOGO: Izquierda ===== */
+
+  .nwr-logo {
+    flex: 0 0 auto;
+    max-width: 120px;
+    display: block !important;
+  }
+
+  .nwr-logo img {
+    max-height: 40px;
+    width: auto;
+  }
+  /* ===== 3. REPRODUCTOR: Centro (simplificado) ===== */
+
+  .live-player {
+    flex: 1 1 auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xs);
+  }
+
+  .live-player .play-btn {
+    display: flex !important;
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-sm);
+  }
+
+  /* Ocultar información extra del reproductor en móvil */
+
+  .nwr-program-info {
+    display: none !important;
+  }
+
+  .nwr-player-overlay {
+    display: none;
+  }
+
+  /* Badge más pequeño */
+  .nwr-live-badge {
+    display: block !important;
+    font-size: var(--font-size-xs);
+    padding: 4px 8px;
+  }
+
+  /* Botón play más compacto */
+
+  .live-player .play-btn .nwr-audio-element {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
+
+  /* ===== 4. HAMBURGUESA: Derecha (visible) ===== */
+
+  .hamburger-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: var(--gap-sm);
+    z-index: 1001;
+  }
+
+  .hamburger-icon {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+  }
+
+  /* ===== 5. OCULTAR SELECTOR DE IDIOMA del header ===== */
+
+  header .language-selector {
+    display: none;
+  }
+
+  /* ===== 6. NAVEGACIÓN MÓVIL: Full-width desplegable ===== */
+
+  /* Navegación móvil */
+  .nwr-nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: auto;
+    width: 300px;
+    max-width: 85vw;
+    height: calc(100vh - 60px);
+    background-color: var(--secondary-black);
+    transform: translateX(100%); /* Oculto fuera de pantalla */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    overflow-y: auto;
+    border-left: 1px solid var(--border-gray);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Mostrar menú cuando checkbox está checked */
+  #menu-toggle:checked ~ .nwr-nav {
+    display: block;
+    transform: translateX(0); /* Desliza hacia dentro */
+  }
+
+  /* Menú vertical */
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    padding: var(--gap-md);
+    gap: 0;
+  }
+
+  .nav-menu > li {
+    border-bottom: 1px solid var(--border-gray);
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: var(--gap-md);
+    color: var(--pure-white);
+    height: auto;
+  }
+
+  .nav-menu a:hover {
+    padding-left: calc(var(--gap-md) + 8px);
+  }
+
+  /* Overlay oscuro cuando menú está abierto */
+  #menu-toggle:checked::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ===== 9. SUBMENÚ de PROGRAMAS (cerrado por defecto) ===== */
+
+  .submenu-toggle {
+    display: none;
+  }
+
+  .submenu-label {
+    display: block;
+    padding: var(--gap-md);
+    color: var(--pure-white);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+  }
+
+  /* Contenedor del submenú */
+
+  .submenu-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: var(--tertiary-black);
+  }
+
+  /* Mostrar submenú solo cuando checkbox está checked */
+
+  .submenu-toggle:checked ~ .submenu-container {
+    max-height: 500px;
+  }
+
+  .submenu {
+    padding: 0;
+    list-style: none;
+  }
+
+  .submenu li a {
+    padding: var(--gap-sm) var(--gap-md) var(--gap-sm) calc(var(--gap-md) * 2);
+    font-size: var(--font-size-sm);
+    color: var(--soft-gray);
+  }
+
+  .submenu li a:hover {
+    color: var(--pure-white);
+    background-color: var(--red-alpha-10);
+  }
+
+  /* ===== 10. AGREGAR SELECTOR DE IDIOMA al menú móvil ===== */
+
+  /* Crear un item de menú para el selector de idioma */
+
+  .nav-menu::after {
+    content: "";
+    display: block;
+    padding: var(--gap-md);
+    border-top: 2px solid var(--accent-red);
+    margin-top: var(--gap-md);
+  }
+
+  /* Si el selector de idioma está dentro del nav */
+  .nwr-nav .language-selector {
+    display: flex !important;
+    justify-content: center;
+    padding: var(--gap-md);
+    gap: var(--gap-sm);
+  }
+
+  /* ===== 11. AJUSTE DE BODY para evitar scroll del fondo ===== */
+  #menu-toggle:checked ~ body {
+    overflow: hidden; /* Evitar el scroll cuando menú está abierto */
+  }
+
+  .programs-grid.row {
+    row-gap: var(--gap-md);
+    padding: 0 var(--gap-sm);
+  }
+
+  .programs-grid .card-container {
+    margin-bottom: var(--gap-md) !important;
+  }
+
+  /* ====== Events: 1 columna en móvil */
+
+  /* ======================================
+            RESPONSIVE MAIN
+   ====================================== */
+
+  /* ===== HERO RESPONSIVE ===== */
+  .hero {
+    margin-top: 70px; /* Reducir espacio superior (altura del header móvil) */
+    min-height: 400px; /* Altura más compacta para móvil */
+    padding: var(--gap-xl) var(--gap-md);
+  }
+
+  /* Contenedor de contenido del hero */
+  .hero-content {
+    max-width: 100%;
+    padding: 0 var(--gap-md);
+    text-align: center;
+  }
+
+  /* Título principal del hero */
+  .hero h1 {
+    font-size: var(--font-size-2xl); /* Más pequeño en móvil */
+    line-height: 1.2;
+    margin-bottom: var(--gap-md);
+  }
+
+  /* Subtítulo o descripción */
+  .hero p {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin-bottom: var(--gap-lg);
+    max-width: 100%;
+  }
+
+  /* Botones del hero */
+  .hero button,
+  .hero .btn {
+    font-size: var(--font-size-base);
+    padding: var(--gap-sm) var(--gap-lg);
+    width: 100%; /* Botones de ancho completo en móvil */
+    max-width: 300px; /* Pero no más de 300px */
+  }
+
+  /* Si hay múltiples botones */
+  .hero-buttons {
+    display: flex;
+    flex-direction: column; /* Botones apilados verticalmente */
+    gap: var(--gap-sm);
+    align-items: center;
+  }
+
+  /* ===== EVENTS RESPONSIVE ===== */
+
   .events-grid {
-    grid-template-columns: 1fr;
-    gap: var(--card-gap);
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: var(--gap-md);
+    padding: var(--gap-sm);
   }
 
   .event-card {
-    padding: var(--card-padding);
+    width: 100%; /* Ancho completo */
+  }
+
+  /* ======================================
+            RESPONSIVE FOOTER
+   ====================================== */
+  footer {
+    padding: var(--gap-xl) var(--gap-md);
+    text-align: center; /* Centrar contenido en móvil */
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-rows: auto; /* Filas automáticas */
+    gap: var(--gap-lg);
+    padding: 0 var(--gap-sm);
+    text-align: center;
+  }
+
+  /* Cada sección del footer ocupa su propia fila */
+  .footer-content > * {
+    width: 100%;
+    margin-bottom: var(--gap-md);
+  }
+
+  /* Navegación del footer centrada */
+  footer nav {
+    text-align: center;
+  }
+
+  footer nav ul {
+    flex-direction: column; /* Links en columna */
+    align-items: center;
+    gap: var(--gap-sm);
+  }
+
+  footer nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Redes sociales centradas */
+  .footer-social {
+    justify-content: center;
+    gap: var(--gap-md);
+  }
+
+  /* Copyright en su propia línea */
+  .footer-bottom {
+    grid-column: 1; /* Ocupa toda la columna */
+    text-align: center;
+    margin-top: var(--gap-md);
+    padding-top: var(--gap-md);
+    border-top: 1px solid var(--border-gray);
+  }
+
+  /* Títulos de sección más prominentes */
+  footer h3,
+  footer h4 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--gap-sm);
+    color: var(--accent-red);
+  }
+
+  /* Separadores visuales entre secciones */
+  .footer-content > *:not(:last-child) {
+    padding-bottom: var(--gap-md);
+    border-bottom: 1px solid var(--border-gray);
+  }
+
+  /* Aumentar tamaño de iconos sociales en móvil */
+  .footer-social a {
+    font-size: 1.5rem;
+    padding: var(--gap-sm);
+  }
+}
+
+/* ===================================================================
+    RESPONSIVE: TABLET (768px - 1023px)
+   =================================================================== */
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Header mantiene layout horizontal pero más compacto */
+  header {
+    padding: var(--gap-sm) var(--gap-lg);
+  }
+
+  .nwr-logo img {
+    max-height: 45px;
+  }
+
+  /* Navegación horizontal simplificada */
+  .hamburger-button {
+    display: none !important; /* Ocultar hamburguesa */
+  }
+
+  .nwr-nav {
+    position: static;
+    display: block;
+    max-height: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--gap-md);
+  }
+
+  .card-grid.row {
+    row-gap: var(--gap-lg);
+  }
+
+  /* ======================================
+            RESPONSIVE MAIN
+   ====================================== */
+
+  /* Programming en tablet */
+  .programming-section {
+    padding: var(--gap-xl) var(--gap-lg);
+  }
+
+  .programming-content {
+    flex-direction: row; /* Volver a horizontal */
+    gap: var(--gap-lg);
+  }
+
+  .program-status {
+    flex: 1;
+    padding: var(--gap-lg);
+  }
+
+  .program-status h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .program-name {
+    font-size: var(--font-size-2xl);
+  }
+
+  .program-time {
+    font-size: var(--font-size-base);
+  }
+
+  .program-info {
+    font-size: var(--font-size-base);
+  }
+
+  /* Events: 2 columnas en tablet */
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pares */
+    gap: var(--gap-md);
+  }
+
+  /* ======================================
+            RESPONSIVE FOOTER
+   ====================================== */
+
+  /* Footer: 2 columnas en tablet */
+  footer {
+    padding: var(--gap-xl) var(--gap-lg);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    grid-template-rows: auto;
+    gap: var(--gap-lg);
+  }
+
+  /* Copyright ocupa ambas columnas */
+  .footer-bottom {
+    grid-column: 1 / -1; /* Span completo */
+    text-align: center;
+    margin-top: var(--gap-lg);
+    padding-top: var(--gap-md);
+    border-top: 1px solid var(--border-gray);
+  }
+
+  footer nav ul {
+    flex-direction: column;
+    gap: var(--gap-sm);
+  }
+}
+
+/* ===================================================================
+          RESPONSIVE: DESKTOP GRANDE (≥ 1024px)
+   =================================================================== */
+
+@media (min-width: 1024px) {
+  header {
+    position: relative; /* ← Cambiar de fixed a relative */
+    z-index: 1;
+  }
+  /* ======================================
+            RESPONSIVE NAV
+   ====================================== */
+  #nwr-nav,
+  .nwr-nav {
+    display: flex;
+    position: static;
+    top: unset;
+    z-index: 0;
+    width: 100%;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 86px;
+    gap: var(--gap-lg);
+  }
+
+  /* Ocultar hamburguesa en desktop */
+  .hamburger-button {
+    display: none !important;
+  }
+
+  /* ======================================
+            RESPONSIVE MAIN
+   ====================================== */
+
+  .events-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas en desktop */
+    gap: var(--gap-lg);
+  }
+
+  /* ======================================
+            RESPONSIVE FOOTER
+   ====================================== */
+
+  /* Footer: 4 columnas en desktop */
+  .footer-content {
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columnas */
+    grid-template-rows: auto;
+    gap: var(--gap-xl);
+    text-align: left;
+  }
+
+  .footer-bottom {
+    grid-column: 1 / -1; /* Span completo */
+    text-align: center;
+    margin-top: var(--gap-xl);
+    padding-top: var(--gap-lg);
+    border-top: 1px solid var(--border-gray);
+  }
+}
+
+/* MOBILE/TABLET */
+@media (max-width: 1023px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--header-height); /* Asegura altura fija */
+  }
+  .nwr-nav {
+    position: fixed;
+    top: var(--header-height); /* Siempre debajo del header */
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  header {
+    position: relative;
+    z-index: 1;
+  }
+  .nwr-nav {
+    position: relative;
+    top: unset;
+    z-index: 0;
+    width: 100%;
   }
 }
