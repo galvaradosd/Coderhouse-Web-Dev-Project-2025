@@ -1,0 +1,165 @@
+/* ================================
+   BASE.CSS
+   New World Radio - Fundamentos Globales
+   Reutilizable en TODAS las páginas
+   ================================ */
+
+/* ===== IMPORTACIÓN DE FUENTES ===== */
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;500;700&display=swap");
+
+/* ===== RESET UNIVERSAL ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================================
+   VARIABLES CSS - SISTEMA DE DISEÑO
+   ================================ */
+:root {
+  /* ===== COLORES BASE ===== */
+  --primary-black: #0a0a0a;
+  --secondary-black: #1a1a1a;
+  --tertiary-black: #2a2a2a;
+  --accent-red: #dc2626;
+  --pure-white: #ffffff;
+  --soft-gray: #a1a1aa;
+  --border-gray: #333333;
+
+  /* ----- ESTADOS INTERACTIVOS ----- */
+  --red-hover: #b91c1c;
+  --red-pressed: #991b1b;
+  --red-focus: #dc2626;
+
+  /* ----- TRANSPARENCIAS ----- */
+  --red-alpha-10: rgba(220, 38, 38, 0.1);
+  --red-alpha-20: rgba(220, 38, 38, 0.2);
+  --red-alpha-30: rgba(220, 38, 38, 0.3);
+  --red-alpha-60: rgba(220, 38, 38, 0.6);
+  --white-alpha-80: rgba(255, 255, 255, 0.8);
+  --white-alpha-50: rgba(255, 255, 255, 0.5);
+
+  /* ===== TIPOGRAFÍA ===== */
+  --font-display: "Aboreto", serif;
+  --font-body: "Lato", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+
+  /* Tamaños fluidos responsive */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-3xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+  --font-size-h1: clamp(2rem, 5vw, 3.5rem);
+  --font-size-h2: clamp(1.5rem, 3.5vw, 2.5rem);
+  --font-size-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --font-size-small: clamp(0.75rem, 1.2vw, 0.875rem);
+
+  /* ===== ESPACIADO RESPONSIVE ===== */
+  --section-padding-block: clamp(3rem, 6vw, 5rem);
+  --section-padding-inline: clamp(1rem, 3vw, 2rem);
+  --card-padding: clamp(1.25rem, 2vw, 2rem);
+  --card-gap: clamp(1rem, 2vw, 1.5rem);
+  --gap-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --gap-sm: clamp(0.5rem, 1vw, 1rem);
+  --gap-md: clamp(1rem, 2vw, 2rem);
+  --gap-lg: clamp(2rem, 4vw, 3rem);
+  --gap-xl: clamp(3rem, 6vw, 5rem);
+
+  /* ===== LAYOUT ===== */
+  --container-width: 1200px;
+  --section-padding: var(--section-padding-block) 0;
+
+  /* ===== EFECTOS ===== */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 20px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 32px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ESTILOS BASE DEL BODY ===== */
+body {
+  font-family: var(--font-body);
+  background-color: var(--primary-black);
+  color: var(--pure-white);
+  line-height: 1.6;
+}
+
+/* ===== TIPOGRAFÍA GLOBAL ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* ===== ELEMENTOS ESPECIALES CON ABORETO ===== */
+.nav-menu > li > a,
+.submenu a,
+.submenu-label,
+.hero h1,
+.section-header h2,
+.program-title,
+.event-title,
+.current-program {
+  font-family: var(--font-display);
+}
+
+/* ===== RESPONSIVE BODY ===== */
+@media (min-width: 1024px) {
+  body {
+    font-size: var(--font-size-base);
+  }
+}
