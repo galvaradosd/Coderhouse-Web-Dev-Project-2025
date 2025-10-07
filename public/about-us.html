@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros | New World Radio</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/main-pages.css">
+</head>
+
+<body>
+  <!--  ===================================================
+                      CONTENIDO HEADER
+            =================================================== -->
+
+  <header id="nwr-header" class="nwr-header">
+
+    <!-- Logo -->
+
+    <div id="nwr-logo" class="nwr-logo">
+      <a href="../../index.html" class="logo-link"><img
+          src="../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio Logo" class="logo-image">
+      </a>
+    </div>
+
+    <!-- Reproductor en vivo -->
+
+    <div id="live-player" class="live-player" role="presentation" aria-label="Reproductor de radio (decorativo)">
+
+
+      <!-- Estado EN VIVO -->
+      <div class="nwr-live-badge">
+        <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
+        <span class="nwr-live-text">EN VIVO</span>
+      </div>
+
+      <!-- Información de reproducción en vivo -->
+      <div class="nwr-program-info">
+        <h3 class="nwr-show-title">Morning Brew</h3>
+        <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
+      </div>
+
+      <!-- Indicador visual de play/pause -->
+      <div class="nwr-status-indicator">
+        <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
+      </div>
+
+
+
+    </div>
+
+    <!-- Contenedor de selector de idioma y menú hamburguesa -->
+    <div class="header-toolbar">
+      <!-- Selector de idioma -->
+      <div class="language-selector">
+        <button class="lang-btn active" type="button">ESP</button>
+        <button class="lang-btn" type="button">ENG</button>
+      </div>
+
+      <!-- botón de hamburguesa -->
+      <label for="menu-toggle" class="hamburger-button">
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+      </label>
+    </div>
+
+  </header>
+
+  <!-- Navegación como hermano del header -->
+
+  <nav id="nwr-nav" class="nwr-nav mobile-menu">
+    <ul class="nav-menu">
+      <li><a href="../../index.html">Inicio</a></li>
+
+      <!-- PROGRAMAS con accordion/dropdown inteligente -->
+      <li class="expandable-item">
+        <input type="checkbox" id="programs-toggle" class="submenu-toggle">
+        <label for="programs-toggle" class="submenu-label">Programas</label>
+        <div class="submenu-content">
+          <ul class="submenu">
+            <li><a href="../public/radio-shows/morning-brew.html">Morning Brew</a></li>
+            <li><a href="../public/radio-shows/sports-zone.html">Sports Zone</a></li>
+            <li><a href="../public/radio-shows/brave-hearts.html">Brave Hearts</a></li>
+            <li><a href="../public/radio-shows/global-wisdom.html">Global Wisdom</a></li>
+            <li><a href="../public/radio-shows/connected-world.html">Connected World</a></li>
+            <li><a href="../public/radio-shows/professional-life.html">Professional Life</a></li>
+            <li><a href="../public/radio-shows/music-pulse.html">Music Pulse</a></li>
+            <li><a href="../public/radio-shows/dj-zone.html">DJ Zone</a></li>
+            <li><a href="../public/radio-shows/resilience-radio.html">Resilience Radio</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="./galery.html">Galería</a></li>
+      <li><a href="./schedule.html">Programación</a></li>
+      <li><a href="#">Sobre Nosotros</a></li>
+      <li><a href="./contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Overlay para cerrar el menu tocando fuera -->
+
+  <label for="menu-toggle" class="menu-overlay"></label>
+
+
+  <!--  ===================================================
+                      CONTENIDO PRINCIPAL (main)
+            =================================================== -->
+
+  <main>
+    <section class="about-header">
+      <h1 class="about-title">Sobre Nosotros</h1>
+      <p class="about-intro">
+        Somos New World Radio, una emisora independiente que conecta personas, historias y culturas a través de la
+        música, el debate y la inspiración diaria.
+      </p>
+    </section>
+
+    <section class="about-mision-vision section-padding">
+      <div class="about-block">
+        <h2>Misión</h2>
+        <p>
+          Inspirar, informar y acompañar a nuestros oyentes con contenido diverso, positivo y relevante, construyendo
+          comunidad y abriendo nuevos horizontes cada día.
+        </p>
+      </div>
+      <div class="about-block">
+        <h2>Visión</h2>
+        <p>
+          Ser la radio líder en innovación, calidad humana y aporte cultural, trascendiendo fronteras y generando
+          impacto real en la vida de quienes nos escuchan.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-history section-padding">
+      <h2>Nuestra Historia</h2>
+      <p>
+        Nacimos en 2020 como un proyecto colaborativo de comunicadores, músicos y promotores culturales. Durante estos
+        años, New World Radio ha crecido hasta convertirse en un referente multiplataforma, siempre apostando por la
+        diversidad, la excelencia y la inclusión.
+      </p>
+    </section>
+
+    <section class="about-team section-padding">
+      <h2>Equipo Principal</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="images/equipo-juan.jpg" alt="Juan Herrera - Director y Locutor">
+          <strong>Juan Herrera</strong>
+          <span>Director General & Locutor</span>
+        </div>
+        <div class="team-card">
+          <img src="images/equipo-andrea.jpg" alt="Andrea Ruiz - Locutora y RRPP">
+          <strong>Andrea Ruiz</strong>
+          <span>Locutora y Relaciones Públicas</span>
+        </div>
+        <div class="team-card">
+          <img src="images/equipo-laura.jpg" alt="Laura Vidal - Producción y Psicóloga">
+          <strong>Laura Vidal</strong>
+          <span>Productora de Contenidos</span>
+        </div>
+        <div class="team-card">
+          <img src="images/equipo-sara.jpg" alt="Sara Ortiz - Comunicaciones">
+          <strong>Sara Ortiz</strong>
+          <span>Comunicaciones & Social Media</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--  ===================================================
+                                  FOOTER
+            =================================================== -->
+
+  <footer>
+    <div class="footer-content">
+
+      <div class="footer-logo">
+        <img src="../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio logo" class="logo-image">
+        <span>Conectando el mundo a través de la mejor música y contenido que inspira.</span>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./galery.html">Galería</a></li>
+          <li><a href="./schedule.html">Programación</a></li>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="./contact.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Email: <a href="#">info@newworldradio.com</a></p>
+        <p>Teléfono: <a href="tel:+1234567890">+1 234 567 890</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4 style="grid-area: social;">Síguenos</h4>
+        <a href="#" class="social-link facebook" aria-label="Facebook"><i class="icon-facebook"
+            style="grid-area: icon-1;"></i></a>
+        <a href="#" class="social-link instagram" aria-label="Instagram" style="grid-area: icon-2;"><i class="
+              icon-instagram"></i></a>
+        <a href="#" class="social-link twitter" aria-label="Twitter" style="grid-area: icon-3;"><i class="
+              icon-twitter"></i></a>
+      </div>
+
+      <div class="footer-legal">
+        <p>© 2025 New World Radio. Todos los derechos reservados.</p>
+        <a href="#">Aviso legal</a> | <a href="#">Política de privacidad</a>
+        <span class="footer-microcopy">Promovemos la música, el respeto y los valores en cada emisión.</span>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

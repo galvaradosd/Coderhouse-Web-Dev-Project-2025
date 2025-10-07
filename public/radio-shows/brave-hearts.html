@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brave Hearts | New World Radio</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/program-page.css">
+</head>
+
+<body>
+  <!-- checkbox de control global para menú tipo hamburguesa -->
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input" style="display: none;">
+
+  <!--  ===================================================
+                    CONTENIDO HEADER
+          =================================================== -->
+
+  <header id="nwr-header" class="nwr-header">
+
+    <!-- Logo -->
+
+    <div id="nwr-logo" class="nwr-logo">
+      <a href="#" class="logo-link"><img
+          src="../../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio Logo" class="logo-image">
+      </a>
+    </div>
+
+    <!-- Reproductor en vivo -->
+
+    <div id="live-player" class="live-player" role="presentation" aria-label="Reproductor de radio (decorativo)">
+
+
+      <!-- Estado EN VIVO -->
+      <div class="nwr-live-badge">
+        <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
+        <span class="nwr-live-text">EN VIVO</span>
+      </div>
+
+      <!-- Información de reproducción en vivo -->
+      <div class="nwr-program-info">
+        <h3 class="nwr-show-title">Morning Brew</h3>
+        <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
+      </div>
+
+      <!-- Indicador visual de play/pause -->
+      <div class="nwr-status-indicator">
+        <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
+      </div>
+
+
+
+    </div>
+
+    <!-- Contenedor de selector de idioma y menú hamburguesa -->
+    <div class="header-toolbar">
+      <!-- Selector de idioma -->
+      <div class="language-selector">
+        <button class="lang-btn active" type="button">ESP</button>
+        <button class="lang-btn" type="button">ENG</button>
+      </div>
+
+      <!-- botón de hamburguesa -->
+      <label for="menu-toggle" class="hamburger-button">
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+      </label>
+    </div>
+
+  </header>
+
+  <!-- Navegación como hermano del header -->
+
+  <nav id="nwr-nav" class="nwr-nav mobile-menu">
+    <ul class="nav-menu">
+      <li><a href="../../index.html">Inicio</a></li>
+
+      <!-- PROGRAMAS con accordion/dropdown inteligente -->
+      <li class="expandable-item">
+        <input type="checkbox" id="programs-toggle" class="submenu-toggle">
+        <label for="programs-toggle" class="submenu-label">Programas</label>
+        <div class="submenu-content">
+          <ul class="submenu">
+            <li><a href="../../public/radio-shows/morning-brew.html">Morning Brew</a></li>
+            <li><a href="../../public/radio-shows/sports-zone.html">Sports Zone</a></li>
+            <li><a href="../../public/radio-shows/resilience-radio.html">Resilience Radio</a></li>
+            <li><a href="#">Brave Hearts</a></li>
+            <li><a href="../../public/radio-shows/global-wisdom.html">Global Wisdom</a></li>
+            <li><a href="../../public/radio-shows/connected-world.html">Connected World</a></li>
+            <li><a href="../../public/radio-shows/professional-life.html">Professional Life</a></li>
+            <li><a href="../../public/radio-shows/music-pulse.html">Music Pulse</a></li>
+            <li><a href="../../public/radio-shows/dj-zone.html">DJ Zone</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="../galery.html">Galería</a></li>
+      <li><a href="../schedule.html">Programación</a></li>
+      <li><a href="../about-us.html">Sobre Nosotros</a></li>
+      <li><a href="../contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Overlay para cerrar el menu tocando fuera -->
+
+  <label for="menu-toggle" class="menu-overlay"></label>
+
+
+  <!--  ===================================================
+                    CONTENIDO PRINCIPAL (main)
+          =================================================== -->
+
+  <!--  ===================================================
+                            SECCIÓN HERO
+          =================================================== -->
+
+  <main>
+    <section class="program-hero" style="background-image: url('images/brave-hearts-hero.jpg');">
+      <div class="program-hero-overlay">
+        <h1 class="program-title">Brave Hearts</h1>
+        <p class="program-tagline">Historias de quienes se atreven a cambiar el mundo</p>
+      </div>
+    </section>
+
+    <section class="program-description section-padding">
+      <h2>Sobre el programa</h2>
+      <p>
+        Un espacio para soñadores, activistas, líderes sociales y personas que buscan dejar huella. Relatos inspiradores
+        sobre coraje, solidaridad y perseverancia, con la voz de quienes están transformando su realidad.
+      </p>
+    </section>
+
+    <section class="program-schedule section-padding">
+      <h3>Horario</h3>
+      <ul>
+        <li><strong>Viernes:</strong> 4:00 PM - 5:30 PM</li>
+        <li><strong>Idioma:</strong> Español</li>
+        <li><strong>Frecuencia:</strong> Semanal</li>
+      </ul>
+    </section>
+
+    <section class="program-host section-padding">
+      <div class="host-card">
+        <img src="images/presenter-bh.jpg" alt="Luis Gómez, presentador de Brave Hearts" class="host-photo">
+        <div class="host-info">
+          <h4>Luis Gómez</h4>
+          <p>Periodista y voluntario, Luis reúne historias potentes y entrevistas con quienes nunca se rinden. Su lema:
+            “el coraje es contagioso”.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="program-episodes section-padding">
+      <h3>Episodios destacados</h3>
+      <div class="episodes-grid">
+        <article class="episode-card">
+          <h4>Voces del cambio</h4>
+          <p>Testimonios de líderes que impulsan movimientos sociales.</p>
+        </article>
+        <article class="episode-card">
+          <h4>Solidaridad en acción</h4>
+          <p>Colaborar, ayudar, compartir: historias que inspiran comunidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="program-cta section-padding">
+      <a href="#" class="cta-listen-now">
+        <span>&#9654;</span> Escuchar en Vivo Ahora
+      </a>
+    </section>
+  </main>
+
+  <!--  ===================================================
+                              FOOTER
+        =================================================== -->
+
+  <footer>
+    <div class="footer-content">
+
+      <div class="footer-logo">
+        <img src="../../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio logo" class="logo-image">
+        <span>Conectando el mundo a través de la mejor música y contenido que inspira.</span>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="../../index.html">Inicio</a></li>
+          <li><a href="../galery.html">Galería</a></li>
+          <li><a href="../schedule.html">Programación</a></li>
+          <li><a href="../about-us.html">Sobre Nosotros</a></li>
+          <li><a href="../contact.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Email: <a href="#">info@newworldradio.com</a></p>
+        <p>Teléfono: <a href="tel:+1234567890">+1 234 567 890</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4 style="grid-area: social;">Síguenos</h4>
+        <a href="#" class="social-link facebook" aria-label="Facebook"><i class="icon-facebook"
+            style="grid-area: icon-1;"></i></a>
+        <a href="#" class="social-link instagram" aria-label="Instagram" style="grid-area: icon-2;"><i class="
+          icon-instagram"></i></a>
+        <a href="#" class="social-link twitter" aria-label="Twitter" style="grid-area: icon-3;"><i class="
+          icon-twitter"></i></a>
+      </div>
+
+      <div class="footer-legal">
+        <p>© 2025 New World Radio. Todos los derechos reservados.</p>
+        <a href="#">Aviso legal</a> | <a href="#">Política de privacidad</a>
+        <span class="footer-microcopy">Promovemos la música, el respeto y los valores en cada emisión.</span>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

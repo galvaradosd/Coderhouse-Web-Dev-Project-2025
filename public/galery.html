@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería | New World Radio</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/main-pages.css">
+</head>
+
+<body>
+  <!-- checkbox de control global para menú tipo hamburguesa -->
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input" style="display: none;">
+
+  <!--  ===================================================
+                    CONTENIDO HEADER
+          =================================================== -->
+
+  <header id="nwr-header" class="nwr-header">
+
+    <!-- Logo -->
+
+    <div id="nwr-logo" class="nwr-logo">
+      <a href="../../index.html" class="logo-link"><img
+          src="../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio Logo" class="logo-image">
+      </a>
+    </div>
+
+    <!-- Reproductor en vivo -->
+
+    <div id="live-player" class="live-player" role="presentation" aria-label="Reproductor de radio (decorativo)">
+
+
+      <!-- Estado EN VIVO -->
+      <div class="nwr-live-badge">
+        <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
+        <span class="nwr-live-text">EN VIVO</span>
+      </div>
+
+      <!-- Información de reproducción en vivo -->
+      <div class="nwr-program-info">
+        <h3 class="nwr-show-title">Morning Brew</h3>
+        <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
+      </div>
+
+      <!-- Indicador visual de play/pause -->
+      <div class="nwr-status-indicator">
+        <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
+      </div>
+
+
+
+    </div>
+
+    <!-- Contenedor de selector de idioma y menú hamburguesa -->
+    <div class="header-toolbar">
+      <!-- Selector de idioma -->
+      <div class="language-selector">
+        <button class="lang-btn active" type="button">ESP</button>
+        <button class="lang-btn" type="button">ENG</button>
+      </div>
+
+      <!-- botón de hamburguesa -->
+      <label for="menu-toggle" class="hamburger-button">
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+      </label>
+    </div>
+
+  </header>
+
+  <!-- Navegación como hermano del header -->
+
+  <nav id="nwr-nav" class="nwr-nav mobile-menu">
+    <ul class="nav-menu">
+      <li><a href="../../index.html">Inicio</a></li>
+
+      <!-- PROGRAMAS con accordion/dropdown inteligente -->
+      <li class="expandable-item">
+        <input type="checkbox" id="programs-toggle" class="submenu-toggle">
+        <label for="programs-toggle" class="submenu-label">Programas</label>
+        <div class="submenu-content">
+          <ul class="submenu">
+            <li><a href="../public/radio-shows/morning-brew.html">Morning Brew</a></li>
+            <li><a href="../public/radio-shows/sports-zone.html">Sports Zone</a></li>
+            <li><a href="../public/radio-shows/brave-hearts.html">Brave Hearts</a></li>
+            <li><a href="../public/radio-shows/global-wisdom.html">Global Wisdom</a></li>
+            <li><a href="../public/radio-shows/connected-world.html">Connected World</a></li>
+            <li><a href="../public/radio-shows/professional-life.html">Professional Life</a></li>
+            <li><a href="../public/radio-shows/music-pulse.html">Music Pulse</a></li>
+            <li><a href="../public/radio-shows/dj-zone.html">DJ Zone</a></li>
+            <li><a href="../public/radio-shows/resilience-radio.html">Resilience Radio</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">Galería</a></li>
+      <li><a href="./schedule.html">Programación</a></li>
+      <li><a href="./about-us.html">Sobre Nosotros</a></li>
+      <li><a href="./contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Overlay para cerrar el menu tocando fuera -->
+
+  <label for="menu-toggle" class="menu-overlay"></label>
+
+
+  <!--  ===================================================
+                    CONTENIDO PRINCIPAL (main)
+          =================================================== -->
+
+  <main>
+    <section class="gallery-header">
+      <h1 class="gallery-title">Galería New World Radio</h1>
+      <p class="gallery-intro">
+        Descubre el universo visual de nuestra emisora: eventos, locutores y experiencias que nos inspiran cada día.
+      </p>
+    </section>
+
+    <section class="gallery-grid">
+      <figure class="gallery-item">
+        <a href="#img1">
+          <img src="images/galeria-evento1.jpg" alt="Concierto aniversario New World Radio">
+        </a>
+        <figcaption>Aniversario en vivo con invitados especiales</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img2">
+          <img src="images/galeria-locutores1.jpg" alt="Locutores en cabina">
+        </a>
+        <figcaption>Equipo de locutores transmitiendo en cabina central</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img3">
+          <img src="images/galeria-publico1.jpg" alt="Audiencia disfrutando">
+        </a>
+        <figcaption>Público participando en nuestro festival anual</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img4">
+          <img src="images/galeria-instalaciones.jpg" alt="Estudios de grabación">
+        </a>
+        <figcaption>Nuevos estudios y zona de grabación</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img5">
+          <img src="images/galeria-presentador1.jpg" alt="Presentador al aire">
+        </a>
+        <figcaption>Juan Herrera animando la mañana</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img6">
+          <img src="images/galeria-concierto.jpg" alt="Concierto al aire libre">
+        </a>
+        <figcaption>Concierto al aire libre con DJs invitados</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img7">
+          <img src="images/galeria-premio-radio.jpg" alt="Entrega de premios de radio local">
+        </a>
+        <figcaption>Celebración de galardón a “Mejor Emisora del Año”</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <a href="#img8">
+          <img src="images/galeria-equipo-tecnico.jpg" alt="Equipo técnico trabajando en estudio">
+        </a>
+        <figcaption>El equipo técnico garantizando la mejor calidad de audio</figcaption>
+      </figure>
+    </section>
+
+    <!-- Lightbox overlays -->
+    <div class="lightbox" id="img1">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-evento1.jpg" alt="Concierto aniversario New World Radio">
+      <span class="caption">Aniversario en vivo con invitados especiales</span>
+    </div>
+    <div class="lightbox" id="img2">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-locutores1.jpg" alt="Locutores en cabina">
+      <span class="caption">Equipo de locutores transmitiendo en cabina central</span>
+    </div>
+    <div class="lightbox" id="img3">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-publico1.jpg" alt="Audiencia disfrutando">
+      <span class="caption">Público participando en nuestro festival anual</span>
+    </div>
+    <div class="lightbox" id="img4">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-instalaciones.jpg" alt="Estudios de grabación">
+      <span class="caption">Nuevos estudios y zona de grabación</span>
+    </div>
+    <div class="lightbox" id="img5">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-presentador1.jpg" alt="Presentador al aire">
+      <span class="caption">Juan Herrera animando la mañana</span>
+    </div>
+    <div class="lightbox" id="img6">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-concierto.jpg" alt="Concierto al aire libre">
+      <span class="caption">Concierto al aire libre con DJs invitados</span>
+    </div>
+    <div class="lightbox" id="img7">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-premio-radio.jpg" alt="Entrega de premios de radio local">
+      <span class="caption">Celebración de galardón a “Mejor Emisora del Año”</span>
+    </div>
+    <div class="lightbox" id="img8">
+      <a href="#" class="close"></a>
+      <img src="images/galeria-equipo-tecnico.jpg" alt="Equipo técnico trabajando en estudio">
+      <span class="caption">El equipo técnico garantizando la mejor calidad de audio</span>
+    </div>
+
+  </main>
+
+  <!--  ===================================================
+                                FOOTER
+          =================================================== -->
+
+  <footer>
+    <div class="footer-content">
+
+      <div class="footer-logo">
+        <img src="../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
+          alt="New World Radio logo" class="logo-image">
+        <span>Conectando el mundo a través de la mejor música y contenido que inspira.</span>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="#">Galería</a></li>
+          <li><a href="./schedule.html">Programación</a></li>
+          <li><a href="./about-us.html">Sobre Nosotros</a></li>
+          <li><a href="./contact.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Email: <a href="#">info@newworldradio.com</a></p>
+        <p>Teléfono: <a href="tel:+1234567890">+1 234 567 890</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4 style="grid-area: social;">Síguenos</h4>
+        <a href="#" class="social-link facebook" aria-label="Facebook"><i class="icon-facebook"
+            style="grid-area: icon-1;"></i></a>
+        <a href="#" class="social-link instagram" aria-label="Instagram" style="grid-area: icon-2;"><i class="
+            icon-instagram"></i></a>
+        <a href="#" class="social-link twitter" aria-label="Twitter" style="grid-area: icon-3;"><i class="
+            icon-twitter"></i></a>
+      </div>
+
+      <div class="footer-legal">
+        <p>© 2025 New World Radio. Todos los derechos reservados.</p>
+        <a href="#">Aviso legal</a> | <a href="#">Política de privacidad</a>
+        <span class="footer-microcopy">Promovemos la música, el respeto y los valores en cada emisión.</span>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
