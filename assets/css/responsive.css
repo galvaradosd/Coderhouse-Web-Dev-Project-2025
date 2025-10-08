@@ -1,26 +1,78 @@
-/* ================================
-    RESPONSIVE.CSS
-    New World Radio - Sistema Responsive Centralizado
-    Todas las media queries migradas desde:
-    - components.css
-    - main-pages.css
-    - program-page.css
-   ================================ */
+/* ===============================================
+    RESPONSIVE.CSS - ESTANDARIZADO
+    New World Radio - Sistema Mobile First
+    Breakpoints: 375px | 768px | 1024px | 1440px
+   =============================================== */
 
-/* ============================================
-    RESPONSIVE - MÓVIL (max-width: 768px)
-    Migrado de: components.css, main-pages.css
-   ============================================ */
+/* BASE: 320px (Estilos por defecto en components.css y main-pages.css) */
+
+/* ===============================================
+    MÓVIL PEQUEÑO: max-width 375px
+    iPhone SE, Galaxy Fold, smartphones compactos
+   =============================================== */
+
+@media (max-width: 375px) {
+  .nwr-header {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+  .logo-image {
+    height: clamp(45px, 7vw, 65px);
+    max-width: clamp(140px, 35vw, 250px);
+  }
+  .live-player {
+    max-width: clamp(130px, 40vw, 240px);
+    padding: 0.4rem;
+    gap: 0.4rem;
+  }
+  .nwr-live-badge {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  .nwr-live-dot {
+    width: 10px;
+    height: 10px;
+  }
+  .nwr-live-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.8px;
+  }
+  .nwr-program-info {
+    display: none !important;
+  }
+  .play-btn {
+    width: 42px;
+    height: 42px;
+  }
+  .hamburger-button {
+    width: 36px;
+    height: 36px;
+    padding: 0.4rem;
+  }
+  .hamburger-icon {
+    height: 3px;
+  }
+
+  .nwr-nav {
+    position: relative;
+  }
+  .schedule-table th,
+  .schedule-table td {
+    min-width: 75px;
+    padding: 0.5rem 0.2rem;
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* =============================================
+    MÓVIL ESTÁNDAR: max-width 768px
+    iPhone 12/13/14, Pixel, Galaxy S, iPad Mini
+   ============================================= */
 
 @media (max-width: 768px) {
-  /* ===== HEADER & NAVEGACIÓN (components.css) ===== */
-
-  /* [Cambia fondo del header cuando menú está abierto] */
   #menu-toggle:checked ~ .nwr-header {
     background-color: var(--secondary-black);
   }
-
-  /* [Reproductor en modo compacto móvil] */
   .live-player {
     display: flex;
     flex-direction: row;
@@ -28,20 +80,15 @@
     justify-content: center;
     gap: var(--gap-sm);
   }
-
-  /* [Oculta información del programa en móvil] */
   .nwr-program-info {
     display: none;
   }
-
-  /* [Muestra botón hamburguesa en móvil] */
   .hamburger-button {
     display: flex;
   }
-
-  /* [Navegación desplegable móvil] */
   .nwr-nav {
-    position: sticky;
+    position: fixed; /* ← CAMBIAR: De sticky/relative a fixed */
+    right: 0;
     display: flex;
     width: min-content;
     justify-self: end;
@@ -53,29 +100,21 @@
     border: 1px solid var(--border-gray);
     box-shadow: 0 10px 30px rgba(44, 44, 44, 0.5);
   }
-
-  /* [Items navegación ancho completo] */
   .nwr-nav li {
     width: 100%;
     text-align: end;
   }
-
-  /* [Menú visible cuando checkbox activado] */
   #menu-toggle:checked ~ .nwr-nav {
     transform: translateY(0);
   }
-
-  /* [Menu layout vertical] */
   .nav-menu {
     flex-direction: column;
     align-items: flex-end;
     height: auto;
   }
-
-  /* [Links navegación ajustados móvil] */
   .nav-menu > li > a,
   .submenu-label {
-    padding: var(--gap-md) var(--card-padding);
+    padding: 0 var(--card-padding);
     position: static;
     display: flex;
     justify-content: flex-end;
@@ -84,14 +123,10 @@
     align-content: center;
     order: 1;
   }
-
-  /* [Dropdown transformado a acordeón] */
   .expandable-item {
     display: flex;
     flex-direction: column;
   }
-
-  /* [Checkbox invisible para acordeón] */
   .submenu-toggle {
     position: sticky;
     width: 100%;
@@ -102,16 +137,12 @@
     top: 0;
     left: 0;
   }
-
-  /* [Label del acordeón] */
   .submenu-label {
     display: block;
     position: relative;
     order: 1;
     text-align: end;
   }
-
-  /* [Contenedor animado submenu con grid trick] */
   .submenu-content {
     display: grid;
     grid-template-rows: var(--submenu-rows, 0fr);
@@ -121,8 +152,6 @@
     order: 2;
     z-index: 10;
   }
-
-  /* [Submenu dropdown] */
   .submenu {
     min-height: 0;
     overflow: hidden;
@@ -136,26 +165,22 @@
     margin: 0;
     border: transparent;
   }
-
-  /* [Links submenu con indentación] */
   .submenu a {
     display: block;
     padding: var(--gap-md) var(--card-padding);
-    padding-left: 3rem;
   }
-
-  /* [Items submenu ancho completo] */
   .submenu li {
     display: block;
     width: 100%;
   }
 
-  /* [Estado expandido acordeón] */
+  .submenu li a {
+    justify-content: end;
+    padding: 1.5rem;
+  }
   .expandable-item:has(.submenu-toggle:checked) {
     --submenu-rows: 1fr;
   }
-
-  /* [Overlay oscuro cuando menú abierto] */
   .menu-overlay {
     position: fixed;
     top: 0;
@@ -169,24 +194,18 @@
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
     cursor: pointer;
   }
-
-  /* [Muestra overlay cuando menú abierto] */
   #menu-toggle:checked ~ .menu-overlay {
     opacity: 1;
     visibility: visible;
   }
-
-  /* [Oculta selector idioma en móvil] */
   .language-selector {
     display: none;
   }
-
-  /* ===== FOOTER (components.css) ===== */
-
   .footer-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     row-gap: 2rem;
   }
-
   .footer-logo {
     display: flex;
     flex-direction: column;
@@ -195,104 +214,69 @@
     text-align: center;
     padding-top: 1rem;
   }
-
   .footer-links {
     padding-top: 1rem;
     text-align: center;
   }
-
   .footer-links > ul {
     text-align: center;
     align-items: center;
     padding: 1rem;
   }
-
   .footer-contact {
     padding: 1rem;
     text-align: center;
   }
-
   .footer-social {
     padding-top: 1rem;
     justify-content: center;
     text-align: center;
   }
-
-  /* ===== HERO SECTION (main-pages.css) ===== */
-
   .hero-content {
     padding: 2rem;
   }
 
-  /* ===== EVENTOS (main-pages.css) ===== */
-
-  .events-grid {
-    grid-template-columns: 1fr;
-    gap: var(--card-gap);
+  .hero-content p {
+    align-content: center;
   }
-
-  .event-card {
-    padding: var(--card-padding);
-  }
-}
-
-/* ============================================
-   RESPONSIVE - TABLET/MÓVIL GRANDE (max-width: 900px)
-   Migrado de: main-pages.css, program-page.css
-   ============================================ */
-
-@media (max-width: 900px) {
-  /* ===== PROGRAMACIÓN (main-pages.css) ===== */
 
   .programming-content {
     grid-template-columns: 1fr;
     max-width: 500px;
   }
-
   .program-card .card-img-top {
     height: 140px;
   }
-
-  /* ===== SCHEDULE (main-pages.css) ===== */
-
   .schedule-header,
   .schedule-table-section {
     padding-left: var(--gap-md);
     padding-right: var(--gap-md);
   }
-
   .schedule-title {
     font-size: var(--font-size-xl);
   }
-
-  .schedule-table th,
-  .schedule-table td {
-    padding: 0.5rem 0.2rem;
-    font-size: var(--font-size-sm);
+  .gallery-header,
+  .gallery-grid {
+    padding-left: var(--gap-md);
+    padding-right: var(--gap-md);
   }
-
-  /* ===== ABOUT US (main-pages.css) ===== */
-
+  .gallery-title {
+    font-size: var(--font-size-xl);
+  }
   .about-header,
   .section-padding {
     padding-left: var(--gap-md);
     padding-right: var(--gap-md);
   }
-
   .about-title {
     font-size: var(--font-size-xl);
   }
-
   .about-mision-vision {
     gap: var(--gap-md);
   }
-
   .team-grid {
     grid-template-columns: 1fr;
   }
-
-  /* ===== CONTACT (main-pages.css) ===== */
-
   .contact-form-section {
     flex-direction: column;
     align-items: stretch;
@@ -300,29 +284,29 @@
     padding-left: var(--gap-md);
     padding-right: var(--gap-md);
   }
-
   .contact-form,
   .contact-extra {
     max-width: 100%;
   }
-
-  /* ===== PROGRAM PAGE (program-page.css) ===== */
-
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: var(--card-gap);
+  }
+  .event-card {
+    padding: var(--card-padding);
+  }
   .episodes-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
   .program-host {
     margin-inline: 0;
   }
-
   .host-card {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
   }
-
   .program-hero-overlay {
     max-width: 100%;
     padding: 2rem 1rem;
@@ -330,143 +314,64 @@
 }
 
 /* ============================================
-   RESPONSIVE - TABLET PEQUEÑO (max-width: 700px)
-   Migrado de: main-pages.css
+            TABLET: 768px - 1023px
+            iPad, Galaxy Tab, Surface
    ============================================ */
 
-@media (max-width: 700px) {
-  /* ===== GALLERY (main-pages.css) ===== */
-
-  .gallery-header,
-  .gallery-grid {
-    padding-left: var(--gap-md);
-    padding-right: var(--gap-md);
-  }
-
-  .gallery-title {
-    font-size: var(--font-size-xl);
-  }
-}
-
-/* ============================================
-   RESPONSIVE - MÓVIL PEQUEÑO (max-width: 600px)
-   Migrado de: main-pages.css
-   ============================================ */
-
-@media (max-width: 600px) {
-  /* ===== SCHEDULE TABLE (main-pages.css) ===== */
-
-  .schedule-table th,
-  .schedule-table td {
-    min-width: 75px;
-  }
-}
-
-/* ============================================
-   MEJORAS ADICIONALES - NUEVOS BREAKPOINTS
-   Optimizaciones para dispositivos ultra pequeños
-   ============================================ */
-
-/* ===== MÓVIL ULTRA PEQUEÑO: 320px-374px ===== */
-@media (max-width: 374px) {
-  /* [Header compacto] */
-  .nwr-header {
-    padding: 0.5rem 0.75rem;
-    gap: 0.5rem;
-  }
-
-  /* [Logo reducido] */
-  .logo-image {
-    height: clamp(45px, 7vw, 65px);
-    max-width: clamp(140px, 35vw, 250px);
-  }
-
-  /* [Reproductor ultra compacto] */
-  .live-player {
-    max-width: clamp(130px, 40vw, 240px);
-    padding: 0.4rem;
-    gap: 0.4rem;
-  }
-
-  /* [Badge EN VIVO compacto] */
-  .nwr-live-badge {
-    padding: 6px 10px;
-    gap: 6px;
-  }
-
-  /* [Dot más pequeño] */
-  .nwr-live-dot {
-    width: 10px;
-    height: 10px;
-  }
-
-  /* [Texto EN VIVO reducido] */
-  .nwr-live-text {
-    font-size: 0.65rem;
-    letter-spacing: 0.8px;
-  }
-
-  /* [Info programa forzar ocultar] */
-  .nwr-program-info {
-    display: none !important;
-  }
-
-  /* [Botón play táctil mínimo] */
-  .play-btn {
-    width: 42px;
-    height: 42px;
-  }
-
-  /* [Hamburguesa más pequeño] */
-  .hamburger-button {
-    width: 36px;
-    height: 36px;
-    padding: 0.4rem;
-  }
-
-  /* [Líneas hamburguesa más finas] */
-  .hamburger-icon {
-    height: 3px;
-  }
-}
-
-/* ===== TABLET: 768px-1023px ===== */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* [Header ajustes intermedios] */
   .nwr-header {
     padding: var(--gap-sm) var(--gap-lg);
   }
-
-  /* [Logo tamaño intermedio] */
   .logo-image {
     height: clamp(65px, 7vw, 75px);
     max-width: clamp(220px, 35vw, 350px);
   }
-
-  /* [Reproductor muestra info programa] */
   .live-player {
     max-width: clamp(350px, 45vw, 500px);
   }
-
-  /* [Información programa visible] */
   .nwr-program-info {
     display: flex;
     flex-direction: column;
   }
-
-  /* [Ajusta fuentes para tablet] */
   .nwr-show-title {
     font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   }
-
   .nwr-show-subtitle {
     font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   }
 }
 
-/* ===== DESKTOP GRANDE: 1440px+ ===== */
+/* ============================================
+            DESKTOP: 1024px+
+        Laptops, monitores estándar
+   ============================================ */
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 800px;
+  }
+  .container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+          DESKTOP GRANDE: 1440px+
+        Monitores 2K/4K, ultra wide        
+   ============================================ */
+
 @media (min-width: 1440px) {
-  /* [Optimizaciones para pantallas grandes] */
-  /* [Aquí puedes agregar ajustes específicos para monitores 2K/4K] */
-  /* [Por ejemplo: contenedores con max-width mayor, tipografía ampliada, etc.] */
+  .container-custom {
+    max-width: 1400px;
+  }
+  .hero {
+    min-height: 900px;
+  }
+  .hero h1 {
+    font-size: 4rem;
+  }
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

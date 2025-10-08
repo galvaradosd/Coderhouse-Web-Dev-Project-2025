@@ -434,6 +434,7 @@ button:focus,
   box-shadow: 0 0 0 0;
   width: 90%;
   align-self: center;
+  padding: var(--gap-xs);
 }
 
 .event-card a {
@@ -450,6 +451,7 @@ button:focus,
   box-shadow: 0 0 0 0;
   width: 80%;
   align-self: center;
+  padding: var(--gap-xs);
 }
 
 .event-card a:hover {
