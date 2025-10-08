@@ -38,7 +38,7 @@
     letter-spacing: 0.8px;
   }
   .nwr-program-info {
-    display: none !important;
+    display: none;
   }
   .play-btn {
     width: 42px;
@@ -61,6 +61,10 @@
     min-width: 75px;
     padding: 0.5rem 0.2rem;
     font-size: var(--font-size-sm);
+  }
+
+  .program-hero {
+    background-size: cover;
   }
 }
 
@@ -201,37 +205,7 @@
   .language-selector {
     display: none;
   }
-  .footer-content {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    row-gap: 2rem;
-  }
-  .footer-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--gap-md);
-    text-align: center;
-    padding-top: 1rem;
-  }
-  .footer-links {
-    padding-top: 1rem;
-    text-align: center;
-  }
-  .footer-links > ul {
-    text-align: center;
-    align-items: center;
-    padding: 1rem;
-  }
-  .footer-contact {
-    padding: 1rem;
-    text-align: center;
-  }
-  .footer-social {
-    padding-top: 1rem;
-    justify-content: center;
-    text-align: center;
-  }
+
   .hero-content {
     padding: 2rem;
   }
@@ -307,9 +281,55 @@
     align-items: flex-start;
     text-align: left;
   }
+  .program-hero {
+    background-size: cover;
+  }
   .program-hero-overlay {
     max-width: 100%;
     padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 2rem;
+  }
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-md);
+    text-align: center;
+    padding-top: 1rem;
+  }
+  .footer-links {
+    padding-top: 1rem;
+    text-align: center;
+  }
+  .footer-links > ul {
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  .footer-contact {
+    padding: 1rem;
+    text-align: center;
+  }
+  .footer-social {
+    padding-top: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
   }
 }
 
@@ -339,6 +359,10 @@
   .nwr-show-subtitle {
     font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   }
+
+  .program-hero {
+    background-size: cover;
+  }
 }
 
 /* ============================================
@@ -353,6 +377,9 @@
   .container-custom {
     max-width: 1200px;
     margin: 0 auto;
+  }
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -372,6 +399,6 @@
     font-size: 4rem;
   }
   .events-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }

@@ -89,7 +89,6 @@
   gap: var(--gap-sm);
 }
 
-#live-player:hover,
 .live-player:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(213, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -528,32 +527,62 @@ footer {
   text-decoration: underline;
 }
 
-.footer-social {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 0.5fr 1fr;
-  grid-template-areas: "social social social" "icon-1 icon-2 icon-3";
-  justify-content: center;
-  gap: var(--gap-md);
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center; /* ← AGREGAR: Centrar iconos */
 }
 
-.footer-social .social-link {
+.social-link {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--tertiary-black);
+  width: 44px; /* ← CAMBIAR: Más grande para táctil */
+  height: 44px; /* ← CAMBIAR */
   border-radius: 50%;
+  background-color: var(--tertiary-black);
   color: var(--pure-white);
-  transition: var(--transition-slow);
-  margin-right: 0.5rem;
+  text-decoration: none;
+  font-size: 1.25rem; /* ← AGREGAR: Tamaño de icono */
+  transition: var(--transition);
 }
 
-.footer-social .social-link:hover {
-  background: var(--accent-red);
-  transform: translateY(-3px);
+.social-link:hover {
+  background-color: var(--accent-red);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(213, 0, 0, 0.3); /* ← AGREGAR: Efecto glow */
+}
+
+.social-link:active {
+  transform: scale(0.95); /* ← AGREGAR: Feedback táctil */
+}
+
+/* Opcional: Colores específicos por red social */
+.social-link .fa-facebook-f:hover {
+  color: #1877f2; /* Azul de Facebook */
+}
+
+.social-link:has(.fa-facebook-f):hover {
+  background-color: #1877f2;
+}
+
+.social-link:has(.fa-instagram):hover {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.social-link:has(.fa-twitter):hover {
+  background-color: #1da1f2; /* Azul de Twitter */
+}
+
+.social-link:has(.fa-youtube):hover {
+  background-color: #ff0000; /* Rojo de YouTube */
 }
 
 .footer-legal {
