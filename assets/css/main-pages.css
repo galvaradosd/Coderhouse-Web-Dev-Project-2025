@@ -657,6 +657,7 @@ button:focus,
   padding: var(--gap-lg) var(--section-padding-inline);
   overflow-x: auto;
 }
+
 .schedule-table {
   width: 100%;
   max-width: 1200px;
@@ -795,12 +796,13 @@ button:focus,
   margin-bottom: 2rem;
 }
 .about-block {
-  background: var(--tertiary-black);
+  background: var(--secondary-black);
   padding: 2rem;
   border-radius: var(--border-radius-sm);
   flex: 1 1 320px;
   min-width: 260px;
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-gray);
 }
 .about-block h2 {
   color: var(--accent-red);
@@ -819,6 +821,7 @@ button:focus,
   padding: 2.5rem 1.5rem;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-gray);
 }
 .about-history h2 {
   color: var(--accent-red);
@@ -841,7 +844,7 @@ button:focus,
 }
 .team-card {
   background: var(--tertiary-black);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-md);
   padding: 1.5rem 0.8rem;
   display: flex;
@@ -849,8 +852,8 @@ button:focus,
   align-items: center;
 }
 .team-card img {
-  width: 110px;
-  height: 110px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
@@ -858,7 +861,7 @@ button:focus,
   box-shadow: 0 2px 16px var(--red-alpha-10);
 }
 .team-card strong {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xl);
   color: var(--accent-red);
   margin-bottom: 0.3rem;
 }
@@ -916,7 +919,7 @@ button:focus,
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 4rem 3rem;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -989,10 +992,9 @@ button:focus,
   border-radius: var(--border-radius-sm);
   color: var(--pure-white);
   font-size: var(--font-size-base);
-  padding: 2.2rem 2rem;
+  padding: 2rem;
   box-shadow: var(--shadow-md);
-  min-width: 220px;
-  margin-top: 0.6rem;
+  min-width: 280px;
 }
 .contact-extra a {
   color: var(--accent-red);
