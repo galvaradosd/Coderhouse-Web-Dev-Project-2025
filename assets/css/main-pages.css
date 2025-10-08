@@ -193,9 +193,8 @@ button[class*="listen"]:focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gap-lg);
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--gap-lg);
 }
 
 .program-now,
