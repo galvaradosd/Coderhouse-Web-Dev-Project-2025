@@ -1,0 +1,24 @@
+// ============================================================
+// SECCIÓN PROGRAMACIÓN AHORA
+// ============================================================
+
+.programming-section {
+  padding: $card-padding;
+  background: $secondary-black;
+  border-bottom: 2px solid $border-gray;
+  width: 100%;
+}
+
+.programming-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $gap-md;
+}
+
+.programming-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+}

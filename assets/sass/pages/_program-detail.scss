@@ -1,0 +1,146 @@
+// ============================================================
+// PROGRAM DETAIL PAGE
+// ============================================================
+
+.program-hero {
+  position: relative;
+  min-height: 340px;
+  background-size: 50%;
+  background-position: center;
+  border-bottom: 4px solid $accent-red;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.program-hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.92) 50%,
+    rgba(213, 0, 0, 0.05) 100%
+  );
+  padding: 2.5rem 2rem;
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+.program-title {
+  color: $accent-red;
+  font-size: $font-size-h1;
+  letter-spacing: 0.05em;
+}
+
+.program-tagline {
+  color: $pure-white;
+  font-size: $font-size-lg;
+  opacity: 0.92;
+}
+
+.program-description {
+  background: $secondary-black;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+  margin-inline: auto;
+  max-width: 900px;
+
+  h2 {
+    color: $accent-red;
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    color: $pure-white;
+    font-size: $font-size-base;
+    margin-bottom: 0;
+  }
+}
+
+.program-schedule {
+  justify-items: center;
+  text-align: center;
+
+  h3 {
+    color: $accent-red;
+    margin-bottom: 1rem;
+    font-size: $font-size-h1;
+  }
+
+  ul {
+    list-style: none;
+    font-size: $font-size-h3;
+  }
+
+  li {
+    color: $soft-gray;
+    margin-bottom: 0.7rem;
+  }
+}
+
+.program-host {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.host-card {
+  display: flex;
+  gap: $gap-lg;
+  align-items: center;
+  background: $tertiary-black;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-md;
+  padding: 2rem;
+}
+
+.host-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $accent-red;
+  box-shadow: 0 4px 20px $red-alpha-10;
+}
+
+.host-info {
+  h4 {
+    color: $accent-red;
+    margin-bottom: 0.7rem;
+  }
+
+  p {
+    color: $pure-white;
+    opacity: 0.85;
+  }
+}
+
+.program-episodes {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.episodes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap-lg;
+  margin-top: 2rem;
+}
+
+.episode-card {
+  background: $secondary-black;
+  border-radius: $border-radius-sm;
+  padding: 1.25rem 1.5rem;
+  box-shadow: $shadow-sm;
+
+  h4 {
+    color: $accent-red;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    color: $pure-white;
+    font-size: $font-size-base;
+  }
+}
+
+.program-cta {
+  @include flex-center(row);
+  padding: 2rem;
+}

@@ -1,0 +1,88 @@
+// ============================================================
+// HEADER PRINCIPAL
+// ============================================================
+
+.nwr-header {
+  @include flex-center(row);
+  justify-content: space-between;
+  padding: $gap-sm $gap-md;
+  gap: $gap-sm;
+  background-color: $primary-black;
+  border-bottom: 1px solid $border-gray;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  transition: background-color 0.3s ease;
+}
+
+.header-toolbar {
+  @include flex-center(row);
+  gap: $gap-md;
+}
+
+// ----- LOGO -----
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: $transition;
+  padding: 10px;
+
+  &:hover .logo-image {
+    transform: scale(1.05);
+    filter: brightness(1.1) drop-shadow(0 0 10px rgba(220, 38, 38, 0.3));
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent-red;
+    outline-offset: 4px;
+    border-radius: 0;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+.logo-image {
+  height: clamp(60px, 8vw, 80px);
+  width: auto;
+  max-width: clamp(200px, 40vw, 400px);
+  object-fit: contain;
+  image-rendering: optimizeQuality;
+  image-rendering: crisp-edges;
+  transition: $transition;
+}
+
+// ----- SELECTOR DE IDIOMA -----
+.language-selector {
+  display: flex;
+  gap: $gap-sm;
+  padding: $gap-sm;
+  margin-left: $gap-md;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 2px solid $border-gray;
+  color: $pure-white;
+  padding: 0.5rem $gap-md;
+  cursor: pointer;
+  transition: $transition;
+  font-family: $font-display;
+  font-weight: 500;
+  line-height: inherit;
+
+  &.active,
+  &:hover {
+    border-color: $accent-red;
+    color: $accent-red;
+  }
+}
+  

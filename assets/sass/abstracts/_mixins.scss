@@ -1,0 +1,105 @@
+// ============================================================
+// MIXINS REUTILIZABLES
+// ============================================================
+
+// ----- MIXIN: Media Queries (CORREGIDO) -----
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    // CORREGIDO: Usando interpolación #{} para operaciones
+    @media (min-width: #{$breakpoint-sm + 1px}) and (max-width: #{$breakpoint-md - 1px}) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+// ----- MIXIN: Flexbox Center -----
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+// ----- MIXIN: Botones CTA -----
+@mixin button-cta {
+  background: rgba(213, 0, 0, 0.15);
+  padding: 8px 14px;
+  border-radius: $border-radius;
+  border: 1px solid $accent-red;
+  font-family: $font-secondary;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: $accent-red;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: rgba(213, 0, 0, 0.25);
+    color: $pure-white;
+    border-color: $red-hover;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(213, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    background: rgba(213, 0, 0, 0.3);
+  }
+
+  &:focus {
+    outline: 2px solid $red-focus;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px $red-alpha-20;
+  }
+}
+
+// ----- MIXIN: Tarjetas Base -----
+@mixin card-base {
+  background: $secondary-black;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+  transition: $transition;
+
+  &:hover {
+    border-color: $accent-red;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+  }
+}
+
+// ----- MIXIN: Text Shadow Glow -----
+@mixin text-shadow-glow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+// ----- MIXIN: Gradient Overlay -----
+@mixin gradient-overlay($angle: 135deg, $opacity1: 0.85, $opacity2: 0.1) {
+  background: linear-gradient(
+    $angle,
+    rgba(10, 10, 10, $opacity1) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(213, 0, 0, $opacity2) 100%
+  );
+}

@@ -1,0 +1,261 @@
+// ============================================================
+// FUNCIONES SCSS REUTILIZABLES
+// New World Radio - Utilidades para cálculos y conversiones
+// ============================================================
+
+// ----- FUNCIÓN: Conversión de px a rem -----
+// Uso: font-size: rem(16px);
+// Output: font-size: 1rem;
+@function rem($pixels, $base: 16px) {
+  @if unitless($pixels) {
+    $pixels: $pixels * 1px;
+  }
+  @if unitless($base) {
+    $base: $base * 1px;
+  }
+  @return calc($pixels / $base) * 1rem;
+}
+
+// ----- FUNCIÓN: Conversión de px a em -----
+// Uso: padding: em(20px);
+// Output: padding: 1.25em;
+@function em($pixels, $base: 16px) {
+  @if unitless($pixels) {
+    $pixels: $pixels * 1px;
+  }
+  @if unitless($base) {
+    $base: $base * 1px;
+  }
+  @return calc($pixels / $base) * 1em;
+}
+
+// ----- FUNCIÓN: Obtener color con transparencia -----
+// Uso: background: alpha-color($accent-red, 0.2);
+// Output: background: rgba(220, 38, 38, 0.2);
+@function alpha-color($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+// ----- FUNCIÓN: Aclarar color (tint) -----
+// Uso: color: tint($accent-red, 20%);
+// Mezcla el color con blanco para aclararlo
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// ----- FUNCIÓN: Oscurecer color (shade) -----
+// Uso: background: shade($accent-red, 30%);
+// Mezcla el color con negro para oscurecerlo
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// ----- FUNCIÓN: Calcular contraste automático de texto -----
+// Devuelve blanco o negro según el fondo para mejor legibilidad
+// Uso: color: contrast-text($accent-red);
+@function contrast-text($color) {
+  $luminance: (
+      red($color) * 0.299 + green($color) * 0.587 + blue($color) * 0.114
+    ) / 255;
+
+  @if $luminance > 0.5 {
+    @return #000000; // Fondo claro → texto negro
+  } @else {
+    @return #ffffff; // Fondo oscuro → texto blanco
+  }
+}
+
+// ----- FUNCIÓN: Obtener espaciado del sistema -----
+// Uso: margin: spacing(2); // Retorna $gap-md
+// Sistema: 0.5, 1, 2, 3, 4 → xs, sm, md, lg, xl
+@function spacing($multiplier: 1) {
+  @if $multiplier == 0.5 {
+    @return $gap-xs;
+  } @else if $multiplier == 1 {
+    @return $gap-sm;
+  } @else if $multiplier == 2 {
+    @return $gap-md;
+  } @else if $multiplier == 3 {
+    @return $gap-lg;
+  } @else if $multiplier == 4 {
+    @return $gap-xl;
+  } @else {
+    @return $gap-md; // Default
+  }
+}
+
+// ----- FUNCIÓN: Fluid Typography avanzada -----
+// Genera valores fluidos entre dos tamaños con viewport específico
+// Uso: font-size: fluid-type(16px, 24px, 320px, 1440px);
+@function fluid-type(
+  $min-size,
+  $max-size,
+  $min-viewport: 320px,
+  $max-viewport: 1440px
+) {
+  $min-rem: calc($min-size / 16px) * 1rem;
+  $max-rem: calc($max-size / 16px) * 1rem;
+
+  @return clamp(
+    $min-rem,
+    calc(
+      #{$min-rem} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-viewport}) /
+            (#{strip-unit($max-viewport)} - #{strip-unit($min-viewport)}))
+    ),
+    $max-rem
+  );
+}
+
+// ----- FUNCIÓN: Eliminar unidades -----
+// Helper para cálculos matemáticos
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return calc($number / ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// ----- FUNCIÓN: Z-index desde mapa -----
+// Mantiene control centralizado de capas
+// Uso: z-index: z('header');
+$z-layers: (
+  "underground": -1,
+  "base": 0,
+  "content": 1,
+  "overlay": 10,
+  "dropdown": 15,
+  "header": 20,
+  "modal": 100,
+  "notification": 200,
+  "tooltip": 300,
+);
+
+@function z($layer) {
+  @if map-has-key($z-layers, $layer) {
+    @return map-get($z-layers, $layer);
+  }
+  @warn "Z-index layer `#{$layer}` no encontrado. Usando z-index: 1 por defecto.";
+  @return 1;
+}
+
+// ----- FUNCIÓN: Sombra dinámica por elevación -----
+// Similar a Material Design
+// Uso: box-shadow: elevation(3);
+@function elevation($level) {
+  @if $level == 1 {
+    @return 0 2px 4px rgba(0, 0, 0, 0.1);
+  } @else if $level == 2 {
+    @return 0 4px 8px rgba(0, 0, 0, 0.12);
+  } @else if $level == 3 {
+    @return 0 8px 16px rgba(0, 0, 0, 0.15);
+  } @else if $level == 4 {
+    @return 0 12px 24px rgba(0, 0, 0, 0.18);
+  } @else if $level == 5 {
+    @return 0 16px 32px rgba(0, 0, 0, 0.2);
+  } @else {
+    @return 0 4px 8px rgba(0, 0, 0, 0.12); // Default nivel 2
+  }
+}
+
+// ----- FUNCIÓN: Gradiente rojo dinámico -----
+// Genera gradientes con el rojo de New World Radio
+// Uso: background: red-gradient(135deg, 0.8, 0.1);
+@function red-gradient(
+  $angle: 135deg,
+  $start-opacity: 0.85,
+  $end-opacity: 0.1
+) {
+  @return linear-gradient(
+    $angle,
+    rgba(220, 38, 38, $start-opacity) 0%,
+    rgba(220, 38, 38, calc($start-opacity * 0.7)) 50%,
+    rgba(220, 38, 38, $end-opacity) 100%
+  );
+}
+
+// ----- FUNCIÓN: Obtener breakpoint -----
+// Retorna valor de breakpoint desde variables
+// Uso: @media (min-width: breakpoint('md')) { ... }
+@function breakpoint($size) {
+  @if $size == "xs" {
+    @return $breakpoint-xs;
+  } @else if $size == "sm" {
+    @return $breakpoint-sm;
+  } @else if $size == "md" {
+    @return $breakpoint-md;
+  } @else if $size == "lg" {
+    @return $breakpoint-lg;
+  } @else {
+    @warn "Breakpoint `#{$size}` no encontrado.";
+    @return $breakpoint-sm;
+  }
+}
+
+// ----- FUNCIÓN: Validar y normalizar color -----
+// Asegura que el input sea un color válido
+@function safe-color($color, $fallback: $primary-black) {
+  @if type-of($color) == "color" {
+    @return $color;
+  } @else {
+    @warn "El valor `#{$color}` no es un color válido. Usando fallback: #{$fallback}";
+    @return $fallback;
+  }
+}
+
+// ----- FUNCIÓN: Ratio de aspecto para contenedores -----
+// Calcula padding-top para aspect ratio
+// Uso: padding-top: aspect-ratio(16, 9); // 56.25%
+@function aspect-ratio($width, $height) {
+  @return calc($height / $width) * 100%;
+}
+
+// ----- FUNCIÓN: Cálculo de luminancia -----
+// Retorna valor numérico de luminancia del color
+// Útil para algoritmos de accesibilidad
+@function luminance($color) {
+  $r: red($color) / 255;
+  $g: green($color) / 255;
+  $b: blue($color) / 255;
+
+  $r: if($r <= 0.03928, calc($r / 12.92), pow(calc(($r + 0.055) / 1.055), 2.4));
+  $g: if($g <= 0.03928, calc($g / 12.92), pow(calc(($g + 0.055) / 1.055), 2.4));
+  $b: if($b <= 0.03928, calc($b / 12.92), pow(calc(($b + 0.055) / 1.055), 2.4));
+
+  @return 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+}
+
+// ----- FUNCIÓN: Mapear valor a rango -----
+// Mapea un valor de un rango a otro (similar a map() en Arduino/Processing)
+// Uso: opacity: map-range(5, 0, 10, 0, 1); // Retorna 0.5
+@function map-range($value, $in-min, $in-max, $out-min, $out-max) {
+  @return calc(
+    $out-min + ($value - $in-min) * ($out-max - $out-min) / ($in-max - $in-min)
+  );
+}
+
+// ----- FUNCIÓN: Obtener color de programa -----
+// Retorna el color asociado a cada programa de radio
+$program-colors: (
+  "morning-brew": rgba(255, 193, 7, 0.1),
+  "sports-zone": rgba(0, 123, 255, 0.1),
+  "resilience-radio": rgba(40, 167, 69, 0.1),
+  "connected-world": rgba(220, 53, 69, 0.1),
+  "brave-hearts": rgba(255, 87, 34, 0.1),
+  "professional-life": rgba(156, 39, 176, 0.1),
+  "music-pulse": rgba(233, 30, 99, 0.1),
+  "global-wisdom": rgba(0, 188, 212, 0.1),
+  "dj-zone": rgba(76, 175, 80, 0.1),
+);
+
+@function program-color($program-name) {
+  @if map-has-key($program-colors, $program-name) {
+    @return map-get($program-colors, $program-name);
+  }
+  @warn "Programa `#{$program-name}` no encontrado.";
+  @return $red-alpha-10; // Fallback
+}
+
+// Uso:
+// .prog.morning-brew {
+//   background: program-color('morning-brew');
+// }

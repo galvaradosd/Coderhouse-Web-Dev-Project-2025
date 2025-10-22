@@ -1,0 +1,38 @@
+// ============================================================
+// TIPOGRAFÍA BASE
+// ============================================================
+
+body {
+  font-family: $font-body;
+  background-color: $primary-black;
+  color: $pure-white;
+  line-height: 1.6;
+
+  @include respond-to(lg) {
+    font-size: $font-size-base;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+// Elementos especiales con Aboreto
+.nav-menu > li > a,
+.submenu a,
+.submenu-label,
+.hero h1,
+.section-header h2,
+.program-title,
+.event-title,
+.current-program {
+  font-family: $font-display;
+}

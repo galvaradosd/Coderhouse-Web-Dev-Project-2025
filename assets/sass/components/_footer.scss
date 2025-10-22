@@ -1,0 +1,158 @@
+// ============================================================
+// FOOTER
+// ============================================================
+
+footer {
+  background-color: $primary-black;
+  border-top: 1px solid $border-gray;
+  padding: $card-padding 0;
+}
+
+.footer-content {
+  margin: 0 auto;
+  padding: 0 $gap-lg;
+  display: grid;
+  gap: $gap-md;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-rows: 1fr 112px;
+}
+
+.footer-logo {
+  @include flex-center(column);
+  align-items: flex-start;
+  gap: $gap-md;
+
+  span {
+    font-family: $font-body;
+    font-size: $font-size-xs;
+    color: $pure-white;
+  }
+}
+
+.footer-links,
+.footer-content,
+.footer-social {
+  h4 {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $pure-white;
+    margin-bottom: $gap-md;
+  }
+}
+
+.footer-links {
+  min-height: fit-content;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+  }
+
+  a {
+    color: $soft-gray;
+    transition: $transition;
+
+    &:hover {
+      color: $accent-red;
+      padding-left: 5px;
+    }
+  }
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: $soft-gray;
+    transition: $transition;
+  }
+
+  a {
+    color: $accent-red;
+    transition: $transition;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-link {
+  @include flex-center(row);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: $tertiary-black;
+  color: $pure-white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: $transition;
+
+  &:hover {
+    background-color: $accent-red;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(213, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Colores específicos por red social
+  &:has(.fa-facebook-f):hover {
+    background-color: #1877f2;
+  }
+
+  &:has(.fa-instagram):hover {
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+  }
+
+  &:has(.fa-twitter):hover {
+    background-color: #1da1f2;
+  }
+
+  &:has(.fa-youtube):hover {
+    background-color: #ff0000;
+  }
+}
+
+.footer-legal {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: $gap-sm;
+  border-top: 1px solid $border-gray;
+  color: $soft-gray;
+  font-size: $font-size-sm;
+
+  a {
+    color: $soft-gray;
+    transition: $transition;
+
+    &:hover {
+      color: $accent-red;
+    }
+  }
+}
+
+.footer-microcopy {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: $font-size-sm;
+  color: $soft-gray;
+  font-style: italic;
+}

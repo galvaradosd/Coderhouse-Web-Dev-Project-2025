@@ -1,0 +1,141 @@
+// ============================================================
+// REPRODUCTOR EN VIVO
+// ============================================================
+
+.live-player {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    $tertiary-black 0%,
+    $secondary-black 100%
+  );
+  border-radius: $border-radius-sm;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all $transition-slow;
+  overflow: hidden;
+  max-width: clamp(300px, 50vw, 600px);
+  @include flex-center(row);
+  padding: $gap-sm;
+  gap: $gap-sm;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(213, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(213, 0, 0, 0.2);
+  }
+}
+
+.nwr-live-badge {
+  @include flex-center(row);
+  gap: 8px;
+  background: rgba(213, 0, 0, 0.15);
+  padding: 8px 14px;
+  border-radius: $border-radius;
+  border: 1px solid $accent-red;
+  flex-shrink: 0;
+}
+
+.nwr-live-dot {
+  width: 12px;
+  height: 12px;
+  background: $accent-red;
+  border-radius: 50%;
+  animation: nwr-live-pulse 2s infinite;
+  box-shadow: 0 0 8px rgba(213, 0, 0, 0.4);
+}
+
+.nwr-live-text {
+  color: $accent-red;
+  font-family: $font-secondary;
+  font-weight: 700;
+  font-size: $font-size-xs;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nwr-program-info {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.nwr-show-title {
+  font-family: $font-display;
+  font-size: $font-size-base;
+  font-weight: 400;
+  color: $pure-white;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nwr-show-subtitle {
+  font-family: $font-body;
+  font-size: $font-size-xs;
+  color: $soft-gray;
+  margin: 0;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.nwr-status-indicator {
+  @include flex-center(row);
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.play-btn {
+  background: $accent-red;
+  color: $pure-white;
+  border: none;
+  border-radius: $border-radius-sm;
+  width: 50px;
+  height: 50px;
+  @include flex-center(row);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 12px $red-alpha-30;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: $red-hover;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px $red-alpha-60;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $red-alpha-20, 0 4px 20px $red-alpha-60;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background: $red-pressed;
+
+    .play-icon {
+      transform: scale(0.9);
+    }
+  }
+}
+
+.nwr-player-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(213, 0, 0, 0.02) 0%,
+    transparent 50%,
+    rgba(213, 0, 0, 0.02) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}

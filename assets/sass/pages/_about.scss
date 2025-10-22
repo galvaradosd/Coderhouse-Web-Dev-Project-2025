@@ -1,0 +1,114 @@
+// ============================================================
+// ABOUT US PAGE
+// ============================================================
+
+.about-header {
+  text-align: center;
+  padding: $section-padding-block $section-padding-inline;
+  background: $secondary-black;
+  border-bottom: 2px solid $accent-red;
+}
+
+.about-title {
+  font-size: $font-size-h1;
+  color: $accent-red;
+  margin-bottom: 1.2rem;
+}
+
+.about-intro {
+  color: $pure-white;
+  font-size: $font-size-lg;
+  margin-bottom: 1.5rem;
+}
+
+.about-mision-vision {
+  display: flex;
+  gap: $gap-xl;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.about-block {
+  background: $secondary-black;
+  padding: 2rem;
+  border-radius: $border-radius-sm;
+  flex: 1 1 320px;
+  min-width: 260px;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-gray;
+
+  h2 {
+    color: $accent-red;
+    font-size: $font-size-xl;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $pure-white;
+    font-size: $font-size-base;
+  }
+}
+
+.about-history {
+  max-width: 900px;
+  margin-inline: auto;
+  background: $secondary-black;
+  padding: 2.5rem 1.5rem;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-gray;
+
+  h2 {
+    color: $accent-red;
+    margin-bottom: 1.2rem;
+  }
+
+  p {
+    color: $soft-gray;
+    font-size: $font-size-base;
+  }
+}
+
+.about-team {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: $gap-xl $gap-lg;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background: $tertiary-black;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-md;
+  padding: 1.5rem 0.8rem;
+  @include flex-center(column);
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid $accent-red;
+    box-shadow: 0 2px 16px $red-alpha-10;
+  }
+
+  strong {
+    font-size: $font-size-xl;
+    color: $accent-red;
+    margin-bottom: 0.3rem;
+  }
+
+  span {
+    color: $soft-gray;
+    font-size: $font-size-sm;
+    font-family: $font-body;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,209 @@
+// ============================================================
+// NAVEGACIÓN Y MENÚ
+// ============================================================
+
+// ----- MENÚ HAMBURGUESA -----
+.hamburger-button {
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: $gap-sm;
+}
+
+.menu-toggle-input {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hamburger-icon {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: $pure-white;
+  border-radius: $border-radius;
+  transition: $transition-slow;
+}
+
+#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+  transform-origin: center;
+}
+
+#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+  transform-origin: center;
+}
+
+// ----- NAVEGACIÓN PRINCIPAL -----
+.nwr-nav {
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 19;
+  background-color: $secondary-black;
+  border-bottom: 1px solid $border-gray;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  &.hidden {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.nav-menu {
+  @include flex-center(row);
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 86px;
+
+  li {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  a {
+    @include flex-center(row);
+    padding: 0 $gap-md;
+    color: $pure-white;
+    text-decoration: none;
+    transition: $transition;
+    font-weight: 500;
+    font-family: $font-body;
+    height: 86px;
+
+    &:hover {
+      color: $accent-red;
+      background-color: $red-alpha-10;
+    }
+  }
+}
+
+.nav a:focus,
+.nav-link:focus {
+  outline: 2px solid $red-focus;
+  outline-offset: 2px;
+}
+
+// ----- DROPDOWN / SUBMENU -----
+.expandable-item {
+  position: relative;
+
+  &:hover .submenu,
+  &:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.submenu-label {
+  @include flex-center(row);
+  height: 86px;
+  cursor: pointer;
+  padding: 0 $gap-md;
+  color: $pure-white;
+  text-decoration: none;
+  transition: $transition;
+  font-weight: 500;
+  font-family: $font-display;
+
+  &:hover {
+    color: $accent-red;
+    background-color: $red-alpha-10;
+  }
+}
+
+.submenu-toggle {
+  display: none;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: $secondary-black;
+  border: 1px solid $border-gray;
+  min-width: 210px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: $transition;
+  list-style: none;
+  padding: 0;
+  border-radius: $border-radius-sm;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+
+  li {
+    @include flex-center(row);
+    justify-content: center;
+    height: 50px;
+  }
+
+  li a {
+    @include flex-center(row);
+    justify-content: center;
+    min-width: 210px;
+    height: 50px;
+    padding: 0;
+    font-size: $font-size-sm;
+    font-family: $font-display;
+
+    &:hover {
+      color: $accent-red;
+      background-color: $red-alpha-10;
+    }
+  }
+}
+
+// ----- MENU OVERLAY (MOBILE) -----
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 12;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+  cursor: pointer;
+}
+
+#menu-toggle:checked ~ .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-toggle:checked ~ .nwr-nav {
+  transform: translateY(0);
+}
+
+#menu-toggle:checked ~ .nwr-header {
+  background-color: $secondary-black;
+}

@@ -1,0 +1,38 @@
+// ============================================================
+// NEW WORLD RADIO - ARCHIVO MAESTRO SCSS
+// Importa todos los partials en orden de cascada
+// ============================================================
+
+// 1. ABSTRACTS (Variables, Funciones, Mixins)
+@import "abstracts/variables";
+@import "abstracts/functions"; // ← AGREGADO
+@import "abstracts/mixins";
+
+// 2. BASE (Reset, Tipografía, Animaciones)
+@import "base/reset";
+@import "base/typography";
+@import "base/animations";
+
+// 3. COMPONENTS (Componentes reutilizables)
+@import "components/header";
+@import "components/navigation";
+@import "components/live-player";
+@import "components/buttons";
+@import "components/cards";
+@import "components/footer";
+
+// 4. LAYOUT (Estructura de página)
+@import "layout/hero";
+@import "layout/programming";
+@import "layout/sections";
+
+// 5. PAGES (Estilos específicos por página)
+@import "pages/home";
+@import "pages/about";
+@import "pages/contact";
+@import "pages/schedule";
+@import "pages/gallery";
+@import "pages/program-detail";
+
+// 6. RESPONSIVE (Media Queries)
+@import "responsive/breakpoints";

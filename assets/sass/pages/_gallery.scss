@@ -1,0 +1,112 @@
+// ============================================================
+// GALLERY PAGE
+// ============================================================
+
+.gallery-header {
+  text-align: center;
+  padding: $section-padding-block $section-padding-inline;
+  background: $secondary-black;
+  border-bottom: 2px solid $accent-red;
+}
+
+.gallery-title {
+  color: $accent-red;
+  font-size: $font-size-h1;
+}
+
+.gallery-intro {
+  color: $pure-white;
+  font-size: $font-size-lg;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $gap-lg;
+  padding: $section-padding-block $section-padding-inline;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-md;
+  transition: $transition;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $shadow-lg;
+
+    figcaption {
+      opacity: 1;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      transparent 100%
+    );
+    color: $pure-white;
+    padding: 1rem;
+    font-size: $font-size-sm;
+    opacity: 0;
+    transition: $transition;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  @include flex-center(column);
+  z-index: 9999;
+  display: none;
+
+  &:target {
+    display: flex;
+  }
+
+  img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: $border-radius-sm;
+    box-shadow: $shadow-lg;
+  }
+
+  .caption {
+    color: $pure-white;
+    margin-top: 1rem;
+    font-size: $font-size-lg;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: $pure-white;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      color: $accent-red;
+    }
+  }
+}
