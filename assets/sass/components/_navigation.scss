@@ -54,10 +54,11 @@
   position: relative;
   left: 0;
   right: 0;
-  z-index: 19;
+  z-index: 99; // ← CAMBIAR DE 19 A 99
   background-color: $secondary-black;
   border-bottom: 1px solid $border-gray;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: visible !important; // ← AGREGAR ESTA LÍNEA
 
   &.hidden {
     transform: translateY(-100%);
@@ -156,7 +157,7 @@
   padding: 0;
   border-radius: $border-radius-sm;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
+  z-index: 9999 !important; // ← AGREGAR !important
 
   li {
     @include flex-center(row);

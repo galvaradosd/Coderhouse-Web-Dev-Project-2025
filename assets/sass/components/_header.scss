@@ -13,8 +13,9 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 100; // ← CAMBIAR DE 20 A 100
   transition: background-color 0.3s ease;
+  overflow: visible; // ← AGREGAR ESTA LÍNEA
 }
 
 .header-toolbar {
@@ -85,4 +86,3 @@
     color: $accent-red;
   }
 }
-  

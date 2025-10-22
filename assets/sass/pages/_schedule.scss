@@ -14,15 +14,92 @@
   font-size: $font-size-h1;
 }
 
+// ----- CONTENEDOR DE LA TABLA CON SCROLL -----
 .schedule-table-section {
   padding: $section-padding-block $section-padding-inline;
+  overflow: hidden !important; // !important para forzar
+  width: 100%;
+  max-width: 100%; // Asegurar límite
+  position: relative; // Crear contexto de posicionamiento
 }
 
+// Wrapper para permitir scroll horizontal INTERNO
+.schedule-table-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch; // Smooth scroll en iOS
+  position: relative;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-sm;
+  width: 100%;
+  max-width: 100%;
+
+  // CRÍTICO: Limitar el ancho en móviles
+  @media (max-width: 768px) {
+    width: calc(100vw - 2rem); // Restar padding de la sección
+    max-width: calc(100vw - 2rem);
+  }
+
+  // Scrollbar personalizado (navegadores webkit)
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $tertiary-black;
+    border-radius: $border-radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $accent-red;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background: $red-hover;
+    }
+  }
+
+  // Indicador visual de scroll (sombra en el borde derecho)
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(to left, rgba(10, 10, 10, 0.5), transparent);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  // Ocultar sombra cuando el scroll está al final
+  &.scrolled-end::after {
+    opacity: 0;
+  }
+
+  // Sombra izquierda cuando se hace scroll
+  &.scrolled-left::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.5), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+// ----- TABLA -----
 .schedule-table {
   width: 100%;
+  min-width: 800px; // Ancho mínimo para mantener legibilidad
   border-collapse: collapse;
   background: $secondary-black;
   border: 1px solid $border-gray;
+  margin: 0;
 
   th,
   td {
@@ -30,6 +107,7 @@
     padding: 1rem;
     text-align: center;
     font-size: $font-size-sm;
+    white-space: nowrap;
   }
 
   th {
@@ -37,50 +115,115 @@
     color: $accent-red;
     font-weight: 700;
     text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    // Primera columna (Hora) fija en scroll horizontal
+    &:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      background: $tertiary-black;
+      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    }
   }
 
   td {
     color: $soft-gray;
 
+    // Primera columna (Hora) fija
+    &:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: $secondary-black;
+      font-weight: 700;
+      color: $pure-white;
+      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    }
+
     &.prog {
       color: $pure-white;
       font-weight: 600;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        transform: scale(1.02);
+        filter: brightness(1.1);
+      }
 
       span {
         display: block;
         font-size: $font-size-xs;
         color: $soft-gray;
         font-weight: 400;
+        margin-top: 0.25rem;
       }
     }
   }
 }
 
-// Clases específicas por programa
-.prog.morning-brew {
-  background: rgba(255, 193, 7, 0.1);
+// ----- CLASES ESPECÍFICAS POR PROGRAMA -----
+.prog {
+  &.morning-brew {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 3px solid rgba(255, 193, 7, 0.6);
+  }
+
+  &.sports-zone {
+    background: rgba(0, 123, 255, 0.1);
+    border-left: 3px solid rgba(0, 123, 255, 0.6);
+  }
+
+  &.resilience-radio {
+    background: rgba(40, 167, 69, 0.1);
+    border-left: 3px solid rgba(40, 167, 69, 0.6);
+  }
+
+  &.connected-world {
+    background: rgba(220, 53, 69, 0.1);
+    border-left: 3px solid rgba(220, 53, 69, 0.6);
+  }
+
+  &.brave-hearts {
+    background: rgba(255, 87, 34, 0.1);
+    border-left: 3px solid rgba(255, 87, 34, 0.6);
+  }
+
+  &.professional-life {
+    background: rgba(156, 39, 176, 0.1);
+    border-left: 3px solid rgba(156, 39, 176, 0.6);
+  }
+
+  &.music-pulse {
+    background: rgba(233, 30, 99, 0.1);
+    border-left: 3px solid rgba(233, 30, 99, 0.6);
+  }
+
+  &.global-wisdom {
+    background: rgba(0, 188, 212, 0.1);
+    border-left: 3px solid rgba(0, 188, 212, 0.6);
+  }
+
+  &.dj-zone {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid rgba(76, 175, 80, 0.6);
+  }
 }
-.prog.sports-zone {
-  background: rgba(0, 123, 255, 0.1);
-}
-.prog.resilience-radio {
-  background: rgba(40, 167, 69, 0.1);
-}
-.prog.connected-world {
-  background: rgba(220, 53, 69, 0.1);
-}
-.prog.brave-hearts {
-  background: rgba(255, 87, 34, 0.1);
-}
-.prog.professional-life {
-  background: rgba(156, 39, 176, 0.1);
-}
-.prog.music-pulse {
-  background: rgba(233, 30, 99, 0.1);
-}
-.prog.global-wisdom {
-  background: rgba(0, 188, 212, 0.1);
-}
-.prog.dj-zone {
-  background: rgba(76, 175, 80, 0.1);
+
+// ----- MENSAJE DE AYUDA MOBILE -----
+.scroll-hint {
+  display: none;
+  text-align: center;
+  color: $soft-gray;
+  font-size: $font-size-sm;
+  margin-top: 1rem;
+  font-style: italic;
+
+  i {
+    color: $accent-red;
+    margin-right: 0.5rem;
+  }
 }

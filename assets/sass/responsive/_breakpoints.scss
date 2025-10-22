@@ -67,6 +67,59 @@
       font-size: $font-size-sm;
     }
   }
+
+  .schedule-table {
+    min-width: 600px;
+
+    th,
+    td {
+      min-width: 80px;
+      padding: 0.6rem 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    td.prog span {
+      font-size: 0.65rem;
+    }
+  }
+
+  .schedule-title {
+    font-size: $font-size-xl;
+  }
+
+  .schedule-table-section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    overflow: hidden;
+  }
+
+  .schedule-table-wrapper {
+    width: calc(100vw - 0.5rem);
+    max-width: calc(100vw - 0.5rem);
+  }
+
+  .schedule-table {
+    min-width: 550px;
+
+    th,
+    td {
+      padding: 0.5rem 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    th:first-child,
+    td:first-child {
+      min-width: 60px;
+    }
+
+    td.prog span {
+      font-size: 0.65rem;
+    }
+  }
+
+  .schedule-title {
+    font-size: $font-size-xl;
+  }
 }
 
 // ----- TABLET: max-width 768px -----
@@ -86,7 +139,7 @@
     width: min-content;
     justify-self: end;
     align-items: center;
-    transform: translateY(-110%);
+    transform: translateY(-150%);
     transition: $transition-slow;
     background-color: $secondary-black;
     border-radius: 0 0 0 $border-radius-sm;
@@ -308,6 +361,53 @@
     width: 48px;
     height: 48px;
     font-size: 1.5rem;
+  }
+
+  .schedule-table {
+    min-width: 650px; // Reducir ancho mínimo en tablets
+    font-size: $font-size-xs;
+
+    th,
+    td {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+
+  .scroll-hint {
+    display: block; // Mostrar ayuda visual en móviles
+  }
+
+  .schedule-table-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: hidden !important;
+  }
+
+  .schedule-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .schedule-table {
+    min-width: 600px; // Reducir para móviles
+    font-size: $font-size-xs;
+
+    th,
+    td {
+      padding: 0.6rem 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    th:first-child,
+    td:first-child {
+      min-width: 70px; // Reducir ancho de columna Hora
+    }
+  }
+
+  .scroll-hint {
+    display: block;
+    padding: 0 1rem;
   }
 }
 
