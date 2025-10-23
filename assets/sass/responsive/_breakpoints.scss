@@ -179,10 +179,10 @@
   }
 
   .submenu-label {
-    display: block;
+    display: flex;
     position: relative;
     order: 1;
-    text-align: end;
+    align-self: flex-end;
   }
 
   .submenu-toggle {

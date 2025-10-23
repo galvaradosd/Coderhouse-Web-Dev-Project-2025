@@ -69,6 +69,7 @@
 }
 
 .lightbox {
+  cursor: pointer;
   position: fixed;
   top: 0;
   left: 0;
@@ -104,9 +105,42 @@
     color: $pure-white;
     text-decoration: none;
     font-weight: bold;
+    padding-bottom: 2rem;
 
     &:hover {
       color: $accent-red;
+    }
+  }
+
+  img,
+  .caption {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  // Contenido sobre el overlay
+  img,
+  .caption,
+  .close {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Botón cerrar más visible
+  .close {
+    &::before {
+      content: "✕"; // Agrega la X si está vacío
+      display: block;
     }
   }
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;500;700&display=swap");
 *,
 *::before,
@@ -759,22 +760,37 @@ button[class*=listen]:focus {
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
 }
 .event-card {
-  padding: clamp(1.25rem, 2vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 3rem);
   text-align: center;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 .event-card h3 {
   color: #dc2626;
-  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+  font-family: "Aboreto", serif;
+  font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
 }
 .event-card p {
   color: #a1a1aa;
-  margin-bottom: clamp(1rem, 2vw, 2rem);
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 90%;
 }
 .event-card .event-date {
   display: block;
   color: rgba(255, 255, 255, 0.8);
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-  margin-top: clamp(0.5rem, 1vw, 1rem);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.02em;
 }
 .event-card a {
   background: rgba(213, 0, 0, 0.15);
@@ -808,6 +824,9 @@ button[class*=listen]:focus {
   outline: 2px solid #dc2626;
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
+}
+.event-card a {
+  margin-top: auto;
 }
 
 .program-now,
@@ -1640,6 +1659,7 @@ main {
 }
 
 .lightbox {
+  cursor: pointer;
   position: fixed;
   top: 0;
   left: 0;
@@ -1675,9 +1695,34 @@ main {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
+  padding-bottom: 2rem;
 }
 .lightbox .close:hover {
   color: #dc2626;
+}
+.lightbox img,
+.lightbox .caption {
+  cursor: default;
+  pointer-events: none;
+}
+.lightbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.lightbox img,
+.lightbox .caption,
+.lightbox .close {
+  position: relative;
+  z-index: 2;
+}
+.lightbox .close::before {
+  content: "✕";
+  display: block;
 }
 
 .program-hero {
@@ -1953,10 +1998,10 @@ main {
     --submenu-rows: 1fr;
   }
   .submenu-label {
-    display: block;
+    display: flex;
     position: relative;
     order: 1;
-    text-align: end;
+    align-self: flex-end;
   }
   .submenu-toggle {
     position: sticky;
