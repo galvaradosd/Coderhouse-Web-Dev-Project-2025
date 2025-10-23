@@ -3,18 +3,6 @@
 // ============================================================
 
 // ----- MENÚ HAMBURGUESA -----
-.hamburger-button {
-  z-index: 10;
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: $gap-sm;
-}
 
 .menu-toggle-input {
   position: absolute;
@@ -24,29 +12,79 @@
   opacity: 0;
   pointer-events: none;
 }
+// ============================================================
+// BOTÓN HAMBURGUESA CON SVG
+// ============================================================
 
-.hamburger-icon {
+.hamburger-button {
+  z-index: 10;
+  display: none; // Oculto por defecto, visible en responsive
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: $transition;
+  position: relative;
+
+  // Efecto hover
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: $border-radius;
+  }
+
+  // Efecto al hacer clic
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Accesibilidad: outline al navegar con teclado
+  &:focus-visible {
+    outline: 2px solid $accent-red;
+    outline-offset: 2px;
+    border-radius: $border-radius;
+  }
+}
+
+// Estilos del SVG
+.hamburger-icon-svg {
   display: block;
-  width: 100%;
-  height: 4px;
-  background-color: $pure-white;
-  border-radius: $border-radius;
-  transition: $transition-slow;
+  color: $pure-white; // Color de los íconos
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Grupo del ícono MENU (☰) - visible por defecto
+  .menu-icon {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.2s ease, transform 0.3s ease;
+  }
+
+  // Grupo del ícono CLOSE (✕) - oculto por defecto
+  .close-icon {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.3s ease;
+  }
 }
 
-#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-  transform-origin: center;
-}
+// Cuando el menú está ABIERTO (checkbox checked)
+#menu-toggle:checked ~ .nwr-header .hamburger-button .hamburger-icon-svg {
+  transform: rotate(90deg); // Rota el ícono 90 grados
 
-#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(2) {
-  opacity: 0;
-  transform: scale(0);
-}
+  // Oculta el ícono de MENU
+  .menu-icon {
+    display: none;
+    opacity: 0;
+  }
 
-#menu-toggle:checked + .hamburger-button .hamburger-icon:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-  transform-origin: center;
+  // Muestra el ícono de CLOSE
+  .close-icon {
+    display: block;
+    opacity: 1;
+  }
 }
 
 // ----- NAVEGACIÓN PRINCIPAL -----
