@@ -31,7 +31,7 @@
     <!-- Logo -->
 
     <div id="nwr-logo" class="nwr-logo">
-      <a href="#" class="logo-link"><img
+      <a href="../../index.html" class="logo-link"><img
           src="../../assets/images/logo/new-world-radio-high-resolution-logo-transparent (Red&White).png"
           alt="New World Radio Logo" class="logo-image">
       </a>
@@ -40,43 +40,41 @@
     <!-- Reproductor en vivo -->
 
     <div id="live-player" class="live-player" role="presentation" aria-label="Reproductor de radio (decorativo)">
-
-
       <!-- Estado EN VIVO -->
       <div class="nwr-live-badge">
         <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
         <span class="nwr-live-text">EN VIVO</span>
       </div>
-
       <!-- Información de reproducción en vivo -->
       <div class="nwr-program-info">
         <h3 class="nwr-show-title">Morning Brew</h3>
         <p class="nwr-show-subtitle">Tu dosis diaria de noticias y música</p>
       </div>
-
       <!-- Indicador visual de play/pause -->
       <div class="nwr-status-indicator">
         <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
       </div>
-
-
-
     </div>
 
     <!-- Contenedor de selector de idioma y menú hamburguesa -->
+
     <div class="header-toolbar">
       <!-- Selector de idioma -->
       <div class="language-selector">
         <button class="lang-btn active" type="button">ESP</button>
         <button class="lang-btn" type="button">ENG</button>
       </div>
-
-      <!-- botón de hamburguesa -->
-      <label for="menu-toggle" class="hamburger-button">
-        <span class="hamburger-icon"></span>
-        <span class="hamburger-icon"></span>
-        <span class="hamburger-icon"></span>
-      </label>
+      <!-- botón de hamburguesa con SVG -->
+      <label for="menu-toggle" class="hamburger-button" aria-label="Menú de navegación">
+        <svg class="hamburger-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g class="menu-icon">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </g>
+          <g class="close-icon">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </g>
+        </svg>
     </div>
 
   </header>

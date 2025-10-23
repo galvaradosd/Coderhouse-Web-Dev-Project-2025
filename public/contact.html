@@ -40,8 +40,6 @@
     <!-- Reproductor en vivo -->
 
     <div id="live-player" class="live-player" role="presentation" aria-label="Reproductor de radio (decorativo)">
-
-
       <!-- Estado EN VIVO -->
       <div class="nwr-live-badge">
         <span class="nwr-live-dot" aria-label="Transmisión en vivo"></span>
@@ -58,25 +56,27 @@
       <div class="nwr-status-indicator">
         <button type="button" class="play-btn" aria-label="Reproducir radio en vivo">▶</button>
       </div>
-
-
-
     </div>
 
     <!-- Contenedor de selector de idioma y menú hamburguesa -->
+
     <div class="header-toolbar">
       <!-- Selector de idioma -->
       <div class="language-selector">
         <button class="lang-btn active" type="button">ESP</button>
         <button class="lang-btn" type="button">ENG</button>
       </div>
-
-      <!-- botón de hamburguesa -->
-      <label for="menu-toggle" class="hamburger-button">
-        <span class="hamburger-icon"></span>
-        <span class="hamburger-icon"></span>
-        <span class="hamburger-icon"></span>
-      </label>
+      <!-- botón de hamburguesa con SVG -->
+      <label for="menu-toggle" class="hamburger-button" aria-label="Menú de navegación">
+        <svg class="hamburger-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g class="menu-icon">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </g>
+          <g class="close-icon">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </g>
+        </svg>
     </div>
 
   </header>
