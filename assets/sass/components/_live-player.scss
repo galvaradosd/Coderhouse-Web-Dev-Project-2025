@@ -13,7 +13,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  transition: all $transition-slow;
+  transition: $transition;
   overflow: hidden;
   max-width: clamp(300px, 50vw, 600px);
   @include flex-center(row);
