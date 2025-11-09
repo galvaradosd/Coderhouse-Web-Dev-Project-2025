@@ -1071,6 +1071,21 @@ footer {
   font-style: italic;
 }
 
+.nwr-footer {
+  background-color: #1a1a1a;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
+  border-top: 1px solid #333333;
+  width: 100%;
+}
+.nwr-footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
 .hero {
   position: relative;
   margin-top: 0;
@@ -2013,6 +2028,10 @@ main .events-grid > * {
     grid-template-columns: 1fr;
     max-width: 100%;
   }
+  .footer-logo {
+    align-items: center;
+    text-align: center;
+  }
 }
 @media (max-width: 768px) {
   .language-selector {
@@ -2196,6 +2215,7 @@ main .events-grid > * {
   .footer-links,
   .footer-contact,
   .footer-social {
+    align-items: center;
     text-align: center;
     padding-top: 1rem;
   }

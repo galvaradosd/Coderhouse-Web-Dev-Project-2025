@@ -24,6 +24,7 @@ footer {
   @include mixins.flex-center(column);
   align-items: flex-start;
   gap: variables.$gap-md;
+  // grid-column: 2;
 
   span {
     font-family: variables.$font-body;
@@ -156,4 +157,22 @@ footer {
   font-size: variables.$font-size-sm;
   color: variables.$soft-gray;
   font-style: italic;
+}
+
+.nwr-footer {
+  background-color: variables.$secondary-black;
+  padding: variables.$gap-xl variables.$section-padding-inline;
+  border-top: 1px solid variables.$border-gray;
+  width: 100%;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: variables.$gap-xl;
+    text-align: center;
+  }
+
+  
 }

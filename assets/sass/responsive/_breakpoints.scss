@@ -130,6 +130,11 @@
     grid-template-columns: 1fr; // Mobile: single column
     max-width: 100%;
   }
+
+  .footer-logo {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 // ----- TABLET: max-width 768px -----
@@ -349,6 +354,7 @@
   .footer-links,
   .footer-contact,
   .footer-social {
+    align-items: center;
     text-align: center;
     padding-top: 1rem;
 
