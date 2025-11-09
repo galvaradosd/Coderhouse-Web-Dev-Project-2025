@@ -1,5 +1,0 @@
-# Ignore compiled CSS
-assets/css/
-
-# Ignore specific Sass functions
-assets/sass/abstracts/_functions.scss
