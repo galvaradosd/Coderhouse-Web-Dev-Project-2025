@@ -762,10 +762,27 @@ button[class*=listen]:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: clamp(2rem, 4vw, 3rem);
   text-align: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  height: 100%;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+.event-card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  width: 100%;
+}
+.event-card .card-footer {
+  margin-top: auto;
+  padding-top: clamp(0.5rem, 1vw, 1rem);
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .event-card h3 {
   color: #dc2626;
@@ -774,6 +791,7 @@ button[class*=listen]:focus {
   font-weight: 600;
   margin: 0;
   line-height: 1.3;
+  text-align: center;
 }
 .event-card p {
   color: #a1a1aa;
@@ -781,7 +799,8 @@ button[class*=listen]:focus {
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
   line-height: 1.6;
   margin: 0;
-  max-width: 90%;
+  flex: 1;
+  text-align: center;
 }
 .event-card .event-date {
   display: block;
@@ -790,42 +809,29 @@ button[class*=listen]:focus {
   font-weight: 500;
   margin: 0;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 .event-card a {
-  background: rgba(213, 0, 0, 0.15);
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: 1px solid #dc2626;
-  font-family: "Inter", sans-serif;
-  font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
+  background: rgba(220, 38, 38, 0.1);
   color: #dc2626;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #dc2626;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0;
+  padding: 0.5rem 1rem;
+  width: auto;
+  display: inline-block;
+  text-decoration: none;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  letter-spacing: 0.02em;
 }
 .event-card a:hover {
-  background: rgba(213, 0, 0, 0.25);
+  background: #b91c1c;
   color: #ffffff;
-  border-color: #b91c1c;
   transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(213, 0, 0, 0.4);
-}
-.event-card a:active {
-  transform: scale(0.98);
-  background: rgba(213, 0, 0, 0.3);
-}
-.event-card a:focus {
-  outline: 2px solid #dc2626;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
-}
-.event-card a {
-  margin-top: auto;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
 }
 
 .program-now,
@@ -1169,22 +1175,51 @@ main .section-padding {
 main .section-padding .container-custom {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 main .section-padding .container-custom .section-header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  width: 100%;
 }
 main .section-padding .container-custom .section-header h2 {
   color: #dc2626;
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   margin-bottom: clamp(0.5rem, 1vw, 1rem);
+  margin-left: auto;
+  margin-right: auto;
 }
 main .section-padding .container-custom .section-header p {
   color: #a1a1aa;
   font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+main .section-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+main .section-header h2 {
+  color: #dc2626;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+  max-width: 800px;
+  width: 100%;
+  margin-inline: auto;
+}
+main .section-header p {
+  color: #a1a1aa;
+  font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  max-width: 800px;
+  width: 100%;
+  margin-inline: auto;
 }
 main .programs-header {
   display: flex;
@@ -1200,10 +1235,24 @@ main .programs-container {
 main .events-section {
   padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
 }
+main .events-section .container-custom {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
 main .events-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+  margin: 0 auto;
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+main .events-grid > * {
+  min-width: 0;
+  width: 100%;
 }
 
 .about-header {
@@ -1945,6 +1994,10 @@ main .events-grid {
   .schedule-table .schedule-title {
     font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
   }
+  .events-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .language-selector {
@@ -2049,8 +2102,9 @@ main .events-grid {
     max-width: 500px;
   }
   .events-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(1rem, 2vw, 1.5rem);
+    max-width: 100%;
   }
   .hero-content p {
     align-content: center;
@@ -2199,7 +2253,7 @@ main .events-grid {
     padding: 0 1rem;
   }
 }
-@media (max-width: 768px) and (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 769px) and (max-width: 1023px) {
   .nwr-header {
     padding: clamp(0.5rem, 1vw, 1rem) clamp(2rem, 4vw, 3rem);
   }
@@ -2223,8 +2277,12 @@ main .events-grid {
   .nwr-header .program-hero {
     background-size: cover;
   }
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: 100%;
+  }
 }
-@media (max-width: 768px) and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .hero {
     min-height: 800px;
   }
@@ -2233,21 +2291,10 @@ main .events-grid {
     margin: 0 auto;
   }
   .events-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 768px) and (min-width: 1440px) {
-  .hero {
-    min-height: 900px;
-  }
-  .hero h1 {
-    font-size: 4rem;
-  }
-  .container-custom {
-    max-width: 1400px;
-  }
-  .events-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    max-width: 100%;
+    align-items: stretch;
   }
 }
 
