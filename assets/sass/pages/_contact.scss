@@ -1,27 +1,30 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 // ============================================================
 // CONTACT PAGE
 // ============================================================
 
 .contact-header {
   text-align: center;
-  padding: $section-padding-block $section-padding-inline;
-  background: $secondary-black;
-  border-bottom: 2px solid $accent-red;
+  padding: variables.$section-padding-block variables.$section-padding-inline;
+  background: variables.$secondary-black;
+  border-bottom: 2px solid variables.$accent-red;
 }
 
 .contact-title {
-  color: $accent-red;
-  font-size: $font-size-h1;
+  color: variables.$accent-red;
+  font-size: variables.$font-size-h1;
 }
 
 .contact-intro {
-  color: $pure-white;
-  font-size: $font-size-lg;
+  color: variables.$pure-white;
+  font-size: variables.$font-size-lg;
   margin-bottom: 1.8rem;
 }
 
 .contact-form-section {
-  @include flex-center(row);
+  @include mixins.flex-center(row);
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -31,9 +34,9 @@
 }
 
 .contact-form {
-  background: $tertiary-black;
-  border-radius: $border-radius-sm;
-  box-shadow: $shadow-md;
+  background: variables.$tertiary-black;
+  border-radius: variables.$border-radius-sm;
+  box-shadow: variables.$shadow-md;
   padding: 2.2rem 2rem;
   flex: 2 1 340px;
   min-width: 280px;
@@ -45,8 +48,8 @@
 
 .form-group {
   label {
-    color: $accent-red;
-    font-size: $font-size-base;
+    color: variables.$accent-red;
+    font-size: variables.$font-size-base;
     margin-bottom: 0.5rem;
     display: block;
   }
@@ -54,19 +57,19 @@
   input,
   textarea {
     width: 100%;
-    border: 1px solid $border-gray;
-    border-radius: $border-radius-sm;
+    border: 1px solid variables.$border-gray;
+    border-radius: variables.$border-radius-sm;
     padding: 0.9rem 1rem;
-    font-family: $font-body;
-    font-size: $font-size-base;
-    background: $secondary-black;
-    color: $pure-white;
+    font-family: variables.$font-body;
+    font-size: variables.$font-size-base;
+    background: variables.$secondary-black;
+    color: variables.$pure-white;
     transition: border 0.3s;
 
     &:focus {
       outline: none;
-      border: 2px solid $accent-red;
-      background: $primary-black;
+      border: 2px solid variables.$accent-red;
+      background: variables.$primary-black;
     }
   }
 
@@ -79,21 +82,21 @@
 
 .contact-extra {
   flex: 1 1 200px;
-  background: $secondary-black;
-  border-radius: $border-radius-sm;
-  color: $pure-white;
-  font-size: $font-size-base;
+  background: variables.$secondary-black;
+  border-radius: variables.$border-radius-sm;
+  color: variables.$pure-white;
+  font-size: variables.$font-size-base;
   padding: 2rem;
-  box-shadow: $shadow-md;
+  box-shadow: variables.$shadow-md;
   min-width: 280px;
 
   a {
-    color: $accent-red;
+    color: variables.$accent-red;
     text-decoration: underline;
     word-break: break-all;
 
     &:hover {
-      color: $pure-white;
+      color: variables.$pure-white;
       text-decoration: none;
     }
   }

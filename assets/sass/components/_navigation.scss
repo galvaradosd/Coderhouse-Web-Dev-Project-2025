@@ -1,3 +1,6 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 // ============================================================
 // NAVEGACIÓN Y MENÚ
 // ============================================================
@@ -12,6 +15,7 @@
   opacity: 0;
   pointer-events: none;
 }
+
 // ============================================================
 // BOTÓN HAMBURGUESA CON SVG
 // ============================================================
@@ -27,42 +31,37 @@
   background: none;
   border: none;
   padding: 0;
-  transition: $transition;
+  transition: variables.$transition;
   position: relative;
 
-  // Efecto hover
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: $border-radius;
+    border-radius: variables.$border-radius;
   }
 
-  // Efecto al hacer clic
   &:active {
     transform: scale(0.95);
   }
 
-  // Accesibilidad: outline al navegar con teclado
   &:focus-visible {
-    outline: 2px solid $accent-red;
+    outline: 2px solid variables.$accent-red;
     outline-offset: 2px;
-    border-radius: $border-radius;
+    border-radius: variables.$border-radius;
   }
 }
 
 // Estilos del SVG
 .hamburger-icon-svg {
   display: block;
-  color: $pure-white; // Color de los íconos
+  color: variables.$pure-white;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  // Grupo del ícono MENU (☰) - visible por defecto
   .menu-icon {
     display: block;
     opacity: 1;
     transition: opacity 0.2s ease, transform 0.3s ease;
   }
 
-  // Grupo del ícono CLOSE (✕) - oculto por defecto
   .close-icon {
     display: none;
     opacity: 0;
@@ -71,16 +70,14 @@
 }
 
 // Cuando el menú está ABIERTO (checkbox checked)
-#menu-toggle:checked ~ .nwr-header .hamburger-button .hamburger-icon-svg {
-  transform: rotate(90deg); // Rota el ícono 90 grados
+#menu-toggle:checked~.nwr-header .hamburger-button .hamburger-icon-svg {
+  transform: rotate(90deg);
 
-  // Oculta el ícono de MENU
   .menu-icon {
     display: none;
     opacity: 0;
   }
 
-  // Muestra el ícono de CLOSE
   .close-icon {
     display: block;
     opacity: 1;
@@ -92,11 +89,11 @@
   position: relative;
   left: 0;
   right: 0;
-  z-index: 99; // ← CAMBIAR DE 19 A 99
-  background-color: $secondary-black;
-  border-bottom: 1px solid $border-gray;
+  z-index: 99;
+  background-color: variables.$secondary-black;
+  border-bottom: 1px solid variables.$border-gray;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  overflow: visible !important; // ← AGREGAR ESTA LÍNEA
+  overflow: visible !important;
 
   &.hidden {
     transform: translateY(-100%);
@@ -109,7 +106,7 @@
 }
 
 .nav-menu {
-  @include flex-center(row);
+  @include mixins.flex-center(row);
   justify-content: center;
   list-style: none;
   padding: 0;
@@ -123,25 +120,25 @@
   }
 
   a {
-    @include flex-center(row);
-    padding: 0 $gap-md;
-    color: $pure-white;
+    @include mixins.flex-center(row);
+    padding: 0 variables.$gap-md;
+    color: variables.$pure-white;
     text-decoration: none;
-    transition: $transition;
+    transition: variables.$transition;
     font-weight: 500;
-    font-family: $font-body;
+    font-family: variables.$font-body;
     height: 86px;
 
     &:hover {
-      color: $accent-red;
-      background-color: $red-alpha-10;
+      color: variables.$accent-red;
+      background-color: variables.$red-alpha-10;
     }
   }
 }
 
 .nav a:focus,
 .nav-link:focus {
-  outline: 2px solid $red-focus;
+  outline: 2px solid variables.$red-focus;
   outline-offset: 2px;
 }
 
@@ -158,19 +155,19 @@
 }
 
 .submenu-label {
-  @include flex-center(row);
+  @include mixins.flex-center(row);
   height: 86px;
   cursor: pointer;
-  padding: 0 $gap-md;
-  color: $pure-white;
+  padding: 0 variables.$gap-md;
+  color: variables.$pure-white;
   text-decoration: none;
-  transition: $transition;
+  transition: variables.$transition;
   font-weight: 500;
-  font-family: $font-display;
+  font-family: variables.$font-display;
 
   &:hover {
-    color: $accent-red;
-    background-color: $red-alpha-10;
+    color: variables.$accent-red;
+    background-color: variables.$red-alpha-10;
   }
 }
 
@@ -184,37 +181,37 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: $secondary-black;
-  border: 1px solid $border-gray;
+  background-color: variables.$secondary-black;
+  border: 1px solid variables.$border-gray;
   min-width: 210px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: $transition;
+  transition: variables.$transition;
   list-style: none;
   padding: 0;
-  border-radius: $border-radius-sm;
+  border-radius: variables.$border-radius-sm;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  z-index: 9999 !important; // ← AGREGAR !important
+  z-index: 9999 !important;
 
   li {
-    @include flex-center(row);
+    @include mixins.flex-center(row);
     justify-content: center;
     height: 50px;
   }
 
   li a {
-    @include flex-center(row);
+    @include mixins.flex-center(row);
     justify-content: center;
     min-width: 210px;
     height: 50px;
     padding: 0;
-    font-size: $font-size-sm;
-    font-family: $font-display;
+    font-size: variables.$font-size-sm;
+    font-family: variables.$font-display;
 
     &:hover {
-      color: $accent-red;
-      background-color: $red-alpha-10;
+      color: variables.$accent-red;
+      background-color: variables.$red-alpha-10;
     }
   }
 }
@@ -234,15 +231,15 @@
   cursor: pointer;
 }
 
-#menu-toggle:checked ~ .menu-overlay {
+#menu-toggle:checked~.menu-overlay {
   opacity: 1;
   visibility: visible;
 }
 
-#menu-toggle:checked ~ .nwr-nav {
+#menu-toggle:checked~.nwr-nav {
   transform: translateY(0);
 }
 
-#menu-toggle:checked ~ .nwr-header {
-  background-color: $secondary-black;
+#menu-toggle:checked~.nwr-header {
+  background-color: variables.$secondary-black;
 }

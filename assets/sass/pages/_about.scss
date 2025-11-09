@@ -1,72 +1,75 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 // ============================================================
 // ABOUT US PAGE
 // ============================================================
 
 .about-header {
   text-align: center;
-  padding: $section-padding-block $section-padding-inline;
-  background: $secondary-black;
-  border-bottom: 2px solid $accent-red;
+  padding: variables.$section-padding-block variables.$section-padding-inline;
+  background: variables.$secondary-black;
+  border-bottom: 2px solid variables.$accent-red;
 }
 
 .about-title {
-  font-size: $font-size-h1;
-  color: $accent-red;
+  font-size: variables.$font-size-h1;
+  color: variables.$accent-red;
   margin-bottom: 1.2rem;
 }
 
 .about-intro {
-  color: $pure-white;
-  font-size: $font-size-lg;
+  color: variables.$pure-white;
+  font-size: variables.$font-size-lg;
   margin-bottom: 1.5rem;
 }
 
 .about-mision-vision {
   display: flex;
-  gap: $gap-xl;
+  gap: variables.$gap-xl;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
 .about-block {
-  background: $secondary-black;
+  background: variables.$secondary-black;
   padding: 2rem;
-  border-radius: $border-radius-sm;
+  border-radius: variables.$border-radius-sm;
   flex: 1 1 320px;
   min-width: 260px;
-  box-shadow: $shadow-sm;
-  border: 1px solid $border-gray;
+  box-shadow: variables.$shadow-sm;
+  border: 1px solid variables.$border-gray;
 
   h2 {
-    color: $accent-red;
-    font-size: $font-size-xl;
+    color: variables.$accent-red;
+    font-size: variables.$font-size-xl;
     margin-bottom: 1rem;
   }
 
   p {
-    color: $pure-white;
-    font-size: $font-size-base;
+    color: variables.$pure-white;
+    font-size: variables.$font-size-base;
   }
 }
 
 .about-history {
   max-width: 900px;
   margin-inline: auto;
-  background: $secondary-black;
+  background: variables.$secondary-black;
   padding: 2.5rem 1.5rem;
-  border-radius: $border-radius-sm;
-  box-shadow: $shadow-sm;
-  border: 1px solid $border-gray;
+  border-radius: variables.$border-radius-sm;
+  box-shadow: variables.$shadow-sm;
+  border: 1px solid variables.$border-gray;
 
   h2 {
-    color: $accent-red;
+    color: variables.$accent-red;
     margin-bottom: 1.2rem;
   }
 
   p {
-    color: $soft-gray;
-    font-size: $font-size-base;
+    color: variables.$soft-gray;
+    font-size: variables.$font-size-base;
   }
 }
 
@@ -78,16 +81,16 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(220px, 1fr));
-  gap: $gap-xl $gap-lg;
+  gap: variables.$gap-xl variables.$gap-lg;
   margin-top: 2rem;
 }
 
 .team-card {
-  background: $tertiary-black;
-  border-radius: $border-radius-sm;
-  box-shadow: $shadow-md;
+  background: variables.$tertiary-black;
+  border-radius: variables.$border-radius-sm;
+  box-shadow: variables.$shadow-md;
   padding: 1.5rem 0.8rem;
-  @include flex-center(column);
+  @include mixins.flex-center(column);
 
   img {
     width: 200px;
@@ -95,20 +98,20 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid $accent-red;
-    box-shadow: 0 2px 16px $red-alpha-10;
+    border: 3px solid variables.$accent-red;
+    box-shadow: 0 2px 16px variables.$red-alpha-10;
   }
 
   strong {
-    font-size: $font-size-xl;
-    color: $accent-red;
+    font-size: variables.$font-size-xl;
+    color: variables.$accent-red;
     margin-bottom: 0.3rem;
   }
 
   span {
-    color: $soft-gray;
-    font-size: $font-size-sm;
-    font-family: $font-body;
+    color: variables.$soft-gray;
+    font-size: variables.$font-size-sm;
+    font-family: variables.$font-body;
     font-style: italic;
   }
 }

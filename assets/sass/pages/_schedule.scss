@@ -1,65 +1,64 @@
+@use "../abstracts/variables";
+
 // ============================================================
 // SCHEDULE PAGE
 // ============================================================
 
 .schedule-header {
   text-align: center;
-  padding: $section-padding-block $section-padding-inline;
-  background: $secondary-black;
-  border-bottom: 2px solid $accent-red;
+  padding: variables.$section-padding-block variables.$section-padding-inline;
+  background: variables.$secondary-black;
+  border-bottom: 2px solid variables.$accent-red;
 }
 
 .schedule-title {
-  color: $accent-red;
-  font-size: $font-size-h1;
+  color: variables.$accent-red;
+  font-size: variables.$font-size-h1;
 }
 
 // ----- CONTENEDOR DE LA TABLA CON SCROLL -----
 .schedule-table-section {
-  padding: $section-padding-block $section-padding-inline;
-  overflow: hidden !important; // !important para forzar
+  padding: variables.$section-padding-block variables.$section-padding-inline;
+  overflow: hidden !important;
   width: 100%;
-  max-width: 100%; // Asegurar límite
-  position: relative; // Crear contexto de posicionamiento
+  max-width: 100%;
+  position: relative;
 }
 
 // Wrapper para permitir scroll horizontal INTERNO
 .schedule-table-wrapper {
   overflow-x: auto;
   overflow-y: visible;
-  -webkit-overflow-scrolling: touch; // Smooth scroll en iOS
+  -webkit-overflow-scrolling: touch;
   position: relative;
-  border-radius: $border-radius-sm;
-  box-shadow: $shadow-sm;
+  border-radius: variables.$border-radius-sm;
+  box-shadow: variables.$shadow-sm;
   width: 100%;
   max-width: 100%;
 
-  // CRÍTICO: Limitar el ancho en móviles
   @media (max-width: 768px) {
-    width: calc(100vw - 2rem); // Restar padding de la sección
+    width: calc(100vw - 2rem);
     max-width: calc(100vw - 2rem);
   }
 
-  // Scrollbar personalizado (navegadores webkit)
   &::-webkit-scrollbar {
     height: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    background: $tertiary-black;
-    border-radius: $border-radius-sm;
+    background: variables.$tertiary-black;
+    border-radius: variables.$border-radius-sm;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $accent-red;
-    border-radius: $border-radius-sm;
+    background: variables.$accent-red;
+    border-radius: variables.$border-radius-sm;
 
     &:hover {
-      background: $red-hover;
+      background: variables.$red-hover;
     }
   }
 
-  // Indicador visual de scroll (sombra en el borde derecho)
   &::after {
     content: "";
     position: absolute;
@@ -73,12 +72,10 @@
     transition: opacity 0.3s ease;
   }
 
-  // Ocultar sombra cuando el scroll está al final
   &.scrolled-end::after {
     opacity: 0;
   }
 
-  // Sombra izquierda cuando se hace scroll
   &.scrolled-left::before {
     content: "";
     position: absolute;
@@ -95,59 +92,57 @@
 // ----- TABLA -----
 .schedule-table {
   width: 100%;
-  min-width: 800px; // Ancho mínimo para mantener legibilidad
+  min-width: 800px;
   border-collapse: collapse;
-  background: $secondary-black;
-  border: 1px solid $border-gray;
+  background: variables.$secondary-black;
+  border: 1px solid variables.$border-gray;
   margin: 0;
 
   th,
   td {
-    border: 1px solid $border-gray;
+    border: 1px solid variables.$border-gray;
     padding: 1rem;
     text-align: center;
-    font-size: $font-size-sm;
+    font-size: variables.$font-size-sm;
     white-space: nowrap;
   }
 
   th {
-    background: $tertiary-black;
-    color: $accent-red;
+    background: variables.$tertiary-black;
+    color: variables.$accent-red;
     font-weight: 700;
     text-transform: uppercase;
     position: sticky;
     top: 0;
     z-index: 2;
 
-    // Primera columna (Hora) fija en scroll horizontal
     &:first-child {
       position: sticky;
       left: 0;
       z-index: 3;
-      background: $tertiary-black;
+      background: variables.$tertiary-black;
       box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     }
   }
 
   td {
-    color: $soft-gray;
+    color: variables.$soft-gray;
 
-    // Primera columna (Hora) fija
     &:first-child {
       position: sticky;
       left: 0;
       z-index: 1;
-      background: $secondary-black;
+      background: variables.$secondary-black;
       font-weight: 700;
-      color: $pure-white;
+      color: variables.$pure-white;
       box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     }
 
     &.prog {
-      color: $pure-white;
+      color: variables.$pure-white;
       font-weight: 600;
       cursor: pointer;
-      transition: $transition;
+      transition: variables.$transition;
 
       &:hover {
         transform: scale(1.02);
@@ -156,8 +151,8 @@
 
       span {
         display: block;
-        font-size: $font-size-xs;
-        color: $soft-gray;
+        font-size: variables.$font-size-xs;
+        color: variables.$soft-gray;
         font-weight: 400;
         margin-top: 0.25rem;
       }
@@ -217,13 +212,13 @@
 .scroll-hint {
   display: none;
   text-align: center;
-  color: $soft-gray;
-  font-size: $font-size-sm;
+  color: variables.$soft-gray;
+  font-size: variables.$font-size-sm;
   margin-top: 1rem;
   font-style: italic;
 
   i {
-    color: $accent-red;
+    color: variables.$accent-red;
     margin-right: 0.5rem;
   }
 }

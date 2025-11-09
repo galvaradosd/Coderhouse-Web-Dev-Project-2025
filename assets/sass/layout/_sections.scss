@@ -1,56 +1,57 @@
-// ============================================================
-// CONTENEDORES Y SECCIONES
-// ============================================================
+@use "../abstracts/variables";
 
 main {
-  background: $primary-black;
-}
+  background: variables.$primary-black;
 
-.section-padding {
-  padding: $section-padding-block $section-padding-inline;
-}
+  .section-padding {
+    padding: variables.$section-padding-block variables.$section-padding-inline;
 
-.container-custom {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    .container-custom {
+      max-width: 1200px;
+      margin: 0 auto;
 
-.section-header {
-  text-align: center;
-  margin-bottom: $gap-lg;
+      .section-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: variables.$gap-lg;
 
-  h2 {
-    color: $accent-red;
-    font-size: $font-size-h2;
-    margin-bottom: $gap-sm;
+        h2 {
+          color: variables.$accent-red;
+          font-size: variables.$font-size-h2;
+          margin-bottom: variables.$gap-sm;
+        }
+
+        p {
+          color: variables.$soft-gray;
+          font-size: variables.$font-size-lg;
+        }
+      }
+    }
   }
 
-  p {
-    color: $soft-gray;
-    font-size: $font-size-lg;
+  // ----- GRIDS -----
+  .programs-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: variables.$gap-lg 0;
+    max-width: 100%;
   }
-}
 
-// ----- GRIDS -----
-.programs-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: $gap-lg 0;
-  max-width: 100%;
-}
+  .programs-container {
+    padding: variables.$gap-lg;
+  }
 
-.programs-container {
-  padding: $gap-lg;
-}
+  .events-section {
+    padding: variables.$section-padding-block variables.$section-padding-inline;
+  }
 
-.events-section {
-  padding: $section-padding-block $section-padding-inline;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $card-gap;
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: variables.$card-gap;
+  }
 }

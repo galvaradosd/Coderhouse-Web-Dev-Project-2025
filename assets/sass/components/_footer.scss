@@ -1,31 +1,34 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
 // ============================================================
 // FOOTER
 // ============================================================
 
 footer {
-  background-color: $primary-black;
-  border-top: 1px solid $border-gray;
-  padding: $card-padding 0;
+  background-color: variables.$primary-black;
+  border-top: 1px solid variables.$border-gray;
+  padding: variables.$card-padding 0;
 }
 
 .footer-content {
   margin: 0 auto;
-  padding: 0 $gap-lg;
+  padding: 0 variables.$gap-lg;
   display: grid;
-  gap: $gap-md;
+  gap: variables.$gap-md;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-template-rows: 1fr 112px;
 }
 
 .footer-logo {
-  @include flex-center(column);
+  @include mixins.flex-center(column);
   align-items: flex-start;
-  gap: $gap-md;
+  gap: variables.$gap-md;
 
   span {
-    font-family: $font-body;
-    font-size: $font-size-xs;
-    color: $pure-white;
+    font-family: variables.$font-body;
+    font-size: variables.$font-size-xs;
+    color: variables.$pure-white;
   }
 }
 
@@ -33,10 +36,10 @@ footer {
 .footer-content,
 .footer-social {
   h4 {
-    font-size: $font-size-lg;
+    font-size: variables.$font-size-lg;
     font-weight: 600;
-    color: $pure-white;
-    margin-bottom: $gap-md;
+    color: variables.$pure-white;
+    margin-bottom: variables.$gap-md;
   }
 }
 
@@ -46,15 +49,15 @@ footer {
   ul {
     display: flex;
     flex-direction: column;
-    gap: $gap-sm;
+    gap: variables.$gap-sm;
   }
 
   a {
-    color: $soft-gray;
-    transition: $transition;
+    color: variables.$soft-gray;
+    transition: variables.$transition;
 
     &:hover {
-      color: $accent-red;
+      color: variables.$accent-red;
       padding-left: 5px;
     }
   }
@@ -65,13 +68,13 @@ footer {
   flex-direction: column;
 
   p {
-    color: $soft-gray;
-    transition: $transition;
+    color: variables.$soft-gray;
+    transition: variables.$transition;
   }
 
   a {
-    color: $accent-red;
-    transition: $transition;
+    color: variables.$accent-red;
+    transition: variables.$transition;
 
     &:hover {
       text-decoration: underline;
@@ -86,18 +89,18 @@ footer {
 }
 
 .social-link {
-  @include flex-center(row);
+  @include mixins.flex-center(row);
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: $tertiary-black;
-  color: $pure-white;
+  background-color: variables.$tertiary-black;
+  color: variables.$pure-white;
   text-decoration: none;
   font-size: 1.25rem;
-  transition: $transition;
+  transition: variables.$transition;
 
   &:hover {
-    background-color: $accent-red;
+    background-color: variables.$accent-red;
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(213, 0, 0, 0.3);
   }
@@ -112,14 +115,12 @@ footer {
   }
 
   &:has(.fa-instagram):hover {
-    background: linear-gradient(
-      45deg,
-      #f09433 0%,
-      #e6683c 25%,
-      #dc2743 50%,
-      #cc2366 75%,
-      #bc1888 100%
-    );
+    background: linear-gradient(45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%);
   }
 
   &:has(.fa-twitter):hover {
@@ -134,17 +135,17 @@ footer {
 .footer-legal {
   grid-column: 1 / -1;
   text-align: center;
-  padding: $gap-sm;
-  border-top: 1px solid $border-gray;
-  color: $soft-gray;
-  font-size: $font-size-sm;
+  padding: variables.$gap-sm;
+  border-top: 1px solid variables.$border-gray;
+  color: variables.$soft-gray;
+  font-size: variables.$font-size-sm;
 
   a {
-    color: $soft-gray;
-    transition: $transition;
+    color: variables.$soft-gray;
+    transition: variables.$transition;
 
     &:hover {
-      color: $accent-red;
+      color: variables.$accent-red;
     }
   }
 }
@@ -152,7 +153,7 @@ footer {
 .footer-microcopy {
   display: block;
   margin-top: 0.5rem;
-  font-size: $font-size-sm;
-  color: $soft-gray;
+  font-size: variables.$font-size-sm;
+  color: variables.$soft-gray;
   font-style: italic;
 }

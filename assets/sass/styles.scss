@@ -4,35 +4,35 @@
 // ============================================================
 
 // 1. ABSTRACTS (Variables, Funciones, Mixins)
-@import "./abstracts/variables";
-@import "./abstracts/functions"; // ← AGREGADO
-@import "./abstracts/mixins";
+@use "./abstracts/variables";
+@use "./abstracts/functions";
+@use "./abstracts/mixins";
 
 // 2. BASE (Reset, Tipografía, Animaciones)
-@import "./base/reset";
-@import "./base/typography";
-@import "./base/animations";
+@use "./base/reset";
+@use "./base/typography";
+@use "./base/animations";
 
 // 3. COMPONENTS (Componentes reutilizables)
-@import "./components/header";
-@import "./components/navigation";
-@import "./components/live-player";
-@import "./components/buttons";
-@import "./components/cards";
-@import "./components/footer";
+@use "./components/header";
+@use "./components/navigation";
+@use "./components/live-player";
+@use "./components/buttons";
+@use "./components/cards";
+@use "./components/footer";
 
 // 4. LAYOUT (Estructura de página)
-@import "./layout/hero";
-@import "./layout/programming";
-@import "./layout/sections";
+@use "./layout/hero";
+@use "./layout/programming";
+@use "./layout/sections";
 
 // 5. PAGES (Estilos específicos por página)
-@import "./pages/home";
-@import "./pages/about";
-@import "./pages/contact";
-@import "./pages/schedule";
-@import "./pages/gallery";
-@import "./pages/program-detail";
+@use "./pages/home";
+@use "./pages/about";
+@use "./pages/contact";
+@use "./pages/schedule";
+@use "./pages/gallery";
+@use "./pages/program-detail";
 
 // 6. RESPONSIVE (Media Queries)
-@import "./responsive/breakpoints";
+@use "./responsive/breakpoints";

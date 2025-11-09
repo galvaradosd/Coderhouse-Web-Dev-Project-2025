@@ -1,15 +1,18 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
 // ============================================================
 // TIPOGRAFÍA BASE
 // ============================================================
 
 body {
-  font-family: $font-body;
-  background-color: $primary-black;
-  color: $pure-white;
+  font-family: variables.$font-body;
+  background-color: variables.$primary-black;
+  color: variables.$pure-white;
   line-height: 1.6;
 
-  @include respond-to(lg) {
-    font-size: $font-size-base;
+  @include mixins.respond-to(lg) {
+    font-size: variables.$font-size-base;
   }
 }
 
@@ -19,14 +22,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-display;
+  font-family: variables.$font-display;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.02em;
 }
 
 // Elementos especiales con Aboreto
-.nav-menu > li > a,
+.nav-menu>li>a,
 .submenu a,
 .submenu-label,
 .hero h1,
@@ -34,5 +37,5 @@ h6 {
 .program-title,
 .event-title,
 .current-program {
-  font-family: $font-display;
+  font-family: variables.$font-display;
 }

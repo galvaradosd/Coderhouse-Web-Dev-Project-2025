@@ -1,84 +1,87 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 // ============================================================
 // TARJETAS
 // ============================================================
 
 .program-card {
-  @include card-base;
-  background-color: $secondary-black;
-  color: $pure-white;
+  @include mixins.card-base;
+  background-color: variables.$secondary-black;
+  color: variables.$pure-white;
   overflow: hidden;
 
   .card-img-top {
     height: 200px;
     object-fit: cover;
-    border-bottom: 1px solid $border-gray;
-    background: linear-gradient(45deg, $secondary-black 0%, $tertiary-black);
+    border-bottom: 1px solid variables.$border-gray;
+    background: linear-gradient(45deg, variables.$secondary-black 0%, variables.$tertiary-black);
   }
 
   .card-title {
-    color: $accent-red;
-    font-family: $font-display;
-    font-size: $font-size-lg;
+    color: variables.$accent-red;
+    font-family: variables.$font-display;
+    font-size: variables.$font-size-lg;
     font-weight: 600;
-    margin-bottom: $gap-sm;
+    margin-bottom: variables.$gap-sm;
     letter-spacing: 0.03em;
   }
 
   .card-text {
-    color: $soft-gray;
-    font-family: $font-body;
-    font-size: $font-size-base;
-    margin-bottom: $gap-md;
+    color: variables.$soft-gray;
+    font-family: variables.$font-body;
+    font-size: variables.$font-size-base;
+    margin-bottom: variables.$gap-md;
   }
 
   .btn-outline-primary {
-    background: $red-alpha-10;
-    color: $accent-red;
-    border: 1px solid $accent-red;
+    background: variables.$red-alpha-10;
+    color: variables.$accent-red;
+    border: 1px solid variables.$accent-red;
     font-weight: 500;
     text-transform: uppercase;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: $border-radius;
+    border-radius: variables.$border-radius;
     box-shadow: 0 0 0 0;
 
     &:hover {
-      background: $red-hover;
-      color: $pure-white;
+      background: variables.$red-hover;
+      color: variables.$pure-white;
       transform: scale(1.05);
-      box-shadow: 0 4px 15px $red-alpha-30;
+      box-shadow: 0 4px 15px variables.$red-alpha-30;
     }
   }
-}
 
-.card-body {
-  @include flex-center(column);
-  text-align: center;
+  .card-body {
+    @include mixins.flex-center(column);
+    text-align: center;
+  }
 }
 
 // ----- TARJETAS DE EVENTOS -----
 .event-card {
-  @include card-base;
+  @include mixins.card-base;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: $gap-lg;
+  padding: variables.$gap-lg;
   text-align: center;
-  gap: $gap-md;
+  gap: variables.$gap-md;
 
   h3 {
-    color: $accent-red;
-    font-family: $font-display;
-    font-size: $font-size-lg;
+    color: variables.$accent-red;
+    font-family: variables.$font-display;
+    font-size: variables.$font-size-lg;
     font-weight: 600;
     margin: 0;
     line-height: 1.3;
   }
 
   p {
-    color: $soft-gray;
-    font-family: $font-body;
-    font-size: $font-size-base;
+    color: variables.$soft-gray;
+    font-family: variables.$font-body;
+    font-size: variables.$font-size-base;
     line-height: 1.6;
     margin: 0;
     max-width: 90%;
@@ -86,15 +89,15 @@
 
   .event-date {
     display: block;
-    color: $white-alpha-80;
-    font-size: $font-size-sm;
+    color: variables.$white-alpha-80;
+    font-size: variables.$font-size-sm;
     font-weight: 500;
     margin: 0;
     letter-spacing: 0.02em;
   }
 
   a {
-    @include button-cta;
+    @include mixins.button-cta;
     margin-top: auto; // Empuja el botón al fondo si las tarjetas tienen alturas diferentes
   }
 }
@@ -103,66 +106,66 @@
 .program-now,
 .program-next {
   display: grid;
-  @include card-base;
-  padding: $gap-lg $card-padding;
+  @include mixins.card-base;
+  padding: variables.$gap-lg variables.$card-padding;
   text-align: center;
 
   &:hover {
-    border-color: $accent-red;
+    border-color: variables.$accent-red;
     transform: translateY(-5px);
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
   }
-}
 
-.program-status {
-  @include flex-center(row);
-  justify-content: center;
-  gap: $gap-sm;
-  margin-bottom: $gap-md;
+  .program-status {
+    @include mixins.flex-center(row);
+    justify-content: center;
+    gap: variables.$gap-sm;
+    margin-bottom: variables.$gap-md;
 
-  h2 {
-    font-weight: 700;
-    color: $accent-red;
-    font-family: $font-display;
-    letter-spacing: 1px;
-    font-size: $font-size-h2;
-    margin: 0;
+    h2 {
+      font-weight: 700;
+      color: variables.$accent-red;
+      font-family: variables.$font-display;
+      letter-spacing: 1px;
+      font-size: variables.$font-size-h2;
+      margin: 0;
+    }
+
+    .badge-live {
+      @include mixins.flex-center(row);
+      background-color: rgba(213, 0, 0, 0.12);
+      color: variables.$accent-red;
+      border-radius: variables.$border-radius-lg;
+      font-size: variables.$font-size-base;
+      font-weight: 750;
+      padding: variables.$gap-xs variables.$gap-sm;
+    }
+
+    .live-label {
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .next-indicator {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: inline-block;
+      background: variables.$soft-gray;
+    }
   }
-}
 
-.badge-live {
-  @include flex-center(row);
-  background-color: rgba(213, 0, 0, 0.12);
-  color: $accent-red;
-  border-radius: $border-radius-lg;
-  font-size: $font-size-base;
-  font-weight: 750;
-  padding: $gap-xs $gap-sm;
-}
+  .program-name {
+    font-size: variables.$font-size-h3;
+    margin-bottom: variables.$gap-sm;
+    color: variables.$pure-white;
+    font-family: variables.$font-display;
+  }
 
-.live-label {
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.next-indicator {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: inline-block;
-  background: $soft-gray;
-}
-
-.program-name {
-  font-size: $font-size-h3;
-  margin-bottom: $gap-sm;
-  color: $pure-white;
-  font-family: $font-display;
-}
-
-.program-item {
-  color: $soft-gray;
-  font-weight: 500;
-  font-size: $font-size-base;
+  .program-item {
+    color: variables.$soft-gray;
+    font-weight: 500;
+    font-size: variables.$font-size-base;
+  }
 }

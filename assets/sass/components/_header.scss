@@ -1,26 +1,29 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
 // ============================================================
 // HEADER PRINCIPAL
 // ============================================================
 
 .nwr-header {
-  @include flex-center(row);
+  @include mixins.flex-center(row);
   justify-content: space-between;
-  padding: $gap-sm $gap-md;
-  gap: $gap-sm;
-  background-color: $primary-black;
-  border-bottom: 1px solid $border-gray;
+  padding: variables.$gap-sm variables.$gap-md;
+  gap: variables.$gap-sm;
+  background-color: variables.$primary-black;
+  border-bottom: 1px solid variables.$border-gray;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100; // ← CAMBIAR DE 20 A 100
+  z-index: 100;
   transition: background-color 0.3s ease;
-  overflow: visible; // ← AGREGAR ESTA LÍNEA
+  overflow: visible;
 }
 
 .header-toolbar {
-  @include flex-center(row);
-  gap: $gap-md;
+  @include mixins.flex-center(row);
+  gap: variables.$gap-md;
 }
 
 // ----- LOGO -----
@@ -28,7 +31,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  transition: $transition;
+  transition: variables.$transition;
   padding: 10px;
 
   &:hover .logo-image {
@@ -41,7 +44,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $accent-red;
+    outline: 2px solid variables.$accent-red;
     outline-offset: 4px;
     border-radius: 0;
   }
@@ -58,31 +61,31 @@
   object-fit: contain;
   image-rendering: optimizeQuality;
   image-rendering: crisp-edges;
-  transition: $transition;
+  transition: variables.$transition;
 }
 
 // ----- SELECTOR DE IDIOMA -----
 .language-selector {
   display: flex;
-  gap: $gap-sm;
-  padding: $gap-sm;
-  margin-left: $gap-md;
+  gap: variables.$gap-sm;
+  padding: variables.$gap-sm;
+  margin-left: variables.$gap-md;
 }
 
 .lang-btn {
   background: transparent;
-  border: 2px solid $border-gray;
-  color: $pure-white;
-  padding: 0.5rem $gap-md;
+  border: 2px solid variables.$border-gray;
+  color: variables.$pure-white;
+  padding: 0.5rem variables.$gap-md;
   cursor: pointer;
-  transition: $transition;
-  font-family: $font-display;
+  transition: variables.$transition;
+  font-family: variables.$font-display;
   font-weight: 500;
   line-height: inherit;
 
   &.active,
   &:hover {
-    border-color: $accent-red;
-    color: $accent-red;
+    border-color: variables.$accent-red;
+    color: variables.$accent-red;
   }
 }

@@ -1,28 +1,39 @@
+@use "./variables" as vars;
+
 // ============================================================
 // MIXINS REUTILIZABLES
 // ============================================================
 
 // ----- MIXIN: Media Queries (CORREGIDO) -----
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == xs {
-    @media (max-width: $breakpoint-xs) {
+  @if $breakpoint ==xs {
+    @media (max-width: vars.$breakpoint-xs) {
       @content;
     }
-  } @else if $breakpoint == sm {
-    @media (max-width: $breakpoint-sm) {
+  }
+
+  @else if $breakpoint ==sm {
+    @media (max-width: vars.$breakpoint-sm) {
       @content;
     }
-  } @else if $breakpoint == md {
+  }
+
+  @else if $breakpoint ==md {
+
     // CORREGIDO: Usando interpolación #{} para operaciones
-    @media (min-width: #{$breakpoint-sm + 1px}) and (max-width: #{$breakpoint-md - 1px}) {
+    @media (min-width: #{vars.$breakpoint-sm + 1px}) and (max-width: #{vars.$breakpoint-md - 1px}) {
       @content;
     }
-  } @else if $breakpoint == lg {
-    @media (min-width: $breakpoint-md) {
+  }
+
+  @else if $breakpoint ==lg {
+    @media (min-width: vars.$breakpoint-md) {
       @content;
     }
-  } @else if $breakpoint == xl {
-    @media (min-width: $breakpoint-lg) {
+  }
+
+  @else if $breakpoint ==xl {
+    @media (min-width: vars.$breakpoint-lg) {
       @content;
     }
   }
@@ -40,24 +51,24 @@
 @mixin button-cta {
   background: rgba(213, 0, 0, 0.15);
   padding: 8px 14px;
-  border-radius: $border-radius;
-  border: 1px solid $accent-red;
-  font-family: $font-secondary;
-  font-size: $font-size-xs;
+  border-radius: vars.$border-radius;
+  border: 1px solid vars.$accent-red;
+  font-family: vars.$font-secondary;
+  font-size: vars.$font-size-xs;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color: $accent-red;
+  color: vars.$accent-red;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: $transition;
+  transition: vars.$transition;
 
   &:hover {
     background: rgba(213, 0, 0, 0.25);
-    color: $pure-white;
-    border-color: $red-hover;
+    color: vars.$pure-white;
+    border-color: vars.$red-hover;
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(213, 0, 0, 0.4);
   }
@@ -68,22 +79,22 @@
   }
 
   &:focus {
-    outline: 2px solid $red-focus;
+    outline: 2px solid vars.$red-focus;
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px $red-alpha-20;
+    box-shadow: 0 0 0 4px vars.$red-alpha-20;
   }
 }
 
 // ----- MIXIN: Tarjetas Base -----
 @mixin card-base {
-  background: $secondary-black;
-  border: 1px solid $border-gray;
-  border-radius: $border-radius-sm;
-  box-shadow: $shadow-sm;
-  transition: $transition;
+  background: vars.$secondary-black;
+  border: 1px solid vars.$border-gray;
+  border-radius: vars.$border-radius-sm;
+  box-shadow: vars.$shadow-sm;
+  transition: vars.$transition;
 
   &:hover {
-    border-color: $accent-red;
+    border-color: vars.$accent-red;
     transform: translateY(-5px);
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
   }
@@ -96,10 +107,23 @@
 
 // ----- MIXIN: Gradient Overlay -----
 @mixin gradient-overlay($angle: 135deg, $opacity1: 0.85, $opacity2: 0.1) {
-  background: linear-gradient(
-    $angle,
-    rgba(10, 10, 10, $opacity1) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    rgba(213, 0, 0, $opacity2) 100%
-  );
+  background: linear-gradient($angle,
+      rgba(10, 10, 10, $opacity1) 0%,
+      rgba(0, 0, 0, 0.7) 50%,
+      rgba(213, 0, 0, $opacity2) 100%);
+}
+
+// ----- MIXIN: Section Headers -----
+@mixin section-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  >* {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

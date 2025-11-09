@@ -738,8 +738,7 @@ button[class*=listen]:focus {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
 }
-
-.card-body {
+.program-card .card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -855,8 +854,8 @@ button[class*=listen]:focus {
   transform: translateY(-5px);
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
 }
-
-.program-status {
+.program-now .program-status,
+.program-next .program-status {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -865,7 +864,8 @@ button[class*=listen]:focus {
   gap: clamp(0.5rem, 1vw, 1rem);
   margin-bottom: clamp(1rem, 2vw, 2rem);
 }
-.program-status h2 {
+.program-now .program-status h2,
+.program-next .program-status h2 {
   font-weight: 700;
   color: #dc2626;
   font-family: "Aboreto", serif;
@@ -873,8 +873,8 @@ button[class*=listen]:focus {
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   margin: 0;
 }
-
-.badge-live {
+.program-now .program-status .badge-live,
+.program-next .program-status .badge-live {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -886,29 +886,29 @@ button[class*=listen]:focus {
   font-weight: 750;
   padding: clamp(0.25rem, 0.5vw, 0.5rem) clamp(0.5rem, 1vw, 1rem);
 }
-
-.live-label {
+.program-now .program-status .live-label,
+.program-next .program-status .live-label {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
-.next-indicator {
+.program-now .program-status .next-indicator,
+.program-next .program-status .next-indicator {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   display: inline-block;
   background: #a1a1aa;
 }
-
-.program-name {
+.program-now .program-name,
+.program-next .program-name {
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   margin-bottom: clamp(0.5rem, 1vw, 1rem);
   color: #ffffff;
   font-family: "Aboreto", serif;
 }
-
-.program-item {
+.program-now .program-item,
+.program-next .program-item {
   color: #a1a1aa;
   font-weight: 500;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
@@ -1163,31 +1163,30 @@ footer {
 main {
   background: #0a0a0a;
 }
-
-.section-padding {
+main .section-padding {
   padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
 }
-
-.container-custom {
+main .section-padding .container-custom {
   max-width: 1200px;
   margin: 0 auto;
 }
-
-.section-header {
+main .section-padding .container-custom .section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
-.section-header h2 {
+main .section-padding .container-custom .section-header h2 {
   color: #dc2626;
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
-.section-header p {
+main .section-padding .container-custom .section-header p {
   color: #a1a1aa;
   font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
 }
-
-.programs-header {
+main .programs-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1195,18 +1194,15 @@ main {
   padding: clamp(2rem, 4vw, 3rem) 0;
   max-width: 100%;
 }
-
-.programs-container {
+main .programs-container {
   padding: clamp(2rem, 4vw, 3rem);
 }
-
-.events-section {
+main .events-section {
   padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
 }
-
-.events-grid {
+main .events-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: clamp(1rem, 2vw, 1.5rem);
 }
 
@@ -1862,40 +1858,40 @@ main {
     padding: 0.5rem 0.75rem;
     gap: 0.5rem;
   }
-  .logo-image {
+  .nwr-header .logo-image {
     height: clamp(45px, 7vw, 65px);
     max-width: clamp(140px, 35vw, 250px);
   }
-  .live-player {
+  .nwr-header .live-player {
     max-width: clamp(130px, 40vw, 240px);
     padding: 0.4rem;
     gap: 0.4rem;
   }
-  .nwr-live-badge {
+  .nwr-header .live-player .nwr-live-badge {
     padding: 6px 10px;
     gap: 6px;
   }
-  .nwr-live-dot {
+  .nwr-header .live-player .nwr-live-badge .nwr-live-dot {
     width: 10px;
     height: 10px;
   }
-  .nwr-live-text {
+  .nwr-header .live-player .nwr-live-badge .nwr-live-text {
     font-size: 0.65rem;
     letter-spacing: 0.8px;
   }
-  .nwr-program-info {
+  .nwr-header .live-player .nwr-program-info {
     display: none;
   }
-  .play-btn {
+  .nwr-header .live-player .play-btn {
     width: 42px;
     height: 42px;
   }
-  .hamburger-button {
+  .nwr-header .hamburger-button {
     width: 36px;
     height: 36px;
     padding: 0.4rem;
   }
-  .hamburger-icon {
+  .nwr-header .hamburger-button .hamburger-icon {
     height: 3px;
   }
   .program-hero {
@@ -1919,7 +1915,7 @@ main {
   .schedule-table td.prog span {
     font-size: 0.65rem;
   }
-  .schedule-title {
+  .schedule-table .schedule-title {
     font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
   }
   .schedule-table-section {
@@ -1946,7 +1942,7 @@ main {
   .schedule-table td.prog span {
     font-size: 0.65rem;
   }
-  .schedule-title {
+  .schedule-table .schedule-title {
     font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
   }
 }
@@ -1971,16 +1967,16 @@ main {
     border: 1px solid #333333;
     box-shadow: 0 10px 30px rgba(44, 44, 44, 0.5);
   }
-  .nav-menu {
+  .nwr-nav .nav-menu {
     flex-direction: column;
     align-items: flex-end;
     height: auto;
   }
-  .nav-menu li {
+  .nwr-nav .nav-menu li {
     width: 100%;
     text-align: end;
   }
-  .nav-menu a {
+  .nwr-nav .nav-menu a {
     padding: 0 clamp(1.25rem, 2vw, 2rem);
     position: static;
     display: flex;
@@ -1990,20 +1986,20 @@ main {
     align-content: center;
     order: 1;
   }
-  .expandable-item {
+  .nwr-nav .nav-menu .expandable-item {
     display: flex;
     flex-direction: column;
   }
-  .expandable-item:has(.submenu-toggle:checked) {
+  .nwr-nav .nav-menu .expandable-item:has(.submenu-toggle:checked) {
     --submenu-rows: 1fr;
   }
-  .submenu-label {
+  .nwr-nav .nav-menu .expandable-item .submenu-label {
     display: flex;
     position: relative;
     order: 1;
     align-self: flex-end;
   }
-  .submenu-toggle {
+  .nwr-nav .nav-menu .expandable-item .submenu-toggle {
     position: sticky;
     width: 100%;
     height: 100%;
@@ -2013,7 +2009,7 @@ main {
     top: 0;
     left: 0;
   }
-  .submenu-content {
+  .nwr-nav .nav-menu .expandable-item .submenu-content {
     display: grid;
     grid-template-rows: var(--submenu-rows, 0fr);
     transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2022,7 +2018,7 @@ main {
     order: 2;
     z-index: 10;
   }
-  .submenu {
+  .nwr-nav .nav-menu .expandable-item .submenu-content .submenu {
     min-height: 0;
     overflow: hidden;
     background-color: #2a2a2a;
@@ -2035,11 +2031,11 @@ main {
     margin: 0;
     border: transparent;
   }
-  .submenu li {
+  .nwr-nav .nav-menu .expandable-item .submenu-content .submenu li {
     display: block;
     width: 100%;
   }
-  .submenu li a {
+  .nwr-nav .nav-menu .expandable-item .submenu-content .submenu li a {
     display: block;
     padding: clamp(1rem, 2vw, 2rem) clamp(1.25rem, 2vw, 2rem);
     justify-content: end;
@@ -2091,8 +2087,8 @@ main {
     padding-left: clamp(1rem, 2vw, 2rem);
     padding-right: clamp(1rem, 2vw, 2rem);
   }
-  .contact-form,
-  .contact-extra {
+  .contact-form-section .contact-form,
+  .contact-form-section .contact-extra {
     max-width: 100%;
   }
   .schedule-table-section {
@@ -2142,14 +2138,23 @@ main {
     align-items: center;
     padding: 1rem;
   }
-  .footer-logo {
+  .footer-logo .footer-logo,
+  .footer-links .footer-logo,
+  .footer-contact .footer-logo,
+  .footer-social .footer-logo {
     align-items: center;
   }
-  .social-links {
+  .footer-logo .social-links,
+  .footer-links .social-links,
+  .footer-contact .social-links,
+  .footer-social .social-links {
     justify-content: center;
     gap: 1.5rem;
   }
-  .social-link {
+  .footer-logo .social-link,
+  .footer-links .social-link,
+  .footer-contact .social-link,
+  .footer-social .social-link {
     width: 48px;
     height: 48px;
     font-size: 1.5rem;
@@ -2162,7 +2167,7 @@ main {
   .schedule-table td {
     padding: 0.75rem 0.5rem;
   }
-  .scroll-hint {
+  .schedule-table .scroll-hint {
     display: block;
   }
   .schedule-table-section {
@@ -2188,37 +2193,38 @@ main {
   .schedule-table td:first-child {
     min-width: 70px;
   }
-  .scroll-hint {
+  .schedule-table th:first-child .scroll-hint,
+  .schedule-table td:first-child .scroll-hint {
     display: block;
     padding: 0 1rem;
   }
 }
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (max-width: 768px) and (min-width: 769px) and (max-width: 1023px) {
   .nwr-header {
     padding: clamp(0.5rem, 1vw, 1rem) clamp(2rem, 4vw, 3rem);
   }
-  .logo-image {
+  .nwr-header .logo-image {
     height: clamp(65px, 7vw, 75px);
     max-width: clamp(220px, 35vw, 350px);
   }
-  .live-player {
+  .nwr-header .live-player {
     max-width: clamp(350px, 45vw, 500px);
   }
-  .nwr-program-info {
+  .nwr-header .live-player .nwr-program-info {
     display: flex;
     flex-direction: column;
   }
-  .nwr-show-title {
+  .nwr-header .live-player .nwr-show-title {
     font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   }
-  .nwr-show-subtitle {
+  .nwr-header .live-player .nwr-show-subtitle {
     font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   }
-  .program-hero {
+  .nwr-header .program-hero {
     background-size: cover;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 768px) and (min-width: 1024px) {
   .hero {
     min-height: 800px;
   }
@@ -2230,7 +2236,7 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 1440px) {
+@media (max-width: 768px) and (min-width: 1440px) {
   .hero {
     min-height: 900px;
   }
